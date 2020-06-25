@@ -1,0 +1,146 @@
+<!doctype html>
+
+<html>
+	
+<head>
+	<meta charset="utf-8">
+	<style>
+		div
+		{			
+			max-width: 1500px;
+			margin   : auto;
+		}
+		body
+		{
+  			background-image     : url("Assets/Portfollio_BG_BlackNWhite.png");
+  			background-repeat    : no-repeat;
+  			background-attachment: local;
+			background-position  : center;
+			background-blend-mode: color-burn;
+			background-size      : cover;
+		}
+		.centre_group
+		{
+			text-align: center;
+			padding   : 0% 5%;
+			min-width : 250px;
+		}
+		.right_group
+		{
+			text-align: right;
+			padding   : 0% 5%;
+			min-width : 250px;
+		}
+		.left_group
+		{
+			text-align: left;
+			padding   : 0% 5%;
+			min-width : 250px;
+		}
+		.button_prefab
+		{
+			background-color: darkgrey;
+			border          : solid;
+			border-color    : darkgrey;
+			color           : #F3F3F3;
+			height          : 50px;
+			min-height      : 50px;
+			min-width       : 250px;
+			text-align      : center;
+			text-decoration : none;
+			display         : inline-block;
+			font-family     : Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+			font-size       : 24px;
+			cursor          : pointer;
+		}
+		.curr_button
+		{
+			background-color: lightslategrey;
+			border          : solid;
+			border-color    : lightslategrey;
+			color           : #F3F3F3;
+			height          : 50px;
+			min-height      : 50px;
+			min-width       : 250px;
+			text-align      : center;
+			text-decoration : none;
+			display         : inline-block;
+			font-family     : Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+			font-size       : 24px;
+			cursor          : pointer;
+		}
+		.h1_prefab
+		{
+			color      : dimgrey;
+			font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana;
+			font-size  : 300%;
+		}
+		.h2_prefab
+		{
+			color      : dimgrey;
+			font-family: Impact, Haettenschweiler, 'Franklin Gothic Bold', 'Arial Black', 'sans-serif';
+			font-style : normal;
+		}
+		.subtitle_prefab
+		{
+			color      : dimgrey;
+			font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+			font-style : italic;
+			font-size  : 21px;
+		}
+		.p_prefab
+		{
+			color      : dimgrey;
+			font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, 'sans-serif';
+		}
+	</style>
+	<title>HOME</title>
+</head>
+
+<body style="background-color: #F3F3F3;"> <!-- Things are only displayed from here on out -->
+
+	<div class="centre_group">
+		<img    src="Assets/XxGTSCxX_Logo_2019.png" width="10%" height="10%" alt=""/>
+		<h1     class="h1_prefab"                                                                 >Gabrielle Tan Suan Choo                 </h1>
+		<p      class="subtitle_prefab"                                                           >Technical UI Designer | Tools Programmer</p>
+		<button class="curr_button"   style="width: 33.1%" onclick="location.href='Home.html'"    >HOME                                    </button>
+		<button class="button_prefab" style="width: 33.1%" onclick="location.href='Projects.html'">PROJECTS                                </button>
+		<button class="button_prefab" style="width: 33.1%" onclick="location.href='Resume.html'"  >RESUME                                  </button>
+	</div>
+
+	<div style="width: 100%; overflow: hidden;">
+		<div style="width: 45%; float: left">
+			<h2 class="h2_prefab">ABOUT ME</h2>
+			<p class="p_prefab">
+				Born and raised in Singapore, I earned a diploma in Supply Chain Management from Republic Polytechnic before realising my interest in programming and pursuing a degree in Computer Science and Game Design in Digipen Institute of Technology Singapore. During my studies, I have had the opportunity to work on custom game engines as well as several game projects from its conception to fruition.
+			</p>
+		</div>
+	  <div style="margin-left: 50%">
+		<h2 class="h2_prefab">SKILLS</h2>
+		  <p  class="p_prefab" >
+			  Languages<br>
+			  - C++<br>
+			  - C#<br>
+			  <br>Programming Experience<br>
+			  - Object Oriented Programming<br>
+			  - Property Reflection<br>
+			  - De/Serialization<br>
+			  - Prefab System<br>
+			  - Template Metaprogramming<br>
+			  - Dabbling into Data Oriented Programming // TODO: Insert link to gitrepo<br>
+			  <br>Programs // TODO: Convert to appropriate icons and move to the Left<br>
+			  - Visual Studio 2019<br>
+			  - Unity<br>
+			  - Unreal Engine 4<br>
+			  - Photoshop<br>
+			  - Musescore<br>
+			  - Mixcraft 8<br>
+			  - Microsoft Word<br>
+			  - Microsoft Powerpoint<br>
+			  - Microsoft Excel<br>
+		  </p>
+		</div>
+	</div>
+
+</body>
+</html>
