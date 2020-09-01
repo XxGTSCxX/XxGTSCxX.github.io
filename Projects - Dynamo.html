@@ -76,7 +76,7 @@
 		.h2_prefab
 		{
 			color      : dimgrey;
-			font-family: Impact, Haettenschweiler, 'Franklin Gothic Bold', 'Arial Black', 'sans-serif';
+			font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana;
 			font-style : normal;
 		}
 		.subtitle_prefab
@@ -84,12 +84,13 @@
 			color      : dimgrey;
 			font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
 			font-style : italic;
-			font-size  : 21px;
+			font-size  : 22px;
 		}
 		.p_prefab
 		{
 			color      : dimgrey;
 			font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, 'sans-serif';
+			font-size  : 20px;
 		}
 		.dropdown-button
 		{
@@ -262,7 +263,7 @@
 			background-color: #3e8e41;
 		}
 	</style>
-	<title>HOME</title>
+	<title>GTSC - Project: Dynamo</title>
 </head>
 
 <body style="background-color: #F3F3F3;"> <!-- Things are only displayed from here on out -->
@@ -300,13 +301,28 @@
 	
 	<div style="width: 100%; overflow: hidden;">
 		<h1 class="h1_prefab">
-			DYNAMO
+			PROJECT - DYNAMO
 		</h1>
-		<div align="center">
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/ISIfHRSWuRQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	  <div align="center">
+		<iframe width="1080" height="607.5" src="https://www.youtube.com/embed/ISIfHRSWuRQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		</div>
 		<p class="p_prefab">
-			Dynamo is a 2D platformer made by our team's custom game engine which we named "September" (Yes, we made it around September and we would not stop singing <i>Wake Me Up When September Ends</i>). For this project, I was in charge of the Graphics System which I used the OpenGL API for. This decision was made as it was the most beginner friendly API and I did not have any prior experience with computer graphics or programming it. I referenced <a src="https://learnopengl.com/"><u><i>Learn OpenGL</i></u></a> throughout the project to implement my renderers.
+			<a href="https://games.digipen.edu/games/dynamo"><b>Dynamo</b></a> is a 2nd year Digipen games project. It is a 2D platformer made by our team's custom game engine coded in C++ which we named "September" (Yes, we made it around September and we would not stop singing <i>Wake Me Up When September Ends</i>). For this project, I had two main roles; Graphics Programmer and Technical UI Designer.
+		</p>
+		<h2 class="h2_prefab">
+			Graphics Programmer
+		</h2>
+		<p class="p_prefab">
+			As the graphics programmer, my main responsibility was to design the Graphics System and its renderers for the engine. As I had no prior experience with graphics programming, we decided to go with the OpenGL API as it was the most beginner friendly Graphics API that we know of and had a lot of documentations online that were helpful, such as <a href="https://learnopengl.com/">Learn OpenGL</a>.
+		</p>
+		<p class="p_prefab">
+			As we were still using the Object-Oriented Design, I created a base Renderer class which all of the renderers would inherit from. That way, the Graphics System just needs to grab all of the renderer components and render them. As the 2D graphics environment was relatively simple (we did not support bone animations), the renderer only needed a few common information to be rendered.
+		</p>
+	  <p class="p_prefab">
+		  
+		</p>
+	  <p class="p_prefab">
+			
 		</p>
 	</div>
 </body>

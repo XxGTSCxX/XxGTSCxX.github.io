@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html>
 <head>
 	<meta charset="utf-8">
@@ -76,7 +77,7 @@
 		.h2_prefab
 		{
 			color      : dimgrey;
-			font-family: Impact, Haettenschweiler, 'Franklin Gothic Bold', 'Arial Black', 'sans-serif';
+			font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana;
 			font-style : normal;
 		}
 		.subtitle_prefab
@@ -84,12 +85,13 @@
 			color      : dimgrey;
 			font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
 			font-style : italic;
-			font-size  : 21px;
+			font-size  : 22px;
 		}
 		.p_prefab
 		{
 			color      : dimgrey;
 			font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, 'sans-serif';
+			font-size  : 20px;
 		}
 		.dropdown-button
 		{
@@ -141,12 +143,12 @@
 		
 		.dropdown-button span:after
 		{
-		  content   : ' ▼';
-		  position  : absolute;
-		  opacity   : 0;
-		  top       : 0;
-		  right     : -35px;
-		  transition: 0.5s;
+			content   : ' ▼';
+			position  : absolute;
+			opacity   : 0;
+			top       : 0;
+			right     : -35px;
+			transition: 0.5s;
 		}
 		
 		.dropdown-button:hover span
@@ -262,7 +264,7 @@
 			background-color: #3e8e41;
 		}
 	</style>
-	<title>HOME</title>
+	<title>GTSC - Project: EOS</title>
 </head>
 
 <body style="background-color: #F3F3F3;"> <!-- Things are only displayed from here on out -->
@@ -296,6 +298,42 @@
 				RESUME
 			</span>
 		</button>
+	</div>
+	
+	<div style="width: 100%; overflow: hidden;">
+		<h1 class="h1_prefab">
+			PROJECT - EOS
+		</h1>
+		<div align="center">
+			<iframe width="1080" height="607.5" src="https://www.youtube.com/embed/wH1Y8KvImdE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<p class="subtitle_prefab">
+				The game is still pending review and so its link will be updated accordingly once it's available.
+			</p>
+		</div>
+		
+		<p class="p_prefab">
+			<b>EOS</b> is a 3rd year Digipen games project made with our team's custom 3D game engine named "DarkHorse". For this project, I spent the first semester as the Producer before stepping down to fully focus on the technical aspects of the project due to our shortage on programmers. As a programmer, I mainly focused on the backend programming, such as:
+		</p>
+		<ul class="p_prefab">
+			<li>Property Reflection</li>
+			<li>De/Serialiser</li>
+			<li>3D Assets Compiler</li>
+			<li>Skinned Mesh Renderer</li>
+			<li>Bone Animations</li>
+			<li>Configuration Manager</li>
+			<li>Prefab System</li>
+		</ul>
+
+		<p class="p_prefab">
+			This project was challenging in more ways than one and was a huge learning experience. For the most part I will be discussing what I had implemented versus what I learnt from it and believe how I should have implemented things instead.
+		</p>
+		
+		<h2 class="h2_prefab">
+			Property Reflection
+		</h2>
+		<p class="p_prefab">
+			For our property reflection, we utilised <a href="https://gitlab.com/LIONant/properties">Lionant's Properties project</a> to implement our reflection engine. It laid out majority of the ground work and I wrapped it in Reflection class such that it would readable C++ format for my fellow programmers to use.
+		</p>
 	</div>
 	
 </body>
