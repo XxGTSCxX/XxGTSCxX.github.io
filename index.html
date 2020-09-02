@@ -8,8 +8,8 @@
 		/* Default Formats */
 
 		div
-		{			
-			max-width: 1500px;
+		{
+			max-width: 90%;
 			margin   : auto;
 		}
 
@@ -157,7 +157,6 @@
 		{
 			display         : block;
 			background-color: #1F1F1F;
-			border-width    : 0;
 			color           : #F3F3F3;
 			padding         : 10px 16px;
 			text-align      : center;
@@ -181,12 +180,15 @@
 			border-top-color: #1F1F1F;
 			border-top-style: solid;
 			font-weight     : bold;
+			transition      : 0.5s;
 		}
 
 		a.active.nav-slot:hover
 		{
-			background-color: #1F1F1F;
-			color           : #F3F3F3;
+			border-bottom-width: 3px;
+			border-bottom-color: #1F1F1F;
+			border-bottom-style: solid;
+			transition         : 0.5s;
 		}
 
 		button.active
