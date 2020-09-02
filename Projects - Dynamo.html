@@ -79,11 +79,10 @@
 			font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, 'sans-serif';
 			font-size  : 20px;
 		}
-
+		
 		a
 		{
 			color: dimgrey;
-			font-style: oblique;
 		}
 
 		button
@@ -197,28 +196,28 @@
 			font-style   : italic;
 		}
 
-		.centre_group
+		.centre-group
 		{
 			text-align: center;
 			padding   : 0% 5%;
 			min-width : 250px;
 		}
 		
-		.right_group
+		.right-group
 		{
 			text-align: right;
 			padding   : 0% 5%;
 			min-width : 250px;
 		}
 		
-		.left_group
+		.left-group
 		{
 			text-align: left;
 			padding   : 0% 5%;
 			min-width : 250px;
 		}
 		
-		.curr-button
+		.button-active
 		{
 			background-color: dimgrey;
 			border          : solid;
@@ -322,6 +321,7 @@
 		{
 			background-color: #3e8e41;
 		}
+
 	</style>
 	<title>GTSC - Project: Dynamo</title>
 </head>
@@ -329,7 +329,7 @@
 <body style="background-color: #F3F3F3;"> <!-- Things are only displayed from here on out -->
 
 	
-	<div class="centre_group">
+	<div class="centre-group">
 
 		<header>
 			<img src="Assets/XxGTSCxX_Logo_2019.png" width="10%" height="10%" alt=""/>
@@ -345,7 +345,7 @@
 			</button>
 
 			<div class="dropdown" style="width: 33.1%">
-				<button class="curr-button" style="width: 100%" onclick="location.href='Projects.html'">
+				<button class="button-active" style="width: 100%" onclick="location.href='Projects - EOS.html'">
 					<span>
 						PROJECTS
 					</span>
@@ -419,7 +419,7 @@
 			As we were dealing with a 2D platformer, a tile renderer was one of the first renderers we had in order to help the designers to map out the platforms for the map without the pain of placing each element individually. The tile renderer takes the given texture and splits it into 9 parts. The following examples uses one of our game's tileset made by our artist.
 		</p>
 		
-		<div class="centre_group">
+		<div class="centre-group">
 			<img src="Assets/Dynamo/Tileset.png"                   alt="Example tileset"  width="30%">
 			<img src="Assets/Dynamo/Tileset_WithGridIndicator.png" alt="Grided tileset"   width="30%">
 			<img src="Assets/Dynamo/Tileset_Numbered.png"          alt="Numbered tileset" width="30%">
@@ -446,23 +446,23 @@
 		<h2>Technical UI Designer</h2>
 		
 		<p>
-			In the second semester, since majority of the graphics features were complete and most of my engine responsibilities was just to maintain and debug any issues with the graphics system, I was able to take on the secondary responsibility of a technical UI designer. As such, I created the engine tools that could be used to design the UI in game, such as UI canvas, anchors, and textbox features, etc. The major take-away I had from this project when designing the tools is to mimic existing interfaces that are provided in tried and test applications such as Unity or Unreal Engine as those interfaces tend to have recieved plenty of feedback and had been refined over time to be what it is.
+			In the second semester, since majority of the graphics features were complete and most of my engine responsibilities was just to maintain and debug any issues with the graphics system, I was able to take on the secondary responsibility of a technical UI designer. As such, I created the engine tools that could be used to design the UI in game, such as UI canvas, anchors, and textbox features, etc. The major take-away I had from this project when designing the tools is to mimic existing interfaces that are provided in tried and test applications such as Unity or Unreal Engine as those interfaces tend to have recieved plenty of feedback and had been refined over time to be what it is. For this project, as I was the same person who created the tools and used them, there was very little feedback that I could get from others to see if the interface could have been improved.
 		</p>
 
-		<div class="centre_group">
-			<img src="Assets/Dynamo/Tools - Textbox.gif" alt="Textbox features example" width="70%">
+		<div class="centre-group">
+			<img src="Assets/Dynamo/Tools - Textbox pt 1.gif" alt="Textbox features example" width="50%">
+			<img src="Assets/Dynamo/Tools - Textbox pt 2.gif" alt="Textbox features example" width="50%">
 		</div>
 
 		<p>
 			Through this experience, I was more exposed to the brige required between the designer and the programmer, and how important it is to have the pipeline be as smooth as possible. Sadly, due to technical limitations and lack of time, we were unable to implement our own atlas generator for our textures and so our artist had to create the atlases ourselves. We did, however, provide a means to slice the textures up when importing them to create sprites. Unlike Unity, however, we were unable to do automatically do that by measuring the alpha values of each pixel.
 		</p>
 
-		<div class="centre_group">
-			<img src="Assets/Dynamo/UI Showcase - Main Menu.gif" alt="Main menu UI" width="70%">
+		<div class="centre-group">
 		</div>
 
 		<p>
-			I was also given the opportunity to design some of the used UI elements as we only had one artist and he was overloaded with creating most of the game assests already. However, as at this point I had yet to learn about creating wireframes and the such, so most of my designs went straight from my head to the game, where my team mates and fellow classmates would feedback on it and I would change it accordingly. However, since I was the one who designed the tools, it was easy and fast enough for me to work with it.
+			I was also given the opportunity to design some of the used UI elements as we only had one artist and he was overloaded with creating most of the game assests already. However, as at this point I had yet to learn about creating wireframes and the such, so most of my designs went straight from my head to the game, where my team mates and fellow classmates would then feedback on it and I would change it accordingly. However, since I was the one who designed the tools, it was easy and fast enough for me to quickly iterate through the different versions.
 		</p>
 	</div>
 

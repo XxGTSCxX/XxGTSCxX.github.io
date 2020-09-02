@@ -4,11 +4,13 @@
 <head>
 	<meta charset="utf-8">
 	<style>
+		
 		div
 		{			
 			max-width: 1500px;
 			margin   : auto;
 		}
+
 		body
 		{
   			background-image     : url("Assets/Portfollio_BG_BlackNWhite.png");
@@ -18,25 +20,68 @@
 			background-blend-mode: color-burn;
 			background-size      : cover;
 		}
-		.centre_group
+
+		h1
 		{
-			text-align: center;
-			padding   : 0% 5%;
-			min-width : 250px;
+			color      : dimgrey;
+			font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana;
+			font-size  : 300%;
 		}
-		.right_group
+
+		h2
 		{
-			text-align: right;
-			padding   : 0% 5%;
-			min-width : 250px;
+			color      : dimgrey;
+			font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana;
+			font-style : normal;
+			font-size  : 250%;
 		}
-		.left_group
+
+		h3
 		{
-			text-align: left;
-			padding   : 0% 5%;
-			min-width : 250px;
+			color      : dimgrey;
+			font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana;
+			font-style : normal;
+			font-size  : 200%;
 		}
-		.button_prefab
+		
+		h4
+		{
+			color      : dimgrey;
+			font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana;
+			font-style : normal;
+			font-size  : 130%;
+		}
+		
+		subtitle
+		{
+			color      : dimgrey;
+			font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+			font-style : italic;
+			font-size  : 22px;
+		}
+		
+		p
+		{
+			color      : dimgrey;
+			font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, 'sans-serif';
+			font-size  : 20px;
+		}
+		
+		ol
+		{
+			color      : dimgrey;
+			font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, 'sans-serif';
+			font-size  : 20px;
+		}
+		
+		ul
+		{
+			color      : dimgrey;
+			font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, 'sans-serif';
+			font-size  : 20px;
+		}
+
+		button
 		{
 			background-color: darkgrey;
 			border          : solid;
@@ -52,7 +97,123 @@
 			font-size       : 24px;
 			cursor          : pointer;
 		}
-		.curr_button
+
+		button span
+		{
+			cursor    : pointer;
+			display   : inline-block;
+			position  : relative;
+			transition: 0.5s;
+		}
+		
+		button span:after
+		{
+			content   : ' ◄';
+			position  : relative;
+			padding-right: -100px;
+			opacity   : 0;
+			top       : 0;
+			transition: 0.5s;
+		}
+		
+		button span:before
+		{
+			content   : '► ';
+			position  : relative;
+			padding-right: -100px;
+			opacity   : 0;
+			top       : 0;
+			transition: 0.5s;
+		}
+
+		button:hover span
+		{
+			font-size: 95%;
+		}		
+
+		button:hover span:before
+		{
+		  opacity: 1;
+		}
+
+		button:hover span:after
+		{
+		  opacity: 1;
+		}
+
+		.nav-bar
+		{
+			list-style-type : none;
+			margin          : 0;
+			padding         : 0;
+			overflow        : hidden;
+			background-color: #333;
+		}
+		
+		.nav-link
+		{
+			float: left;
+		}
+		
+		.nav-link a
+		{
+			display        : block;
+			color          : white;
+			text-align     : center;
+			padding        : 14px 16px;
+			text-decoration: none;
+		}
+		
+		.nav-active
+		{
+			background-color: dimgrey;
+		}
+		
+		.nav-link a:hover:not(.nav-active)
+		{
+			background-color: #111;
+		}
+
+		.right-aside
+		{
+			width       : 30%;
+			padding-left: 15px;
+			margin-left : 15px;
+			float       : right;
+			font-style  : italic;
+		}
+
+		.left-aside
+		{
+			width        : 30%;
+			padding-right: 15px;
+			margin-right : 15px;
+			float        : left;
+			font-style   : italic;
+		}
+
+		.centre-group
+		{
+			text-align: center;
+			padding   : 0% 5%;
+			min-width : 250px;
+		}
+		
+		.right-group
+		{
+			text-align: right;
+			padding   : 0% 5%;
+			min-width : 250px;
+		}
+		
+		.left-group
+		{
+			text-align: left;
+			padding   : 0% 5%;
+			min-width : 250px;
+		}
+		
+		.button-active
 		{
 			background-color: dimgrey;
 			border          : solid;
@@ -68,31 +229,7 @@
 			font-size       : 24px;
 			cursor          : pointer;
 		}
-		.h1_prefab
-		{
-			color      : dimgrey;
-			font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana;
-			font-size  : 300%;
-		}
-		.h2_prefab
-		{
-			color      : dimgrey;
-			font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana;
-			font-style : normal;
-		}
-		.subtitle_prefab
-		{
-			color      : dimgrey;
-			font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
-			font-style : italic;
-			font-size  : 22px;
-		}
-		.p_prefab
-		{
-			color      : dimgrey;
-			font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, 'sans-serif';
-			font-size  : 20px;
-		}
+		
 		.dropdown-button
 		{
 			background-color: darkgrey;
@@ -109,11 +246,13 @@
 			font-size       : 24px;
 			cursor          : pointer;
 		}
+		
 		.dropdown
 		{
 			position: relative;
 			display : inline-block;
 		}
+		
 		.dropdown-content
 		{
 			display         : none;
@@ -125,6 +264,7 @@
 			font-size       : 24px;
 			z-index         : 1;
 		}
+		
 		.dropdown-content a
 		{
 			color          : darkgrey;
@@ -161,93 +301,7 @@
 		  opacity: 1;
 		  right  : 0;
 		}
-		
-		.button_prefab span
-		{
-		  cursor    : pointer;
-		  display   : inline-block;
-		  position  : relative;
-		  transition: 0.5s;
-		}
-		
-		.button_prefab span:after
-		{
-			content   : ' ◄';
-			position  : relative;
-			padding-right: -100px;
-			opacity   : 0;
-			top       : 0;
-			transition: 0.5s;
-		}
-		
-		.button_prefab span:before
-		{
-			content   : '► ';
-			position  : relative;
-			padding-right: -100px;
-			opacity   : 0;
-			top       : 0;
-			transition: 0.5s;
-		}
-		
-		.button_prefab:hover span
-		{
-			font-size: 95%;
-		}		
-		
-		.button_prefab:hover span:before
-		{
-		  opacity: 1;
-		}
-		
-		.button_prefab:hover span:after
-		{
-		  opacity: 1;
-		}
-		
-		.curr_button span
-		{
-		  cursor    : pointer;
-		  display   : inline-block;
-		  position  : relative;
-		  transition: 0.5s;
-		}
-		
-		.curr_button span:after
-		{
-			content   : ' ◄';
-			position  : relative;
-			padding-right: -100px;
-			opacity   : 0;
-			top       : 0;
-			transition: 0.5s;
-		}
-		
-		.curr_button span:before
-		{
-			content   : '► ';
-			position  : relative;
-			padding-right: -100px;
-			opacity   : 0;
-			top       : 0;
-			transition: 0.5s;
-		}
-		
-		.curr_button:hover span
-		{
-			font-size: 95%;
-		}		
-		
-		.curr_button:hover span:before
-		{
-		  opacity: 1;
-		}
-		
-		.curr_button:hover span:after
-		{
-		  opacity: 1;
-		}
-		
+
 		.dropdown-content a:hover
 		{
 			background-color: #ddd;
@@ -259,45 +313,45 @@
 			display: block;
 		}
 		
-		.dropdown:hover .dropbtn
+		.dropdown:hover .dropdown-button
 		{
 			background-color: #3e8e41;
 		}
+
 	</style>
 	<title>GTSC - Projects</title>
 </head>
 
 <body style="background-color: #F3F3F3;"> <!-- Things are only displayed from here on out -->
 
-	<div class="centre_group">
-		<img src="Assets/XxGTSCxX_Logo_2019.png" width="10%" height="10%" alt=""/>
-		<h1 class="h1_prefab">
-			Gabrielle Tan Suan Choo
-		</h1>
-		<p class="subtitle_prefab">
-			Technical UI Designer | Tools Programmer
-		</p>
-		<button class="button_prefab" style="width: 33.1%" onclick="location.href='index.html'">
-			<span>
-				HOME
-			</span>
-		</button>
-		<div class="dropdown" style="width: 33.1%">
-			<button class="curr_button" style="width: 100%" onclick="location.href='Projects.html'">
-				<span>
-					PROJECTS
-				</span>
+	<div class="centre-group">
+		
+		<header>
+			<img src="Assets/XxGTSCxX_Logo_2019.png" width="10%" height="10%" alt=""/>
+			<h1>Gabrielle Tan Suan Choo</h1>
+			<subtitle>Technical UI Designer | Tools Programmer<br><br></subtitle>
+		</header>
+		
+		<nav>
+			<button style="width: 33.1%" onclick="location.href='index.html'">
+				<span>HOME</span>
 			</button>
-			<div class="dropdown-content" style="width: 100%">
-				  <a href="Projects - EOS.html"   >EOS   </a>
-				  <a href="Projects - Dynamo.html">Dynamo</a>
+
+			<div class="dropdown" style="width: 33.1%">
+				<button class="button-active" style="width: 100%" onclick="location.href='Projects - EOS.html'">
+					<span>PROJECTS</span>
+				</button>
+				<div class="dropdown-content" style="width: 100%">
+					<a href="Projects - EOS.html"   >EOS   </a>
+					<a href="Projects - Dynamo.html">Dynamo</a>
+				</div>
 			</div>
-		</div>		
-		<button class="button_prefab" style="width: 33.1%" onclick="location.href='Resume.html'">
-			<span>
-				RESUME
-			</span>
-		</button>
+			
+			<button style="width: 33.1%" onclick="location.href='Resume.html'">
+				<span>RESUME</span>
+			</button>
+		</nav>
+
 	</div>
 	
 </body>
