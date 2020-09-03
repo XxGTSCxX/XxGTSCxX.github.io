@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+
+	<title>GTSC - Experience</title>
+
+	<link rel="stylesheet" type="text/css" href="styles-default.css">
+	<link rel="stylesheet" type="text/css" href="styles-header.css" >
+	<link rel="stylesheet" type="text/css" href="styles-formats.css">
+	<link rel="stylesheet" type="text/css" href="styles-navbar.css" >
+	<link rel="stylesheet" type="text/css" href="styles-sidebar.css">
+</head>
+
+<body style="background-color: #F3F3F3;"> <!-- Things are only displayed from here on out -->
+
+	<!-------------------------------------------- Head of page --------------------------------------------->
+
+	<header>
+		<img class="icon" style="margin-top: 25px;" src="Assets/XxGTSCxX_Logo_2019.png" alt="2019 Icon">
+
+		<h1 style="margin-bottom: 0; margin-top: 0">GABRIELLE TAN SUAN CHOO</h1>
+
+		<div class="row" style="margin-top: 0; min-width: 400px; overflow: hidden">
+			<p class="column" style="text-align: right;  width: 48%; margin-top: 0">TECHNICAL UI DESIGNER</p>
+			<p class="column" style="text-align: center; width: 4% ; margin-top: 0">❖                   </p>
+			<p class="column" style="text-align: left;   width: 48%; margin-top: 0">TOOLS PROGRAMMER     </p>
+		</div>
+	</header>
+
+	<nav class="row">
+		<a class="nav-slot column"        href="index.html"      style="width: 150px">HOME      </a>
+		<a class="nav-slot column active" href="experience.html" style="width: 150px">EXPERIENCE</a>
+		<a class="nav-slot column"        href="resume.html"     style="width: 150px">RESUME    </a>
+	</nav>
+
+	<!------------------------------------------ Head of page End ------------------------------------------->
+
+	<!-------------------------------------------- Body of page --------------------------------------------->
+
+	<hr>
+
+	<div class="row">
+
+		<div class="tab">
+			<button class="tab-links" onclick="OpenTab(event, 'General')" id="default-tab">General</button>
+		</div>
+
+		<div id="General" class="tab-content">
+
+			<h2>Programming Experience</h2>
+
+			<ul>
+				<li>Object Oriented Programming                              </li>
+				<li>Property Reflection                                      </li>
+				<li>De/Serialisation                                         </li>
+				<li>Prefab System                                            </li>
+				<li>Template Metaprogramming                                 </li>
+				<li>Dabbling into Data Oriented Programming                  </li>
+				<li>Dabbling into Continuous Integration and Deployment Tools</li>
+			</ul>
+			
+			<p>
+				You can check out my repositories at my <a href="https://github.com/XxGTSCxX">GitHub</a> profile.
+			</p>
+
+			<h2>Design Experience</h2>
+
+			<ul>
+				<li>UI/UX Design for Games                       </li>
+				<li>Gameplay Scripting with Unity                </li>
+				<li>Gameplay Scripting with Unreal Engine        </li>
+				<li>Dabbling in Shader Effects with Unreal Engine</li>
+				<li>Sound Design for Short Films                 </li>
+			</ul>
+
+		</div>
+
+	</div>
+
+	<!------------------------------------------ Body of page End ------------------------------------------->
+
+	<!------------------------------------------- Footer of page -------------------------------------------->
+
+	<footer>
+		<b>Email:</b> g.tan@digipen.edu ❖ <b>GitHub:</b> <a href="https://github.com/XxGTSCxX"></a>https://github.com/XxGTSCxX
+	</footer>
+
+	<!----------------------------------------- Footer of page End ------------------------------------------>
+
+	<!---------------------------------------------- Scripts ------------------------------------------------>
+
+	<script>
+		function OpenTab(event, tab_id)
+		{
+			var i, tabcontent, tablinks;
+
+			tabcontent = document.getElementsByClassName("tab-content");
+
+			for (i = 0; i < tabcontent.length; i++)
+			{
+				tabcontent[i].style.display = "none";
+			}
+
+			tablinks = document.getElementsByClassName("tab-links");
+
+			for (i = 0; i < tablinks.length; i++)
+			{
+				tablinks[i].className = tablinks[i].className.replace(" active", "");
+			}
+
+			document.getElementById(tab_id).style.display = "block";
+			event.currentTarget.className += " active";
+		}
+
+		// Get the element with id="default-tab" and click on it
+		document.getElementById("default-tab").click();
+	</script>
+
+	<!-------------------------------------------- Scripts End ---------------------------------------------->
+
+</body>
+
+</html>

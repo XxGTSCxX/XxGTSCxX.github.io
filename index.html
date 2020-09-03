@@ -1,211 +1,15 @@
 <!doctype html>
-
 <html>
+
 <head>
 	<meta charset="utf-8">
-	<style>
 
-		/* Default Formats */
-
-		div
-		{
-			max-width: 90%;
-			margin   : auto;
-		}
-
-		body
-		{
-			background-color     : #F3F3F3;
-  			background-repeat    : no-repeat;
-  			background-attachment: local;
-			background-position  : center;
-			background-blend-mode: color-burn;
-			background-size      : cover;
-		}
-
-		header
-		{
-			text-align      : center;
-			margin          : 0;
-			padding         : 0;
-			overflow        : hidden;
-			background-color: #F3F3F3;
-			max-width       : 100%;
-		}
-
-		h1
-		{
-			color      : dimgrey;
-			font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana;
-			font-size  : 300%;
-		}
-
-		h2
-		{
-			color      : dimgrey;
-			font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana;
-			font-style : normal;
-			font-size  : 250%;
-		}
-
-		h3
-		{
-			color      : dimgrey;
-			font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana;
-			font-style : normal;
-			font-size  : 200%;
-		}
-		
-		h4
-		{
-			color      : dimgrey;
-			font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana;
-			font-style : normal;
-			font-size  : 130%;
-		}
-		
-		subtitle
-		{
-			color      : dimgrey;
-			font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
-			font-style : italic;
-			font-size  : 22px;
-		}
-		
-		p
-		{
-			color      : dimgrey;
-			font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, 'sans-serif';
-			font-size  : 20px;
-		}
-		
-		ol
-		{
-			color      : dimgrey;
-			font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, 'sans-serif';
-			font-size  : 20px;
-		}
-		
-		ul
-		{
-			color      : dimgrey;
-			font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, 'sans-serif';
-			font-size  : 20px;
-		}
-		
-		a
-		{
-			color: dimgrey;
-		}
-
-		button
-		{
-			background-color: darkgrey;
-			border-width    : 0px;
-			color           : #F3F3F3;
-			height          : 50px;
-			min-height      : 50px;
-			min-width       : 250px;
-			text-align      : center;
-			text-decoration : none;
-			display         : inline-block;
-			font-family     : Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
-			font-size       : 24px;
-			cursor          : pointer;
-		}
-
-		button:hover
-		{
-			border-radius: 25px;
-			transition   : 0.5s;
-		}
-
-		/* Default Formats End */
-
-		.icon
-		{
-			max-height: 150px;
-		}
-
-		.column /* Create three equal columns that floats next to each other */
-		{
-			float: left;
-			width: 33.33%;
-		}
-
-		.row:after /* Clear floats after the columns */
-		{
-			content: "";
-			display: table;
-			clear  : both;
-		}
-
-		nav.row
-		{
-			list-style-type : none;
-			margin          : 0;
-			padding         : 0;
-			overflow        : hidden;
-			background-color: #1F1F1F;
-			border-width    : 0;
-			position        : sticky;
-			top             : 0;
-			width           : 100%;
-		}
-
-		a.nav-slot
-		{
-			display         : block;
-			background-color: #1F1F1F;
-			color           : #F3F3F3;
-			padding         : 10px 16px;
-			text-align      : center;
-			font-family     : Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
-			text-decoration : none;
-			font-size       : 20px;
-			transition      : 0.5s;
-		}
-
-		a.nav-slot:hover
-		{
-			background-color: dimgrey;
-			transition      : 0.5s;
-		}
-
-		a.active.nav-slot
-		{
-			background-color: #F3F3F3;
-			color           : #1F1F1F;
-			border-top-width: 3px;
-			border-top-color: #1F1F1F;
-			border-top-style: solid;
-			font-weight     : bold;
-			transition      : 0.5s;
-		}
-
-		a.active.nav-slot:hover
-		{
-			border-bottom-width: 3px;
-			border-bottom-color: #1F1F1F;
-			border-bottom-style: solid;
-			transition         : 0.5s;
-		}
-
-		button.active
-		{
-			background-color: dimgrey;
-		}
-
-		@media screen and (max-width: 600px)
-		{
-			.column
-			{
-				width: 100%;
-			}
-		}
-
-	</style>
 	<title>GTSC - Home</title>
+
+	<link rel="stylesheet" type="text/css" href="styles-default.css">
+	<link rel="stylesheet" type="text/css" href="styles-header.css" >
+	<link rel="stylesheet" type="text/css" href="styles-formats.css">
+	<link rel="stylesheet" type="text/css" href="styles-navbar.css" >
 </head>
 
 <body style="background-color: #F3F3F3;"> <!-- Things are only displayed from here on out -->
@@ -215,71 +19,68 @@
 	<header>
 		<img class="icon" style="margin-top: 25px;" src="Assets/XxGTSCxX_Logo_2019.png" alt="2019 Icon">
 
-		<h1 style="margin-bottom: 0; margin-top: 0">Gabrielle Tan Suan Choo</h1>
+		<h1 style="margin-bottom: 0; margin-top: 0">GABRIELLE TAN SUAN CHOO</h1>
 
 		<div class="row" style="margin-top: 0; min-width: 400px; overflow: hidden">
-			<p class="column" style="text-align: right;  width: 48%; margin-top: 0">Technical UI Designer</p>
+			<p class="column" style="text-align: right;  width: 48%; margin-top: 0">TECHNICAL UI DESIGNER</p>
 			<p class="column" style="text-align: center; width: 4% ; margin-top: 0">❖                   </p>
-			<p class="column" style="text-align: left;   width: 48%; margin-top: 0">Tools Programmer     </p>
+			<p class="column" style="text-align: left;   width: 48%; margin-top: 0">TOOLS PROGRAMMER     </p>
 		</div>
 	</header>
 
 	<nav class="row">
-		<a class="nav-slot column active"   href="index.html"          style="width: 100px">HOME    </a>
-		<a class="nav-slot column droplist" href="Projects - EOS.html" style="width: 150px">PROJECTS</a>
-		<a class="nav-slot column"          href="Resume.html"         style="width: 100px">RESUME  </a>
+		<a class="column nav-slot active" href="index.html"      style="width: 150px">HOME      </a>
+		<a class="column nav-slot       " href="experience.html" style="width: 150px">EXPERIENCE</a>
+		<a class="column nav-slot"        href="resume.html"     style="width: 150px">RESUME    </a>
 	</nav>
 
 	<!-- End of Head of page -->
 
-	<div>
-		<h2>ABOUT ME</h2>
-		<p>
-			Born and raised in Singapore, I earned a diploma in Supply Chain Management from Republic Polytechnic before realising my interest in programming and pursuing a degree in Computer Science and Game Design in Digipen Institute of Technology Singapore. During my studies, I have had the opportunity to work on custom game engines as well as several game projects from its conception to fruition.
-		</p>
+	<!-- Content Section -->
 
-		<h2>SKILLS</h2>
+	<section>
 
-		<div class="row">
-			<div class="column">
-				<p class="droplist">Languages</p>
-				<ul>
-					<li>C++</li>
-					<li>C#</li>
-					<li>HTML</li>
-				</ul>
-			</div>
+		<div id="About Me" class="tab-content">
+			
+			<h2>About Me</h2>
 
-			<div class="column">
-				<p>Programming Experience</p>
-				<ul>
-					<li>Object Oriented Programming                                            </li>
-					<li>Property Reflection                                                    </li>
-					<li>De/Serialisation                                                       </li>
-					<li>Prefab System                                                          </li>
-					<li>Template Metaprogramming                                               </li>
-					<li>Dabbling into Data Oriented Programming // TODO: Insert link to gitrepo</li>
-				</ul>
-			</div>
+			<p>
+				A hat lover (seriously, it's my most distinctive feature, check my icon!).
+			</p>
 
-			<div class="column">
-				<p>Programs // TODO: Convert to appropriate icons and move to the Left</p>
-				<ul>
-					<li>Visual Studio 2019  </li>
-					<li>Unity               </li>
-					<li>Unreal Engine 4     </li>
-					<li>Photoshop           </li>
-					<li>Musescore           </li>
-					<li>Mixcraft 8          </li>
-					<li>Microsoft Word      </li>
-					<li>Microsoft Powerpoint</li>
-					<li>Microsoft Excel     </li>
-				</ul>
-			</div>
-		</div> <!-- Row End -->
-	
-		<p>Checking to see if the row worked as intended.</p>
-	</div>
+			<p>
+				An avid gamer who still believes that games are an exellent medium for people to experience emotions and things
+				that they might not normally have the opportunity to experience. Also a code junky! I love seeing the little
+				characters I type on screen do something, and even better, when they become something useful for others to use.
+				Nothing gives me greater joy than when someone tells me that something I made helped them out.
+			</p>
+
+			<p>
+				With that in mind, imagine my joy when I realised that Digipen had a course about Computer Science and Game Design?
+				Needless to say, I ended up enrolling and it had since given me the opportunity to work on custom game engines as
+				well as participate in the design process of game development from its conception to fruition (with the side
+				helping possible depression but I'm working on it).
+			</p>
+
+			<p>
+				Through my study, I realised that I'm quick at understanding logic, patterns, and structures. This has helped
+				me a lot when it comes to meta-programming, system architectures, and organisation. However, I have also
+				learnt that my achilles heels is that I'm slow to understand math and physics concepts.
+			</p>
+		</div>
+
+	</section>
+
+	<!-- Content Section End -->
+
+	<!-- Footer -->
+
+	<footer>
+		<b>Email:</b> g.tan@digipen.edu ❖ <b>GitHub:</b> <a href="https://github.com/XxGTSCxX"></a>https://github.com/XxGTSCxX
+	</footer>
+
+	<!-- Footer End -->
 
 </body>
+
 </html>
