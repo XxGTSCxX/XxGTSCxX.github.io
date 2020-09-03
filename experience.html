@@ -6,11 +6,13 @@
 
 	<title>GTSC - Experience</title>
 
-	<link rel="stylesheet" type="text/css" href="styles-default.css">
-	<link rel="stylesheet" type="text/css" href="styles-header.css" >
-	<link rel="stylesheet" type="text/css" href="styles-formats.css">
-	<link rel="stylesheet" type="text/css" href="styles-navbar.css" >
-	<link rel="stylesheet" type="text/css" href="styles-sidebar.css">
+	<link rel="stylesheet" type="text/css" href="styles/defaults.css">
+	<link rel="stylesheet" type="text/css" href="styles/header.css"  >
+	<link rel="stylesheet" type="text/css" href="styles/formats.css" >
+	<link rel="stylesheet" type="text/css" href="styles/navbar.css"  >
+	<link rel="stylesheet" type="text/css" href="styles/sidebar.css" >
+
+	<script src="scripts/tabs.js"></script>
 </head>
 
 <body style="background-color: #F3F3F3;"> <!-- Things are only displayed from here on out -->
@@ -18,7 +20,7 @@
 	<!-------------------------------------------- Head of page --------------------------------------------->
 
 	<header>
-		<img class="icon" style="margin-top: 25px;" src="Assets/XxGTSCxX_Logo_2019.png" alt="2019 Icon">
+		<img class="icon" style="margin-top: 25px;" src="assets/XxGTSCxX_Logo_2019.png" alt="2019 Icon">
 
 		<h1 style="margin-bottom: 0; margin-top: 0">GABRIELLE TAN SUAN CHOO</h1>
 
@@ -39,7 +41,7 @@
 
 	<!-------------------------------------------- Body of page --------------------------------------------->
 
-	<hr>
+	<br>
 
 	<div class="row">
 
@@ -89,37 +91,10 @@
 
 	<!----------------------------------------- Footer of page End ------------------------------------------>
 
-	<!---------------------------------------------- Scripts ------------------------------------------------>
-
 	<script>
-		function OpenTab(event, tab_id)
-		{
-			var i, tabcontent, tablinks;
-
-			tabcontent = document.getElementsByClassName("tab-content");
-
-			for (i = 0; i < tabcontent.length; i++)
-			{
-				tabcontent[i].style.display = "none";
-			}
-
-			tablinks = document.getElementsByClassName("tab-links");
-
-			for (i = 0; i < tablinks.length; i++)
-			{
-				tablinks[i].className = tablinks[i].className.replace(" active", "");
-			}
-
-			document.getElementById(tab_id).style.display = "block";
-			event.currentTarget.className += " active";
-		}
-
 		// Get the element with id="default-tab" and click on it
 		document.getElementById("default-tab").click();
 	</script>
 
-	<!-------------------------------------------- Scripts End ---------------------------------------------->
-
 </body>
-
 </html>
