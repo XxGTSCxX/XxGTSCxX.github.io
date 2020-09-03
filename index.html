@@ -7,13 +7,15 @@
 	<title>GTSC - Home</title>
 
 	<link rel="stylesheet" type="text/css" href="styles/defaults.css">
-	<link rel="stylesheet" type="text/css" href="styles/header.css">
-	<link rel="stylesheet" type="text/css" href="styles/formats.css">
-	<link rel="stylesheet" type="text/css" href="styles/navbar.css">
+	<link rel="stylesheet" type="text/css" href="styles/header.css"  >
+	<link rel="stylesheet" type="text/css" href="styles/formats.css" >
+	<link rel="stylesheet" type="text/css" href="styles/navbar.css"  >
+
+	<script src="scripts/navbar.js"></script>
 </head>
 
+<!-- Things are only displayed from here on out -->
 <body>
-	<!-- Things are only displayed from here on out -->
 
 	<!-------------------------------------------- Head of page --------------------------------------------->
 
@@ -29,11 +31,11 @@
 		</div>
 	</header>
 
-	<nav class="bar">
+	<nav id="navbar" class="bar">
 		<a class="slot active" href="index.html">HOME</a>
 		<div class="droplist">
 			<a class="slot target" href="projects.html">PROJECTS</a>
-			<div class="droplist-content" style="margin-top: 50px;">
+			<div class="droplist-content">
 				<a class="item" href="project - eos.html"   >EOS   </a>
 				<a class="item" href="project - dynamo.html">Dynamo</a>
 			</div>
@@ -84,6 +86,10 @@
 	</footer>
 
 	<!----------------------------------------- Footer of page End ------------------------------------------>
+
+	<script>
+		window.onscroll = function() { StickyNavbarOnScroll() };
+	</script>
 
 </body>
 

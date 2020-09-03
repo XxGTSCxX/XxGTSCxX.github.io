@@ -35,8 +35,7 @@ nav.bar .slot.active:hover
 
 .droplist
 {
-    float   : left;
-    overflow: hidden;
+    float: left;
 }
 
 .droplist .target
@@ -62,6 +61,8 @@ nav.bar .slot:hover, .droplist:hover .target
     display   : none;
     position  : absolute;
     width     : 100px;
+    overflow  : visible;
+    margin-top: 52px;
     z-index   : 1;
     transition: 0.3s;
 }
@@ -88,4 +89,16 @@ nav.bar .slot:hover, .droplist:hover .target
 .droplist:hover .droplist-content
 {
     display: block;
+}
+
+.sticky .droplist:hover .droplist-content
+{
+    position: fixed;
+}
+
+.sticky
+{
+    position: fixed;
+    top     : 0;
+    width   : 100%
 }

@@ -7,16 +7,17 @@
 	<title>GTSC - Projects</title>
 
 	<link rel="stylesheet" type="text/css" href="styles/defaults.css">
-	<link rel="stylesheet" type="text/css" href="styles/header.css">
-	<link rel="stylesheet" type="text/css" href="styles/formats.css">
-	<link rel="stylesheet" type="text/css" href="styles/navbar.css">
-	<link rel="stylesheet" type="text/css" href="styles/sidebar.css">
+	<link rel="stylesheet" type="text/css" href="styles/header.css"  >
+	<link rel="stylesheet" type="text/css" href="styles/formats.css" >
+	<link rel="stylesheet" type="text/css" href="styles/navbar.css"  >
+	<link rel="stylesheet" type="text/css" href="styles/sidebar.css" >
 
-	<script src="scripts/tabs.js"></script>
+	<script src="scripts/navbar.js"></script>
+	<script src="scripts/tabs.js"  ></script>
 </head>
 
+<!-- Things are only displayed from here on out -->
 <body>
-	<!-- Things are only displayed from here on out -->
 
 	<!-------------------------------------------- Head of page --------------------------------------------->
 
@@ -32,11 +33,11 @@
 		</div>
 	</header>
 
-	<nav class="bar">
+	<nav id="navbar" class="bar">
 		<a class="slot" href="index.html">HOME</a>
 		<div class="droplist">
 			<a class="slot target active" href="projects.html">PROJECTS</a>
-			<div class="droplist-content" style="margin-top: 50px;">
+			<div class="droplist-content">
 				<a class="item" href="project - eos.html"   >EOS   </a>
 				<a class="item" href="project - dynamo.html">Dynamo</a>
 			</div>
@@ -100,8 +101,8 @@
 	<!----------------------------------------- Footer of page End ------------------------------------------>
 
 	<script>
-		// Get the element with id="default-tab" and click on it
-		document.getElementById("default-tab").click();
+		window.onscroll = function() { StickyNavbarOnScroll() };
+		document.getElementById("default-tab").click(); // Get the element with id="default-tab" and click on it
 	</script>
 
 </body>
