@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>GTSC - Experience</title>
+	<title>GTSC - Projects</title>
 
 	<link rel="stylesheet" type="text/css" href="styles/defaults.css">
 	<link rel="stylesheet" type="text/css" href="styles/header.css"  >
@@ -15,7 +15,7 @@
 	<script src="scripts/tabs.js"></script>
 </head>
 
-<body style="background-color: #F3F3F3;"> <!-- Things are only displayed from here on out -->
+<body> <!-- Things are only displayed from here on out -->
 
 	<!-------------------------------------------- Head of page --------------------------------------------->
 
@@ -31,10 +31,16 @@
 		</div>
 	</header>
 
-	<nav class="row">
-		<a class="nav-slot column"        href="index.html"      style="width: 150px">HOME      </a>
-		<a class="nav-slot column active" href="experience.html" style="width: 150px">EXPERIENCE</a>
-		<a class="nav-slot column"        href="resume.html"     style="width: 150px">RESUME    </a>
+	<nav class="bar">
+		<a class="slot" href="index.html">HOME</a>
+		<div class="droplist">
+			<a class="slot target active" href="projects.html">PROJECTS</a>
+			<div class="droplist-content" style="margin-top: 50px;">
+				<a class="item" href="project - eos.html"   >EOS   </a>
+				<a class="item" href="project - dynamo.html">Dynamo</a>
+			</div>
+		</div>
+		<a class="slot" href="resume.html">RESUME</a>
 	</nav>
 
 	<!------------------------------------------ Head of page End ------------------------------------------->
