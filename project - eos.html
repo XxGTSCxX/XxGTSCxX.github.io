@@ -1,19 +1,21 @@
 <!doctype html>
 
 <html>
+
 <head>
 	<meta charset="utf-8">
 
 	<title>GTSC - Project: EOS</title>
 
 	<link rel="stylesheet" type="text/css" href="styles/defaults.css">
-	<link rel="stylesheet" type="text/css" href="styles/header.css"  >
-	<link rel="stylesheet" type="text/css" href="styles/formats.css" >
-	<link rel="stylesheet" type="text/css" href="styles/navbar.css"  >
-	<link rel="stylesheet" type="text/css" href="styles/sidebar.css" >
+	<link rel="stylesheet" type="text/css" href="styles/header.css">
+	<link rel="stylesheet" type="text/css" href="styles/formats.css">
+	<link rel="stylesheet" type="text/css" href="styles/navbar.css">
+	<link rel="stylesheet" type="text/css" href="styles/sidebar.css">
 </head>
 
-<body> <!-- Things are only displayed from here on out -->
+<body>
+	<!-- Things are only displayed from here on out -->
 
 	<!-------------------------------------------- Head of page --------------------------------------------->
 
@@ -43,52 +45,69 @@
 
 	<!------------------------------------------ Head of page End ------------------------------------------->
 
-	<section>
+	<section style="padding-bottom: 100px;">
 		<h2>EOS</h2>
 
 		<div style="text-align: center;">
-			<iframe width="100%" height="607.5" src="https://www.youtube.com/embed/wH1Y8KvImdE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-			<subtitle style="font-size: 110%"><br>The game is still pending review and so its link will be updated accordingly once it's available.</subtitle>
+			<iframe width="100%" height="607.5" src="https://www.youtube.com/embed/wH1Y8KvImdE" frameborder="0"
+				allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+				allowfullscreen></iframe>
+			<subtitle style="font-size: 110%"><br>The game is still pending review and so its link will be updated
+				accordingly once it's available.</subtitle>
 		</div>
 
 		<p>
-			<b>EOS</b> is a 3rd year Digipen games project made with our team's custom 3D game engine named "DarkHorse". For this project, we used the C++ language and I spent the first semester as the Producer before stepping down to fully focus on the technical aspects of the project due to our shortage on programmers. As a programmer, I mainly focused on the backend programming, such as:
+			<b>EOS</b> is a 3rd year Digipen games project made with our team's custom 3D game engine named "DarkHorse".
+			For this project, we used the C++ language and I spent the first semester as the Producer before stepping
+			down to fully focus on the technical aspects of the project due to our shortage on programmers. As a
+			programmer, I mainly focused on the backend programming, such as:
 		</p>
 
 		<ul>
-			<li>Property Reflection  </li>
-			<li>De/Serialiser        </li>
-			<li>3D Assets Compiler   </li>
+			<li>Property Reflection </li>
+			<li>De/Serialiser </li>
+			<li>3D Assets Compiler </li>
 			<li>Skinned Mesh Renderer</li>
-			<li>Bone Animations      </li>
+			<li>Bone Animations </li>
 			<li>Configuration Manager</li>
-			<li>Prefab System        </li>
+			<li>Prefab System </li>
 		</ul>
 
 		<p>
-			This project was challenging in more ways than one and was a huge learning experience. For the most part there were a lot of misunderstandings on what I could do or what is needed by my fellow programmers. I will be discussing what I had implemented versus what I learnt from it and believe how I should have implemented things instead.
+			This project was challenging in more ways than one and was a huge learning experience. For the most part
+			there were a lot of misunderstandings on what I could do or what is needed by my fellow programmers. I will
+			be discussing what I had implemented versus what I learnt from it and believe how I should have implemented
+			things instead.
 		</p>
-		
+
 		<h3>Property Reflection</h3>
 
 		<p>
-			For our property reflection, we utilised <a href="https://gitlab.com/LIONant/properties">Lionant's Properties project</a> to implement our reflection engine. It laid out majority of the ground work and I wrapped it in Reflection class such that it would readable C++ format for my fellow programmers to use. What I 
+			For our property reflection, we utilised <a href="https://gitlab.com/LIONant/properties">Lionant's
+				Properties project</a> to implement our reflection engine. It laid out majority of the ground work and I
+			wrapped it in Reflection class such that it would readable C++ format for my fellow programmers to use. What
+			I
 		</p>
-		
+
 		<h3>De/Serialiser</h3>
 
 		<p>
-			One of the things that took me a really long time to understand was the "automation" of the serialiser and deserialiser should have used. Originally, I was under the impression that the Serialiser and Deserialiser should specify how each object should be de/serialised. This mistake however, led to a lot of circular dependencies in
+			One of the things that took me a really long time to understand was the "automation" of the serialiser and
+			deserialiser should have used. Originally, I was under the impression that the Serialiser and Deserialiser
+			should specify how each object should be de/serialised. This mistake however, led to a lot of circular
+			dependencies in
 		</p>
 	</section>
 
 	<!------------------------------------------- Footer of page -------------------------------------------->
 
 	<footer>
-		<b>Email:</b> g.tan@digipen.edu ❖ <b>GitHub:</b> <a href="https://github.com/XxGTSCxX"></a>https://github.com/XxGTSCxX
+		<b>Email:</b> g.tan@digipen.edu ❖ <b>GitHub:</b>
+		<a href="https://github.com/XxGTSCxX">https://github.com/XxGTSCxX</a>
 	</footer>
 
 	<!----------------------------------------- Footer of page End ------------------------------------------>
 
 </body>
+
 </html>
