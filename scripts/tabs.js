@@ -19,3 +19,8 @@ function OpenTab(event, tab_id)
     document.getElementById(tab_id).style.display  = "block";
     event.currentTarget.className                 += " active";
 }
+
+function TabsOnResize()
+{
+    document.getElementById("tab-view").style.height = window.ClientRect.height;
+}

@@ -1,7 +1,6 @@
 .tab
 {
     float    : left;
-    border   : 1px solid #111;
     width    : 30%;
     min-width: 250px;
     max-width: 300px;
@@ -52,7 +51,6 @@
     float      : left;
     overflow   : auto;
     padding    : 0px 12px;
-    border     : 1px solid #111;
     width      : 70%;
     border-left: none;
     height     : 800px;

@@ -36,7 +36,7 @@
 	<nav id="navbar" class="bar">
 		<a class="slot" href="index.html">HOME</a>
 		<div class="droplist">
-			<a class="slot target active" href="projects.html">PROJECTS</a>
+			<a class="slot target active" href="project - eos.html">PROJECTS</a>
 			<div class="droplist-content">
 				<a class="item" href="project - eos.html"   ><b>EOS</b></a>
 				<a class="item" href="project - dynamo.html">Dynamo    </a>
@@ -66,13 +66,13 @@
 		</p>
 
 		<ul>
-			<li>Property Reflection  </li>
-			<li>De/Serialiser        </li>
-			<li>3D Assets Compiler   </li>
-			<li>Skinned Mesh Renderer</li>
-			<li>Bone Animations      </li>
-			<li>Configuration Manager</li>
-			<li>Prefab System        </li>
+			<li><a href="#Property Reflection"  >Property Reflection  </a></li>
+			<li><a href="#De/Serialiser"        >De/Serialiser        </a></li>
+			<li><a href="#3D Assets Compiler"   >3D Assets Compiler   </a></li>
+			<li><a href="#Skinned Mesh Renderer">Skinned Mesh Renderer</a></li>
+			<li><a href="#Bone Animations"      >Bone Animations      </a></li>
+			<li><a href="#Configuration Manager">Configuration Manager</a></li>
+			<li><a href="#Prefab System"        >Prefab System        </a></li>
 		</ul>
 
 		<p>
@@ -82,7 +82,7 @@
 			things instead.
 		</p>
 
-		<h3>Property Reflection</h3>
+		<h3 id="Property Reflection">Property Reflection</h3>
 
 		<p>
 			For our property reflection, we utilised <a href="https://gitlab.com/LIONant/properties">Lionant's
@@ -91,13 +91,106 @@
 			I
 		</p>
 
-		<h3>De/Serialiser</h3>
+		<h3 id="De/Serialiser">De/Serialiser</h3>
 
 		<p>
 			One of the things that took me a really long time to understand was the "automation" of the serialiser and
 			deserialiser should have used. Originally, I was under the impression that the Serialiser and Deserialiser
 			should specify how each object should be de/serialised. This mistake however, led to a lot of circular
 			dependencies in
+		</p>
+
+		<h3 id="3D Assets Compiler">3D Assets Compiler</h3>
+
+		<p>
+			For our 3D Assets Compiler we made use of the library <a href="https://github.com/assimp/assimp">Assimp</a>
+			to do most of the heavy lifting. It was the hub for the different asset types to be converted into a single
+			assimp object which we can then use to convert into our own file format. That way, the engine did not need
+			to handle the conversion or reading of each different asset format. After creating the compiler, the editor
+			runs the compiler on the selected assets.
+		</p>
+
+		<h3 id="Skinned Mesh Renderer">Skinned Mesh Renderer</h3>
+
+		<p>
+		</p>
+
+		<h3 id="Bone Animation">Bone Animation</h3>
+
+		<p>
+			This was by far one of the most difficult part of the project that I had to deal with since it involved the
+			very thing I was bad at - math.
+		</p>
+
+		<h3 id="Configuration Manager">Configuration Manager</h3>
+
+		<p>
+			The configuration manager acted as the manager for all "settings" files. I have come to regret the design
+			decision that I went with since it was not the most refined and was born out of my ignorance to what the
+			reflection system could have (should have) accomplished.
+		</p>
+
+		<p>
+			The design for the configuration manager was something that we thought could go two ways:
+		</p>
+
+		<ol>
+			<li>
+				Type free version that uses a <code>std::variant</code> to serialise and deserialise the supported
+				types so that the de/serialisation would be consistent across all config types.
+			</li>
+			<li>
+				Inheritance version, where all configs inherit from a base config class and have a virtual
+				function that can be used to serialise and deserialise itself.
+			</li>
+		</ol>
+
+		<p>
+			The first option gave a clean means to serialisation and deserialisation as any other user could create a
+			config without worrying about how they should de/serialise them. The second provided type safety, ensuring
+			the users that the data they required would exist.
+		</p>
+
+		<p>
+			Naturally, properly utilising the reflection system would have given us the best of both worlds as it
+			would have guarenteed both, however, since this was made before I properly understood and designed the
+			reflection system, I opted to go with first option.
+		</p>
+
+		<p>
+			This choice created an inconvenience, as the users will then have to manually initialise their type safe
+			classes with syntax such as:
+		</p>
+
+		<p><code>ConfigManager::Get().GetConfig("config_name").GetField&lttype_t&gt("field_name")</code></p>
+
+		<p>
+			And to be safe, they would have to add many checks, such as:
+		</p>
+
+		<pre class="p">
+			<code>
+			if (ConfigManager::Get().HasConfig("config_name"))
+			{
+			    auto&& config = ConfigManager::Get().GetConfig("config_name");
+			    if (config.HasField&lttype_t&gt("field_name"))
+			    {
+			        auto&& config.GetField&lttype_t&gt("field_name");
+			    }
+			}
+			</code>
+		</pre>
+
+		<p>
+			And a simple spelling mistake meant that they would not be able to detect the issue as easily as a compile
+			error would catch it (and we all know how painful it is to have to sit through a long compile time before
+			realising that there was something wrong with the code when we run it).
+		</p>
+
+		<h3 id="Prefab System">Prefab System</h3>
+
+		<p>
+			
 		</p>
 	</section>
 

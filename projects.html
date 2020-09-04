@@ -51,10 +51,14 @@
 
 	<br>
 
-	<div class="row">
+	<div id="tab-view" class="row">
 
-		<div class="tab">
-			<button class="tab-links" onclick="OpenTab(event, 'General')" id="default-tab">General</button>
+		<div class="tab" style="height: 100%;">
+			<button class="tab-links" onclick="OpenTab(event, 'General'    )" id="default-tab">General    </button>
+			<button class="tab-links" onclick="OpenTab(event, 'Programming')"                 >Programming</button>
+			<button class="tab-links" onclick="OpenTab(event, 'Design'     )"                 >Design     </button>
+			<button class="tab-links" onclick="OpenTab(event, 'Art'        )"                 >Aarrt?     </button>
+			<button class="tab-links" onclick="OpenTab(event, 'Audio'      )"                 >Audio      </button>
 		</div>
 
 		<div id="General" class="tab-content">
@@ -62,12 +66,12 @@
 			<h2>Programming Experience</h2>
 
 			<ul>
-				<li>Object Oriented Programming </li>
-				<li>Property Reflection </li>
-				<li>De/Serialisation </li>
-				<li>Prefab System </li>
-				<li>Template Metaprogramming </li>
-				<li>Dabbling into Data Oriented Programming </li>
+				<li>Object Oriented Programming                              </li>
+				<li>Property Reflection                                      </li>
+				<li>De/Serialisation                                         </li>
+				<li>Prefab System                                            </li>
+				<li>Template Metaprogramming                                 </li>
+				<li>Dabbling into Data Oriented Programming                  </li>
 				<li>Dabbling into Continuous Integration and Deployment Tools</li>
 			</ul>
 
@@ -78,11 +82,45 @@
 			<h2>Design Experience</h2>
 
 			<ul>
-				<li>UI/UX Design for Games </li>
-				<li>Gameplay Scripting with Unity </li>
-				<li>Gameplay Scripting with Unreal Engine </li>
+				<li>UI/UX Design for Games                       </li>
+				<li>Gameplay Scripting with Unity                </li>
+				<li>Gameplay Scripting with Unreal Engine        </li>
 				<li>Dabbling in Shader Effects with Unreal Engine</li>
-				<li>Sound Design for Short Films </li>
+				<li>Sound Design for Short Films                 </li>
+			</ul>
+
+		</div>
+
+		<div id="Programming" class="tab-content" style="height: 100%;">
+
+			<h2>Programming Experience</h2>
+
+			<ul>
+				<li>Object Oriented Programming                              </li>
+				<li>Property Reflection                                      </li>
+				<li>De/Serialisation                                         </li>
+				<li>Prefab System                                            </li>
+				<li>Template Metaprogramming                                 </li>
+				<li>Dabbling into Data Oriented Programming                  </li>
+				<li>Dabbling into Continuous Integration and Deployment Tools</li>
+			</ul>
+
+			<p>
+				You can check out my repositories at my <a href="https://github.com/XxGTSCxX">GitHub</a> profile.
+			</p>
+
+		</div>
+
+		<div id="Design" class="tab-content" style="height: 100%;">
+
+			<h2>Design Experience</h2>
+
+			<ul>
+				<li>UI/UX Design for Games                       </li>
+				<li>Gameplay Scripting with Unity                </li>
+				<li>Gameplay Scripting with Unreal Engine        </li>
+				<li>Dabbling in Shader Effects with Unreal Engine</li>
+				<li>Sound Design for Short Films                 </li>
 			</ul>
 
 		</div>
@@ -102,6 +140,7 @@
 
 	<script>
 		window.onscroll = function() { StickyNavbarOnScroll() };
+		window.onresize = function() { TabsOnResize()         };
 		document.getElementById("default-tab").click(); // Get the element with id="default-tab" and click on it
 	</script>
 

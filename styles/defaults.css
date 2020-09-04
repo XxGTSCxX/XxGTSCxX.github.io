@@ -79,6 +79,12 @@ subtitle
     font-size : 18px;
 }
 
+code
+{
+    color    : dimgrey;
+    font-size: 18px;
+}
+
 p
 {
     color    : dimgrey;
