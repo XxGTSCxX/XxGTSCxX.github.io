@@ -1,4 +1,4 @@
-.tab
+.sidebar .tab
 {
     float    : left;
     width    : 30%;
@@ -7,7 +7,7 @@
     height   : 800px;
 }
 
-.tab button
+.sidebar .tab
 {
     display         : block;
     background-color: #111;
@@ -20,13 +20,13 @@
     transition      : 0.3s;
 }
 
-.tab button:hover
+.sidebar .tab:hover
 {
     background-color: #444;
     border-radius   : 0;
 }
 
-.tab button.active
+.sidebar .tab.active
 {
     display         : block;
     background-color: #F3F3F3;
@@ -39,14 +39,14 @@
     transition      : 0.3s;
 }
 
-.tab button.active:hover
+.sidebar .tab.active:hover
 {
     background-color: darkgrey;
     color           : #F3F3F3;
     border-radius   : 0;
 }
 
-.tab-content
+.sidebar .content
 {
     float      : left;
     overflow   : auto;

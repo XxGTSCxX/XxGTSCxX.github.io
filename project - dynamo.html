@@ -10,7 +10,6 @@
 	<link rel="stylesheet" type="text/css" href="styles/header.css"  >
 	<link rel="stylesheet" type="text/css" href="styles/formats.css" >
 	<link rel="stylesheet" type="text/css" href="styles/navbar.css"  >
-	<link rel="stylesheet" type="text/css" href="styles/sidebar.css" >
 
 	<script src="scripts/navbar.js"></script>
 </head>
@@ -33,21 +32,23 @@
 	</header>
 
 	<nav id="navbar" class="bar">
-		<a class="slot" href="index.html">HOME</a>
+		<a class="tab" href="index.html">HOME</a>
 		<div class="droplist">
-			<a class="slot target active" href="project - eos.html">PROJECTS</a>
+			<a class="tab target active" href="project - eos.html">PROJECTS</a>
 			<div class="droplist-content">
 				<a class="item" href="project - eos.html"   >EOS          </a>
 				<a class="item" href="project - dynamo.html"><b>Dynamo</b></a>
 			</div>
 		</div>
-		<a class="slot" href="resume.html">RESUME</a>
+		<a class="tab" href="resume.html">RESUME</a>
 	</nav>
 
 	<!------------------------------------------ Head of page End ------------------------------------------->
 
 	<section style="padding-bottom: 100px;">
 		<h2>Dynamo</h2>
+
+		<hr>
 
 		<div style="align-self: center;">
 			<iframe width="100%" height="607.5" src="https://www.youtube.com/embed/ISIfHRSWuRQ" frameborder="0"
@@ -64,7 +65,7 @@
 			For this project, I had two main roles; Graphics Programmer and Technical UI Designer.
 		</p>
 
-		<h2>Graphics Programmer</h2>
+		<h3>Graphics Programmer</h3>
 
 		<p>
 			As the graphics programmer, my main responsibility was to design the Graphics System and its
@@ -75,7 +76,7 @@
 			and a font atlas generator.
 		</p>
 
-		<h3>Graphics System</h3>
+		<h4>Graphics System</h4>
 
 		<p>
 			As we were still using the Object-Oriented Design, I created a base Renderer class which all of the
@@ -92,7 +93,7 @@
 			<li>Font Renderer     </li>
 		</ol>
 
-		<h3 style="margin-bottom: 10px;">Renderers</h3>
+		<h4 style="margin-bottom: 10px;">Renderers</h4>
 
 		<div class="row">
 			<div class="column" style="padding-right: 16px; margin-top: 0; width: 70%;">
@@ -159,7 +160,7 @@
 			between each character when generating the atlas (crazy, I know! *cries in agony*).
 		</p>
 
-		<h3>Resource Loading</h3>
+		<h4>Resource Loading</h4>
 
 		<div style="text-align: center;">
 			<img src="assets/Dynamo/Font Atlas.PNG" width="50%">
@@ -172,7 +173,7 @@
 			rendering the said textures by reducing the number of bind calls.
 		</p>
 
-		<h2>Technical UI Designer</h2>
+		<h3>Technical UI Designer</h3>
 
 		<div style="text-align: center;">
 			<img src="assets/Dynamo/Tools - Textbox pt 1.gif" alt="Textbox features example" width="49.5%">
