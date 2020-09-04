@@ -68,10 +68,8 @@
 		<ul>
 			<li><a href="#Property Reflection"  >Property Reflection  </a></li>
 			<li><a href="#De/Serialiser"        >De/Serialiser        </a></li>
-			<li><a href="#3D Assets Compiler"   >3D Assets Compiler   </a></li>
-			<li><a href="#Skinned Mesh Renderer">Skinned Mesh Renderer</a></li>
-			<li><a href="#Bone Animations"      >Bone Animations      </a></li>
 			<li><a href="#Configuration Manager">Configuration Manager</a></li>
+			<li><a href="#3D Animations"        >3D Animations        </a></li>
 			<li><a href="#Prefab System"        >Prefab System        </a></li>
 		</ul>
 
@@ -98,28 +96,6 @@
 			deserialiser should have used. Originally, I was under the impression that the Serialiser and Deserialiser
 			should specify how each object should be de/serialised. This mistake however, led to a lot of circular
 			dependencies in
-		</p>
-
-		<h3 id="3D Assets Compiler">3D Assets Compiler</h3>
-
-		<p>
-			For our 3D Assets Compiler we made use of the library <a href="https://github.com/assimp/assimp">Assimp</a>
-			to do most of the heavy lifting. It was the hub for the different asset types to be converted into a single
-			assimp object which we can then use to convert into our own file format. That way, the engine did not need
-			to handle the conversion or reading of each different asset format. After creating the compiler, the editor
-			runs the compiler on the selected assets.
-		</p>
-
-		<h3 id="Skinned Mesh Renderer">Skinned Mesh Renderer</h3>
-
-		<p>
-		</p>
-
-		<h3 id="Bone Animation">Bone Animation</h3>
-
-		<p>
-			This was by far one of the most difficult part of the project that I had to deal with since it involved the
-			very thing I was bad at - math.
 		</p>
 
 		<h3 id="Configuration Manager">Configuration Manager</h3>
@@ -162,29 +138,81 @@
 			classes with syntax such as:
 		</p>
 
-		<p><code>ConfigManager::Get().GetConfig("config_name").GetField&lttype_t&gt("field_name")</code></p>
+		<code>ConfigManager::Get().GetConfig("config_name").GetField&lttype_t&gt("field_name");</code>
 
 		<p>
 			And to be safe, they would have to add many checks, such as:
 		</p>
 
-		<pre class="p">
-			<code>
-			if (ConfigManager::Get().HasConfig("config_name"))
-			{
-			    auto&& config = ConfigManager::Get().GetConfig("config_name");
-			    if (config.HasField&lttype_t&gt("field_name"))
-			    {
-			        auto&& config.GetField&lttype_t&gt("field_name");
-			    }
-			}
-			</code>
-		</pre>
+<pre class="p"><code>
+if (ConfigManager::Get().HasConfig("config_name"))
+{
+    auto&& config = ConfigManager::Get().GetConfig("config_name");
+    if (config.HasField&lttype_t&gt("field_name"))
+    {
+        auto&& config.GetField&lttype_t&gt("field_name");
+    }
+}
+</code></pre>
 
 		<p>
 			And a simple spelling mistake meant that they would not be able to detect the issue as easily as a compile
 			error would catch it (and we all know how painful it is to have to sit through a long compile time before
 			realising that there was something wrong with the code when we run it).
+		</p>
+
+		<h3 id="3D Animations">3D Animations</h3>
+
+		<p>
+			There are three parts to this task and it was one of the tasks that caused me the most infuriating griefs
+			from this project. For context, I had no experience with 3D modeling or rigging and so a lot of the
+			concepts flew over my head and I constantly misunderstood stuff, causing me to take a while to understand.
+		</p>
+
+		<h4>Asset Compiler</h4>
+
+		<p>
+			The first part was to have a way for us to load the resources that the artists have made. However, instead
+			of personally accounting and creating multiple format loaders for each file format (not to mention how
+			buggy it would be since others would know better than we do), we needed an easier, more reliable way to
+			process each asset type.
+		</p>
+
+		<p>
+			This is where the asset compiler came in. We made use of the library
+			<a href="https://github.com/assimp/assimp">Assimp</a> to do most of the heavy lifting. It was the hub for
+			the different asset types to be converted into a single assimp object which we can then use to convert into
+			our own singular file format.
+		</p>
+
+		<p>
+			This was difficult as we needed to properly understand how the nodes in Assimp worked. At times it was
+			difficult as some of the terminology overlapped with some of the commonly used 3D modeling tools such
+			as Maya. There was also an added complexity to the graphs that Assimp would build as they do not just
+			handle models, but the whole scene as well. This meant that there were more information to sift through
+			than just a skinned mesh and its animation. It included lights, entity paths, etc. and we needed a way
+			to check if a node was truly a bone, or if it was even part of a relevant animation (multiple animations
+			could exist in one scene) which is near impossible from <i>just</i> the data that Assimp provides.
+		</p>
+
+		<p>
+			This forced us to impose rules on the artists when they made their models to ensure that the compiler would
+			be able to identify the relevant informations from the files and build the animations proper. However, once
+			that was done, it made things a lot easier for us to move forward with.
+		</p>
+
+		<h4>Bone Animation</h4>
+
+		<p>
+			This was by far one of the most difficult part of the project that I had to deal with since it involved the
+			very thing I was bad at - math. It took me two weeks to implement the Bone Animations and Skinned Mesh
+			Renderer because of how long it took for me to understand the hierarchy of bones and nodes, the concept of
+			pre and post transformations.
+		</p>
+
+		<h4>Skinned Mesh Renderer</h4>
+
+		<p>
 		</p>
 
 		<h3 id="Prefab System">Prefab System</h3>
