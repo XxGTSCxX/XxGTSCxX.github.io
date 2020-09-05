@@ -116,7 +116,7 @@ function TabsOnResize()
 
         for (var j = 0; j < sidebars.length; ++j)
         {
-            if (sidebars[i].classList.contains("main"))
+            if (sidebars[j].classList.contains("main"))
             {
                 for (var k = 0; k < contents.length; ++k)
                 {
