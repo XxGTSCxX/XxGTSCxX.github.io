@@ -43,7 +43,7 @@
 
 .sidebar .tab:hover
 {
-    background-color: darkgrey;
+    background-color: lightgrey;
     color           : #111;
     transition      : 0.3s;
 }

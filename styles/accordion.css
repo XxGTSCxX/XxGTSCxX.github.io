@@ -41,3 +41,17 @@
     overflow  : hidden;
     transition: max-height 0.2s ease-out;
 }
+
+.accordion:after
+{
+    content    : '+'; /* Unicode character for "plus" sign (+) */
+    outline    : none;
+    float      : right;
+    margin-left: 5px;
+}
+
+.accordion.active:after
+{
+    content: '−'; /* Unicode character for "minus" sign (-) */
+    outline: none;
+}
