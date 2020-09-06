@@ -34,6 +34,7 @@ nav.bar .tab.active:hover
     border-top-color   : #111;
     background-color   : #F3F3F3;
     border-bottom-color: #111;
+    color              : #111;
     transition         : 0.3s;
 }
 
@@ -63,7 +64,7 @@ nav.bar .tab:hover, .droplist:hover .target
     transition         : 0.3s;
 }
 
-nav.bar .tab.active:hover, .droplist:hover
+nav.bar .droplist .tab.active:hover, .droplist:hover
 {
     border-top-color   : #111;
     background-color   : #F3F3F3;

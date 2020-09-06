@@ -8,12 +8,15 @@
 
 	<link rel="icon" href="assets/logo.png">
 
+	<!-- Required by Formatter ------------------------------------------------------------------------------>
 	<link rel="stylesheet" type="text/css" href="styles/defaults.css">
 	<link rel="stylesheet" type="text/css" href="styles/header.css"  >
 	<link rel="stylesheet" type="text/css" href="styles/formats.css" >
 	<link rel="stylesheet" type="text/css" href="styles/navbar.css"  >
 
-	<script src="scripts/navbar.js"></script>
+	<script src="scripts/navbar.js"   ></script>
+	<script src="scripts/formatter.js"></script>
+	<!-- Required by Formatter End -------------------------------------------------------------------------->
 </head>
 
 <!-- Things are only displayed from here on out -->
@@ -21,30 +24,9 @@
 
 	<!-------------------------------------------- Head of page --------------------------------------------->
 
-	<header>
-		<img class="icon" style="margin-top: 25px;" src="assets/logo.png" alt="2019 Icon">
+	<header></header>
 
-		<h1 style="margin-bottom: 0; margin-top: 0">GABRIELLE TAN SUAN CHOO</h1>
-
-		<div class="row" style="margin-top: 0; min-width: 400px; overflow: hidden">
-			<p class="column" style="text-align: right;  width: 48%; margin-top: 0">TECHNICAL UI DESIGNER</p>
-			<p class="column" style="text-align: center; width: 4% ; margin-top: 0">❖                   </p>
-			<p class="column" style="text-align: left;   width: 48%; margin-top: 0">TOOLS PROGRAMMER     </p>
-		</div>
-	</header>
-
-	<nav id="navbar" class="bar">
-		<a class="tab" href="index.html">HOME</a>
-		<div class="droplist">
-			<a class="tab target active" href="projects.html">PROJECTS</a>
-			<div class="droplist-content">
-				<a class="item" href="https://github.com/XxGTSCxX/Chilldew">Chilldew     </a>
-				<a class="item" href="project - eos.html"                  >EOS          </a>
-				<a class="item" href="project - dynamo.html"               ><b>Dynamo</b></a>
-			</div>
-		</div>
-		<a class="tab" href="resume.html">RESUME</a>
-	</nav>
+	<nav id="navbar" class="bar"></nav>
 
 	<!------------------------------------------ Head of page End ------------------------------------------->
 
@@ -237,16 +219,14 @@
 
 	<!------------------------------------------- Footer of page -------------------------------------------->
 
-	<footer>
-		<b>Email:</b> g.tan@digipen.edu ❖ <b>GitHub:</b>
-		<a style="color: #F3F3F3" href="https://github.com/XxGTSCxX">XxGTSCxX</a> ❖ <b>LinkedIn:</b>
-		<a style="color: #F3F3F3" href="https://www.linkedin.com/in/gabrielle-tan-suan-choo/">gabrielle-tan-suan-choo</a>
-	</footer>
+	<footer></footer>
 
 	<!----------------------------------------- Footer of page End ------------------------------------------>
 
 	<script>
-		window.onscroll = function() { StickyNavbarOnScroll() };
+		window.onload   = function() { LoadFormat("project", "dynamo") };
+		window.onscroll = function() { StickyNavbarOnScroll()          };
+		LoadFormat("project", "dynamo");
 	</script>
 
 </body>

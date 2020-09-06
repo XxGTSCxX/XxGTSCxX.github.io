@@ -42,6 +42,11 @@ footer
     left            : 0;
 }
 
+footer a
+{
+    color: #F3F3F3;
+}
+
 hr
 {
     color: #111;

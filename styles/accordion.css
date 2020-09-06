@@ -55,3 +55,14 @@
     content: '−'; /* Unicode character for "minus" sign (-) */
     outline: none;
 }
+
+.accordion.card
+{
+    text-align: center;
+    min-width : 500px;
+}
+
+.accordion.card img
+{
+    width: 95%;
+}

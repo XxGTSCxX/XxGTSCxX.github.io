@@ -8,47 +8,31 @@
 
 	<link rel="icon" href="assets/logo.png">
 
-	<link rel="stylesheet" type="text/css" href="styles/defaults.css" >
-	<link rel="stylesheet" type="text/css" href="styles/header.css"   >
-	<link rel="stylesheet" type="text/css" href="styles/formats.css"  >
-	<link rel="stylesheet" type="text/css" href="styles/navbar.css"   >
+	<!-- Required by Formatter ------------------------------------------------------------------------------>
+	<link rel="stylesheet" type="text/css" href="styles/defaults.css">
+	<link rel="stylesheet" type="text/css" href="styles/header.css"  >
+	<link rel="stylesheet" type="text/css" href="styles/formats.css" >
+	<link rel="stylesheet" type="text/css" href="styles/navbar.css"  >
+
+	<script src="scripts/navbar.js"   ></script>
+	<script src="scripts/formatter.js"></script>
+	<!-- Required by Formatter End -------------------------------------------------------------------------->
+
 	<link rel="stylesheet" type="text/css" href="styles/tabview.css"  >
 	<link rel="stylesheet" type="text/css" href="styles/accordion.css">
 
-	<script src="scripts/navbar.js"   ></script>
 	<script src="scripts/tabview.js"  ></script>
 	<script src="scripts/accordion.js"></script>
 </head>
 
 <!-- Things are only displayed from here on out -->
-<body onload="TabsOnResize(); AccordionInit();">
+<body>
 
 	<!-------------------------------------------- Head of page --------------------------------------------->
 
-	<header>
-		<img class="icon" style="margin-top: 25px;" src="assets/logo.png" alt="2019 Icon">
+	<header></header>
 
-		<h1 style="margin-bottom: 0; margin-top: 0">GABRIELLE TAN SUAN CHOO</h1>
-
-		<div class="row" style="margin-top: 0; min-width: 400px; overflow: hidden">
-			<p class="column" style="text-align: right;  width: 48%; margin-top: 0">TECHNICAL UI DESIGNER</p>
-			<p class="column" style="text-align: center; width: 4% ; margin-top: 0">❖                   </p>
-			<p class="column" style="text-align: left;   width: 48%; margin-top: 0">TOOLS PROGRAMMER     </p>
-		</div>
-	</header>
-
-	<nav id="navbar" class="bar">
-		<a class="tab" href="index.html">HOME</a>
-		<div class="droplist">
-			<a class="tab target active" href="projects.html">PROJECTS</a>
-			<div class="droplist-content">
-				<a class="item" href="https://github.com/XxGTSCxX/Chilldew">Chilldew</a>
-				<a class="item" href="project - eos.html"                  >EOS     </a>
-				<a class="item" href="project - dynamo.html"               >Dynamo  </a>
-			</div>
-		</div>
-		<a class="tab" href="resume.html">RESUME</a>
-	</nav>
+	<nav id="navbar" class="bar"></nav>
 
 	<!------------------------------------------ Head of page End ------------------------------------------->
 
@@ -56,92 +40,66 @@
 
 	<div class="tab-view row">
 		<div class="sidebar main">
-			<p class="tab" onclick="OpenTab(event, 'Overview'   )" id="default-tab">OVERVIEW   </p>
+			<p class="tab" onclick="OpenTab(event, 'Highlights' )" id="default-tab">HIGHLIGHTS </p>
 			<p class="tab" onclick="OpenTab(event, 'Programming')"                 >PROGRAMMING</p>
 			<p class="tab" onclick="OpenTab(event, 'Design'     )"                 >DESIGN     </p>
 		</div>
 
-		<div id="Overview" class="tab-content">
+		<div id="Highlights" class="tab-content">
 			<div class="content-block">
-				<div class="row">
-					<div class="column" style="width: 50%; min-width: 300px;">
-						<h3>Programming Experience</h3>
-		
-						<div style="text-align: left;">
-							<img src="assets/icons/VisualStudio.70x70.contrast-standard_scale-180.png" alt="Visual Studio 2019" style="height: 50px;">
-							<img src="assets/icons/Github_icon.png"                                    alt="Github"             style="height: 50px;">
-							<img src="assets/icons/OpenGL_logo_(Nov14).png"                            alt="OpenGL"             style="height: 50px;">
-						</div>
+				<p>
+					Here are my most recent and major projects that I had worked on and completed. I have write-ups written
+					for each of them that you can check out under the drop list or as listed in the description.
+				</p>
 
-						<ul>
-							<li>Proficient in C++17.                                                          </li>
-							<li>Decent in C and C#.                                                           </li>
-							<li>Experienced in coding in the Visual Studio environment.                       </li>
-							<li>Experienced in using GitHub for team integration.                             </li>
-							<li>Experienced in coding game engines.                                           </li>
-							<li>Novice in HTML, CSS, and Javascripting (I scripted this website from scratch).</li>
-						</ul>
+				<h3 class="accordion card">
+					<img src="assets/cards/eos-card.png" alt="EOS by Bonsai Tavern">
+				</h3>
 
-						<p>
-							You can check out my repositories at my <a href="https://github.com/XxGTSCxX">GitHub</a> profile.
-						</p>
+				<div class="panel">
+					<div style="text-align: center;">
+						<subtitle>Made by</subtitle><br>
+						<img src="assets/icons/bonsai_tavern-icon.png" height="200px">
 					</div>
 
-					<div class="column" style="width: 50%; min-width: 300px;">
-						<h3>Design Experience</h3>
-
-						<div style="text-align: left;">
-							<img src="assets/icons/unreal-engine-2018-08-20_06-38-51-icon.png" alt="Unreal Engine 4"   style="height: 50px;">
-							<img src="assets/icons/1200px-Unity_Technologies_logo.png"         alt="Unity"             style="height: 50px;">
-							<img src="assets/icons/1200px-Adobe_Photoshop_CC_icon.png"         alt="Adobe Photoshop"   style="height: 50px;">
-							<img src="assets/icons/1200px-Adobe_Premiere_Pro_CC_icon.png"      alt="Adobe Premier Pro" style="height: 50px;">
-							<img src="assets/icons/Mixcraft8_icon.png"                         alt="Mixcraft 8"        style="height: 50px;">
-						</div>
-		
-						<ul>
-							<li>2D game design and gamplay scripting using Unity.                            </li>
-							<li>Created functional UI prototypes using Unity.                                </li>
-							<li>3D game design and gameplay scripting using Unreal Engine.                   </li>
-							<li>Created UI assets and done photobashing for UI mockups using Adobe Photoshop.</li>
-							<li>Used Adobe Premier Pro for video editing and sound mixing.                   </li>
-							<li>Familiar with Musescore and Mixcraft for music composition.                  </li>
-							<li>Sound Design for Short Films.                                                </li>
-						</ul>
-					</div>
+					<p>
+						EOS is the game made by my team, Bonsai Tavern, for our 3rd year Digipen project. I was part of
+						the technical team and worked on the game engine. You can learn more about my contributions and
+						what I've learnt from the project in my write-up <a href="project - eos.html">here</a>.
+					</p>
 				</div>
 
-				<p>
-					As an undergraduate studying in Digipen's Computer Science and Game Design course (as of 2020),
-					a lot of projects are from my classes and the game projects I took. I have write-ups to discuss
-					the things I have done for each project as best I can since I might not be able to share all of
-					my work in full due to some restrictions.
-				</p>
+				<h3 class="accordion card">
+					<img src="assets/cards/dynamo-card.png" alt="Dynamo by Cognito">
+				</h3>
+
+				<div class="panel">
+					<div style="text-align: center;">
+						<subtitle>Made by</subtitle><br>
+						<img src="assets/icons/cognito-icon.png" height="200px">
+					</div>
+
+					<p>
+						<b><a href="https://games.digipen.edu/games/dynamo">Dynamo</a></b> is the game made by my team, Cognito
+						(yes, I suggested that just so we could say we were <i>in</i>cognito), for our 2nd year Digipen
+						project. The project spanned two trimesters and I spent the first trimester as the Graphics
+						Programmer before taking on the secondary role of a Technical UI Designer in the second
+						trimester. You can learn more about my contributions in my write-up
+						<a href="project - dynamo.html">here</a>.
+					</p>
+				</div>
 			</div>
 		</div>
 
 		<div id="Programming" class="tab-content">
 			<div class="content-block">
-				<h3>Languages</h3>
-
-				<p>
-					The languages that I'm most familiar with is C++. I'm now quite rusty on my C (more like, I can barely
-					remember the difference between C and C++) but I still have some basics left knocking around. I'm also
-					familiar with C# from some of my game projects that were using Unity.
-				</p>
-
-				<p>
-					I'm a novice when it comes to scripting in with HTML, CSS, and Javascript. This website is currently my
-					only work using those languages and I scripted this from scratch just so I can learn through <s>emotional
-					pain</s> experience and be more familiar with some of the language.
-				</p>
-
 				<p>
 					You can check out some of my repositories at my <a href="https://github.com/XxGTSCxX">GitHub</a> profile.
 				</p>
 
-				<h3>Projects</h3>
-
-				<h4 class="accordion">Chilldew</h4>
+				<h3 class="accordion card">
+					<img src="assets/cards/chilldew-repocard.png" alt="Chilldew Project">
+				</h3>
 
 				<div class="panel">
 					<p>
@@ -160,9 +118,16 @@
 					</p>
 				</div>
 
-				<h4 class="accordion">EOS</h4>
+				<h3 class="accordion card">
+					<img src="assets/cards/eos-card.png" alt="EOS by Bonsai Tavern">
+				</h3>
 
 				<div class="panel">
+					<div style="text-align: center;">
+						<subtitle>Made by</subtitle><br>
+						<img src="assets/icons/bonsai_tavern-icon.png" height="200px">
+					</div>
+
 					<p>
 						EOS is the game made by my team, Bonsai Tavern, for our 3rd year Digipen project. I was part of
 						the technical team and worked on the game engine. You can learn more about my contributions and
@@ -170,15 +135,23 @@
 					</p>
 				</div>
 
-				<h4 class="accordion">Dynamo</h4>
+				<h3 class="accordion card">
+					<img src="assets/cards/dynamo-card.png" alt="Dynamo by Cognito">
+				</h3>
 
 				<div class="panel">
+					<div style="text-align: center;">
+						<subtitle>Made by</subtitle><br>
+						<img src="assets/icons/cognito-icon.png" height="200px">
+					</div>
+
 					<p>
-						<a href="https://games.digipen.edu/games/dynamo">Dynamo</a> is the game made by my team, Cognito
+						<b><a href="https://games.digipen.edu/games/dynamo">Dynamo</a></b> is the game made by my team, Cognito
 						(yes, I suggested that just so we could say we were <i>in</i>cognito), for our 2nd year Digipen
-						project. The project spanned two trimesters and I spent the first trimester fully part of the
-						technical team before taking a secondary design role in the second trimester. You can learn more
-						about my contributions in my write-up <a href="project - dynamo.html">here</a>.
+						project. The project spanned two trimesters and I spent the first trimester as the Graphics
+						Programmer before taking on the secondary role of a Technical UI Designer in the second
+						trimester. You can learn more about my contributions in my write-up
+						<a href="project - dynamo.html">here</a>.
 					</p>
 				</div>
 			</div>
@@ -186,12 +159,47 @@
 
 		<div id="Design" class="tab-content">
 			<div class="content-block">
+				<h3>UI/UX Design</h3>
+
+				<h4 class="accordion">DES260: User Experience Design</h4>
+
+				<div class="panel">
+					<p>
+						For one of my design electives, I took the User Experience module and from there learnt about the
+						wireframes, the different levels of fidelity that they could have, mockups, and experienced what
+						it's like to quickly iterate and prototypes for these layouts using Unity. You can learn and see
+						my work in my write-up here.
+					</p>
+				</div>
+
+				<h3 class="accordion card">
+					<img src="assets/cards/dynamo-card.png" alt="Dynamo by Cognito">
+				</h3>
+
+				<div class="panel">
+					<div style="text-align: center;">
+						<subtitle>Made by</subtitle><br>
+						<img src="assets/icons/cognito-icon.png" height="200px">
+					</div>
+
+					<p>
+						<b><a href="https://games.digipen.edu/games/dynamo">Dynamo</a></b> is the game made by my team, Cognito
+						(yes, I suggested that just so we could say we were <i>in</i>cognito), for our 2nd year Digipen
+						project. The project spanned two trimesters and I spent the first trimester as the Graphics
+						Programmer before taking on the secondary role of a Technical UI Designer in the second
+						trimester. You can learn more about my contributions in my write-up
+						<a href="project - dynamo.html">here</a>.
+					</p>
+				</div>
+
+				<h3>Game Design</h3>
+
 				<p>
 					Most of my design experience is derived from my respective design projects in class. I have
 					the most experience with UI design and some experience with mechanics 
 				</p>
 
-				<h2>Design Experience</h2>
+				<h3>Sound Design</h3>
 
 				<ul>
 					<li>UI/UX Design for Games                       </li>
@@ -208,18 +216,19 @@
 
 	<!------------------------------------------- Footer of page -------------------------------------------->
 
-	<footer>
-		<b>Email:</b> g.tan@digipen.edu ❖ <b>GitHub:</b>
-		<a style="color: #F3F3F3" href="https://github.com/XxGTSCxX">XxGTSCxX</a> ❖ <b>LinkedIn:</b>
-		<a style="color: #F3F3F3" href="https://www.linkedin.com/in/gabrielle-tan-suan-choo/">gabrielle-tan-suan-choo</a>
-	</footer>
+	<footer></footer>
 
 	<!----------------------------------------- Footer of page End ------------------------------------------>
 
 	<script>
+		window.onload   = function() { LoadFormat("project", "") };
+		window.onload   = function() { TabsOnResize()            };
+		window.onscroll = function() { StickyNavbarOnScroll()    };
+		window.onresize = function() { TabsOnResize()            };
+		LoadFormat("project", "");
+		TabsOnResize();
+		AccordionInit();
 		document.getElementById("default-tab").click(); // Get the element with id="default-tab" and click on it
-		window.onscroll = function() { StickyNavbarOnScroll() };
-		window.onresize = function() { TabsOnResize()         };
 	</script>
 
 </body>
