@@ -44,14 +44,15 @@ function LoadFormat(active_tab, active_item)
         case "dynamo": dynamo_item = `<a class="item" href="project - dynamo.html"><b>Dynamo</b></a>`; break;
         }
 
-        nav.innerHTML = home_tab + `<div class="droplist">` + project_tab +
-            `
-            <div class="droplist-content">
-                <a class="item" href="https://github.com/XxGTSCxX/Chilldew">Chilldew</a>
-            ` + eos_item + dynamo_item +
-            `
-                </div>
-            </div>` + resume_tab;
+        nav.innerHTML =
+              home_tab
+            + `<div class="droplist">`
+            + project_tab
+            + `<div class="droplist-content">`
+            + eos_item
+            + dynamo_item
+            + `</div></div>`
+            + resume_tab;
     }
 
     for (var i = 0; i < footers.length; ++i)

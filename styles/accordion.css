@@ -58,11 +58,12 @@
 
 .accordion.card
 {
-    text-align: center;
+    text-align: left;
     min-width : 500px;
 }
 
 .accordion.card img
 {
-    width: 95%;
+    height: 50px;
+    /* width: 95%; */
 }

@@ -11,6 +11,37 @@
     clear  : both;
 }
 
+.center-align
+{
+    text-align: center;
+}
+
+.left-align
+{
+    text-align: left;
+}
+
+.right-align
+{
+    text-align: right;
+}
+
+img.icon.inline
+{
+    width : auto;
+    height: 50px;
+}
+
+img.medium
+{
+    width: 70%;
+}
+
+img.small
+{
+    width: 30%;
+}
+
 @media screen and (max-width: 600px)
 {
     .column
