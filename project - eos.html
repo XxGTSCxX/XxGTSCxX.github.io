@@ -46,7 +46,7 @@
 
 		<p>
 			<b>EOS</b> is a 3rd year Digipen games project made with our team's custom 3D game engine named "DarkHorse".
-			For this project, we used the C++ language and I spent the first semester as the Producer before stepping
+			For this project, we used the C++ language and I spent the first semester as the producer before stepping
 			down to fully focus on the technical aspects of the project due to our shortage on programmers. As a
 			programmer, I mainly focused on the backend programming, such as:
 		</p>
@@ -60,20 +60,88 @@
 		</ul>
 
 		<p>
-			This project was challenging in more ways than one and was a huge learning experience. For the most part
-			there were a lot of misunderstandings on what I could do or what is needed by my fellow programmers. I will
-			be discussing what I had implemented versus what I learnt from it and believe how I should have implemented
-			things instead.
+			This project was challenging in more ways than one and was a huge learning experience for the team as none
+			of us were experienced on the needs for a game production pipeline and there were a lot of times where we
+			made poor design decisions that lacked hindsight. For this write-up, I will be discussing about the mistakes
+			I made in my choices and how I rectified or learned from them.
+		</p>
+
+		<p>
+			We had a lot of issues as we were used to object-oriented programming and were trying to switch to
+			data-oriented programming. This led to a steep learning curve that a lot of misconceptions and 
 		</p>
 
 		<h3 id="Property Reflection">Property Reflection</h3>
 
 		<p>
-			For our property reflection, we utilised <a href="https://gitlab.com/LIONant/properties">Lionant's
-				Properties project</a> to implement our reflection engine. It laid out majority of the ground work and I
-			wrapped it in Reflection class such that it would readable C++ format for my fellow programmers to use. What
-			I
+			Dealing with reflection helped me appreciate the benefits that data-oriented programming brings to the table.
+			Unfortunately, while an attempt to switch to a data-oriented method was made, we were not successful at doing
+			a full switch. That actually caused us even more issues as we ended up with an engine that was trying to use
+			conflicting ideologies.
 		</p>
+
+		<p>
+			For our property reflection, we utilised <a href="https://gitlab.com/LIONant/properties">LIONant's
+				Properties project</a> to implement our reflection engine. It laid out majority of the ground work and I
+			wrapped it in Reflection class such that it would be more readable in the C++ format that my fellow
+			programmers were more familiar with.
+		</p>
+
+		<p>
+			With the reflection system, my fellow programmers were able to use the macros to reflect their components and
+			scripts. They are also able to find out the inheritance without the use of dynamic casts which can be very
+			expensive.
+		</p>
+
+		<h4>Display VS Serialised Fields</h4>
+
+		<p>
+			Some of the tags that LIONant lets you add to the variabe you're reflecting include:
+		</p>
+
+		<ul>
+			<li><code>property::flags::SHOW_READONLY</code></li>
+			<li><code>property::flags::DONTSAVE     </code></li>
+			<li><code>property::flags::DONTSHOW     </code></li>
+			<li><code>property::flags::DISABLE      </code></li>
+		</ul>
+
+		<p>
+			Unfortunately, in my naivety, I did not realise that the difference this provides is the ability for the editor
+			and serialiser to identify if the field is meant to be displayed, and/or serialised when saving it to a file, or
+			if fields are just to be displayed but not changed.
+		</p>
+
+		<p>
+			This led to a lot of unnecessary complications with our component initialisation as my fellow programmers had
+			the ability to reflect a variable via getter and setter functions. This meant that there was the potential of
+			undefined behaviour as some functions might use uninitialised variables. While we could have just removed the
+			ability for the programmer to do this, it introduced optimisation issues where additional variables might need
+			to be used instead - causing the components to be unnecessarily fattened, or the inability to track if a variable
+			is dirty or not.
+		</p>
+
+		<p>
+			Honestly, I don't think this was an issue that got resolved properly. While we had added the initialisation
+			phase to components so that the behaviour of variables that affected one another could be dealt with there, it
+			did not change the fact that reflect getters and setters could not use other variables or components to
+			initialise itself. I was just lucky enough that nobody else had reflected getter and setter functions that used
+			variables outside of the variable it was initialising so it wasn't as problematic as it could have been.
+		</p>
+
+		<h4>Reflecting Handles</h4>
+
+		<p>
+			One of the struggles of converting from object oriented programming to move more towards data oriented (we failed
+			to achieve that with our engine but an attempt was made) was to understand when the type is needed. Or, more
+			precisely, when 
+		</p>
+
+		<p>
+			To reflect handles, which are templated types, type based, we needed a w
+		</p>
+
+		<h4>Reflecting Enums</h4>
 
 		<h3 id="De/Serialiser">De/Serialiser</h3>
 
@@ -131,14 +199,14 @@
 		</p>
 
 <pre class="p"><code>
-if (ConfigManager::Get().HasConfig("config_name"))
-{
-    auto&& config = ConfigManager::Get().GetConfig("config_name");
-    if (config.HasField&lttype_t&gt("field_name"))
+    if (ConfigManager::Get().HasConfig("config_name"))
     {
-        auto&& config.GetField&lttype_t&gt("field_name");
+        auto&& config = ConfigManager::Get().GetConfig("config_name");
+        if (config.HasField&lttype_t&gt("field_name"))
+        {
+            auto&& config.GetField&lttype_t&gt("field_name");
+        }
     }
-}
 </code></pre>
 
 		<p>
