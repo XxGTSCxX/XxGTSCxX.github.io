@@ -42,7 +42,7 @@ function LoadBriefs()
             `
             <div class="panel">
                 <div class="center-align">
-                    <img class="medium" src="assets/cards/chilldew-repocard.png" alt="Chilldew Project">
+                    <img class="medium-width" src="assets/cards/chilldew-repocard.png" alt="Chilldew Project">
                 </div>
 
                 <p>
@@ -71,7 +71,7 @@ function LoadBriefs()
             `
             <div class="panel">
                 <div class="center-align">
-                    <img class="medium" src="assets/cards/eos-card.png" alt="EOS by Bonsai Tavern">
+                    <img class="medium-width" src="assets/cards/eos-card.png" alt="EOS by Bonsai Tavern">
                 </div>
 
                 <p>
@@ -92,7 +92,7 @@ function LoadBriefs()
             `
             <div class="panel">
                 <div class="center-align">
-                    <img class="medium" src="assets/cards/dynamo-card.png" alt="Dynamo by Cognito">
+                    <img class="medium-width" src="assets/cards/dynamo-card.png" alt="Dynamo by Cognito">
                 </div>
 
                 <p>

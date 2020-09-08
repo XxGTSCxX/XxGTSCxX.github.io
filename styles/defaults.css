@@ -81,6 +81,14 @@ h4
     font-size  : 24px;
 }
 
+h5
+{
+    color          : #111;
+    text-decoration: underline overline;
+    font-weight    : lighter;
+    font-size      : 22px;
+}
+
 subtitle
 {
     color     : dimgrey;
@@ -119,8 +127,7 @@ a
 
 img
 {
-    width : 100%;
-    border: 0;
+    width: 100%;
 }
 
 button

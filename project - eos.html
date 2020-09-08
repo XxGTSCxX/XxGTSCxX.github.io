@@ -18,6 +18,10 @@
 	<script src="scripts/navbar.js"   ></script>
 	<script src="scripts/formatter.js"></script>
 	<!-- Required by Formatter End -------------------------------------------------------------------------->
+
+	<link rel="stylesheet" type="text/css" href="styles/accordion.css">
+	<script src="scripts/accordion.js"></script>
+	<script src="scripts/iframe.js"   ></script>
 </head>
 
 <!-- Things are only displayed from here on out -->
@@ -57,13 +61,15 @@
 			<li><a href="#Configuration Manager">Configuration Manager</a></li>
 			<li><a href="#3D Animations"        >3D Animations        </a></li>
 			<li><a href="#Prefab System"        >Prefab System        </a></li>
+			<li><a href="#MISC"                 >Miscellaneous        </a></li>
 		</ul>
 
 		<p>
 			This project was challenging in more ways than one and was a huge learning experience for the team as none
 			of us were experienced on the needs for a game production pipeline and there were a lot of times where we
 			made poor design decisions that lacked hindsight. For this write-up, I will be discussing about the mistakes
-			I made in my choices and how I rectified or learned from them.
+			I made in my choices and how I rectified or learned from them. Due to Digipen's rules and regulation, we
+			aren't allowed share our repositiories so I'll do my best share relavent bits in code snippets.
 		</p>
 
 		<p>
@@ -88,167 +94,145 @@
 			expensive.
 		</p>
 
-		<h4>Display VS Serialised Fields</h4>
+		<h4 class="accordion">Display VS Serialised Fields</h4>
 
-		<p>
-			Some of the tags that LIONant lets you add to the variabe you're reflecting include:
-		</p>
+		<div class="panel">
+			<p>
+				Some of the tags that LIONant lets you add to the variabe you're reflecting include:
+			</p>
 
-		<ul>
-			<li><code>property::flags::SHOW_READONLY</code></li>
-			<li><code>property::flags::DONTSAVE     </code></li>
-			<li><code>property::flags::DONTSHOW     </code></li>
-			<li><code>property::flags::DISABLE      </code></li>
-		</ul>
+			<ul>
+				<li><code>property::flags::SHOW_READONLY</code></li>
+				<li><code>property::flags::DONTSAVE     </code></li>
+				<li><code>property::flags::DONTSHOW     </code></li>
+				<li><code>property::flags::DISABLE      </code></li>
+			</ul>
 
-		<p>
-			Unfortunately, in my naivety, I did not realise that the difference this provides is the ability for the editor
-			and serialiser to identify if the field is meant to be displayed, and/or serialised when saving it to a file, or
-			if fields are just to be displayed but not changed.
-		</p>
+			<p>
+				Unfortunately, in my naivety, I did not realise that the difference this provides is the ability for the editor
+				and serialiser to identify if the field is meant to be displayed, and/or serialised when saving it to a file, or
+				if fields are just to be displayed but not changed.
+			</p>
 
-		<p>
-			This led to a lot of unnecessary complications with our component initialisation as my fellow programmers had
-			the ability to reflect a variable via getter and setter functions. This meant that there was the potential of
-			undefined behaviour as some functions might use uninitialised variables. While we could have just removed the
-			ability for the programmer to do this, it introduced optimisation issues where additional variables might need
-			to be used instead - causing the components to be unnecessarily fattened, or the inability to track if a variable
-			is dirty or not.
-		</p>
+			<p>
+				This led to a lot of unnecessary complications with our component initialisation as my fellow programmers had
+				the ability to reflect a variable via getter and setter functions. This meant that there was the potential of
+				undefined behaviour as some functions might use uninitialised variables. While we could have just removed the
+				ability for the programmer to do this, it introduced optimisation issues where additional variables might need
+				to be used instead - causing the components to be unnecessarily fattened, or the inability to track if a variable
+				is dirty or not.
+			</p>
 
-		<p>
-			Honestly, I don't think this was an issue that got resolved properly. While we had added an initialisation
-			phase to components so that the behaviour of the variables that affected one another could be dealt with there,
-			it did not change the fact that reflect getters and setters could not use other variables or components to
-			initialise itself. I was just lucky enough that nobody else had reflected getter and setter functions that used
-			variables outside of the variable it was initialising so it wasn't as problematic as it could have been.
-		</p>
+			<p>
+				Honestly, I don't think this was an issue that got resolved properly. While we had added an initialisation
+				phase to components so that the behaviour of the variables that affected one another could be dealt with there,
+				it did not change the fact that reflect getters and setters could not use other variables or components to
+				initialise itself. I was just lucky enough that nobody else had reflected getter and setter functions that used
+				variables outside of the variable it was initialising so it wasn't as problematic as it could have been.
+			</p>
+		</div>
 
-		<h4 id="Reflecting Handles">Reflecting Handles</h4>
+		<h4 id="Reflecting Handles" class="accordion">Reflecting Handles</h4>
 
-		<p>
-			The purpose of handles are serialisable references to objects.
-			(<a href="http://gamesfromwithin.com/managing-data-relationships">here</a>'s an article discussing its use and why
-			we should use them). We use them to reference components, entities and resources. To serialise these objects without
-			causing circular dependencies, we created handle bases which we reflect and have the actual handles inherit from
-			them for the engine to know what types of object they reference to.
-		</p>
+		<div class="panel">
+			<p>
+				The purpose of handles are serialisable references to objects.
+				(<a href="http://gamesfromwithin.com/managing-data-relationships">here</a>'s an article discussing its use and why
+				we should use them). We use them to reference components, entities and resources. To serialise these objects without
+				causing circular dependencies, we created handle bases which we reflect and have the actual handles inherit from
+				them for the engine to know what types of object they reference to.
+			</p>
 
-		<p>
-			Here's a rough example of the interface and implementation (NOTE: It's not the exact implementation we went with):
-		</p>
+			<p>
+				Here's a rough example of the interface and implementation (NOTE: It's not the exact implementation we went with):
+			</p>
 
-<pre><code>
-struct HandleBase
-{
-    constexpr HandleBase(UID const& uid = nulluid, Type::ID const& type_id = Type::INVALID_ID) noexcept
-    : m_id{ uid }, m_type{ type_id }
-    {}
+			<div class="row">
+				<div class="column" style="width: 50.91%">
+					<img src="assets/EOS/examples - handle_base.PNG" alt="HandleBase Example">
+				</div>
 
-    /* m_type is only available via a getter to maintain type safety */
-    constexpr Type::ID GetType() const noexcept
-    {
-        return m_type;
-    }
+				<div class="column" style="width: 49.09%">
+					<img src="assets/EOS/examples - handle.PNG" alt="Handle Example">
+				</div>
+			</div>
 
-    UID m_id = nulluid;
+			<p>
+				<code>m_type</code> does not need to be serialised as the object itself would always know what is its own type.
+				It's there for the engine/editor to know what's the type of the handle without manually accounting for every case
+				while also allowing the users to do casting without the need to do a dynamic cast. How this is accomplished is
+				through a type manager of sorts (in this case, denoted by <code>Type</code>) that has registered a type identifier
+				for each type:
+			</p>
 
-protected:
+			<div class="center-align">
+				<img class="medium-width" src="assets/EOS/examples - handle_typecast.PNG" alt="Casting with Handles">
+			</div>
 
-    Type::ID m_type = Type::INVALID_ID;
-};
-</code></pre>
+			<p>
+				However, early on, I did not understand this, and we tried our best to brute force our way to reflect components and
+				entity handles. This caused us to be unable to reflect entities and components using the reflection engine as it
+				caused a circular dependency. Which in turn caused us to manually define how to reflect our scenes.
+			</p>
 
-<pre><code>
-template &lttypename object_t&gt
-struct Handle : public HandleBase
-{
-    constexpr Handle(UID const& uid = nulluid) noexcept
-    : HandleBase{ uid, Type::GetID&ltobject_t&gt() }
-    {}
+			<p>
+				By the time I had realised the way handles should have been reflected, we were only able to salvage the resource
+				handles as things were too inter-mingled on the entity and component handle side. It would have taken me a while to
+				implement the refactor (with legacy loading support) and it was unfortunately time that I could not afford. Of
+				course, this causes a lot of problems down the road which I will discuss in my Prefabs and De/serialiser sections.
+			</p>
+		</div>
 
-    object_t* operator->() const noexcept
-    {
-        return HandleManager::Get().GetObject&ltobject_t&gt(m_id);
-    }
+		<h4 class="accordion">Reflecting Enums</h4>
 
-    object_t& operator*() const
-    {
-        return *operator->();
-    }
+		<div class="panel">
+			<p>
+				The reflection of enums was something that I implemented much later down the road, but at this point, I had a better
+				understanding on how we should utilise base classes and how reflection should work so it was easier to implement. The
+				things that were implemented:
+			</p>
 
-    /* More stuff for safe casting and comparison operation (can be outside of class too) */
-};
-</code></pre>
+			<ul>
+				<li><code>EnumBase                        </code></li>
+				<li><code>ReflectedEnumDetails&lttype_t&gt</code></li>
+				<li><code>EnumDetails                     </code></li>
+			</ul>
 
-		<p>
-			<code>m_type</code> does not need to be serialised as the object itself would always know what is its own type.
-			It's there for the engine/editor to know what's the type of the
-			handle without using dynamic cast. How this is accomplished is via the <code>Type</code> class as they could do:
-		</p>
+			<p>
+				As mentioned in the <b>Reflecting Handles</b> section, when attempting to reflect a
+				templated class, it is best to create a base class that the template inherits from and reflect the base class instead.
+				This base class is the <code>EnumBase</code>. However, as inheritance is not possible for enums, this enum base acts
+				like more of a proxy.
+			</p>
 
-<pre><code>
-if (handle_obj.m_type == Type::GetID&lttype_t&gt())
-{
-    Handle&lttype_t&gt casted_handle = static_cast&ltHandle&lttype_t&gt&gt(handle_obj);
-    /* Do your thing here */
-}
-</code></pre>
+			<p>
+				As the enum is also meant to be displayed and serialised as its string counter part, we also needed a means for the
+				users to convert back and forth between its name and its value. This is where the
+				<code>ReflectedEnumDetails&lttype_t&gt</code> comes in. It is used to store the map of enum names to their values.
+			</p>
 
-		<p>
-			However, early on, I did not understand this, and we tried our best to brute force our way to reflect components and
-			entity handles. This caused us to be unable to reflect entities and components using the reflection engine as it
-			caused a circular dependency. Which in turn caused us to manually define how to reflect our scenes.
-		</p>
+			<p>
+				However, <code>ReflectedEnumDetails&lttype_t&gt</code> is a templated class, and if the users already knew which enum
+				type they were dealing with, they would use the type directly. What we created the
+				<code>ReflectedEnumDetails&lttype_t&gt</code> for is to enable the <code>EnumBase</code>, who would not know the C++
+				type of the enum to do a type cast (unless you manually handle each case to do a cast - but the whole point is to
+				automate this, am I right?), to be able to access their respective maps of values without doing an actual type cast.
+			</p>
 
-		<p>
-			By the time I had realised the way handles should have been reflected, we were only able to salvage the resource
-			handles as things were too inter-mingled on the entity and component handle side. It would have taken me a while to
-			implement the refactor (with legacy loading support) and it was unfortunately time that I could not afford. Of
-			course, this causes a lot of problems down the road which I will discuss in my Prefabs and De/serialiser sections.
-		</p>
+			<p>
+				This is where <code>EnumDetails</code> come in. This is the non-templated version of
+				<code>ReflectedEnumDetails&lttype_t&gt</code> that stores the function pointers to the functions used to convert the
+				strings to the values and vice versa. This object is created and stored into the Reflection system upon application
+				instantiation via our <code>DH_REFLECT_ENUM</code> macro which anyone can use to get their information from.
+			</p>
 
-		<h4>Reflecting Enums</h4>
+			<div class="center-align">
+				<img class="medium-width" src="assets/EOS/examples - reflect_enum.PNG" alt="Example of enum reflection"        >
+				<img class="small-width"  src="assets/EOS/examples - enum_fields.PNG"  alt="How the editor display enum fields">
+			</div>
 
-		<p>
-			The reflection of enums was something that I implemented much later down the road, but at this point, I had a better
-			understanding on how we should utilise base classes and how reflection should work so it was easier to implement. The
-			things that were implemented:
-		</p>
-
-		<ul>
-			<li><code>EnumBase                        </code></li>
-			<li><code>ReflectedEnumDetails&lttype_t&gt</code></li>
-			<li><code>EnumDetails                     </code></li>
-		</ul>
-
-		<p>
-			As mentioned in the <a href="#Reflecting Handles">Reflecting Handles</a> section, when attempting to reflect a
-			templated class, it is best to create a base class that the template inherits from and reflect the base class instead.
-			This base class is the <code>EnumBase</code>. However, as inheritance is not possible for enums, this enum base acts
-			like more of a proxy.
-		</p>
-
-		<p>
-			As the enum is also meant to be displayed and serialised as its string counter part, we also needed a means for the
-			users to convert back and forth between its name and its value. This is where the
-			<code>ReflectedEnumDetails&lttype_t&gt</code> comes in. It is used to store the map of enum names to their values.
-		</p>
-
-		<p>
-			However, <code>ReflectedEnumDetails&lttype_t&gt</code> is a templated class, and if the users already knew which enum
-			type they were dealing with, they would use the type directly. What we created the
-			<code>ReflectedEnumDetails&lttype_t&gt</code> for is to enable the <code>EnumBase</code>, who would not know the C++ type
-			of the enum to do a type cast (unless you manually handle each case to do a cast - but the whole point is to automate
-			this, am I right?), to be able to access their respective maps of values without doing an actual type cast.
-		</p>
-
-		<p>
-			This is where <code>EnumDetails</code> come in. This is the non-templated version of
-			<code>ReflectedEnumDetails&lttype_t&gt</code> that stores the function pointers to the functions used to convert the
-			strings to the values and vice versa. This object is created and stored into the Reflection system upon application
-			instantiation via our <code>DH_REFLECT_ENUM</code> macro which anyone can use to get their information from.
-		</p>
+			<p class="center-align"><i>Example use of enum reflection.</i></p>
+		</div>
 
 		<h3 id="De/Serialiser">De/Serialiser</h3>
 
@@ -299,22 +283,17 @@ if (handle_obj.m_type == Type::GetID&lttype_t&gt())
 			classes with syntax such as:
 		</p>
 
-		<code>ConfigManager::Get().GetConfig("config_name").GetField&lttype_t&gt("field_name");</code>
+		<div class="center-align">
+			<img class="medium-width" src="assets/EOS/examples - configmanager_syntax.PNG" alt="ConfigManager Syntax">
+		</div>
 
 		<p>
 			And to be safe, they would have to add many checks, such as:
 		</p>
 
-<pre class="p"><code>
-if (ConfigManager::Get().HasConfig("config_name"))
-{
-    auto&& config = ConfigManager::Get().GetConfig("config_name");
-    if (config.HasField&lttype_t&gt("field_name"))
-    {
-        auto&& config.GetField&lttype_t&gt("field_name");
-    }
-}
-</code></pre>
+		<div class="center-align">
+			<img class="medium-width" src="assets/EOS/examples - configmanager_usecase.PNG" alt="Example use of ConfigManager">
+		</div>
 
 		<p>
 			And a simple spelling mistake meant that they would not be able to detect the issue as easily as a compile
@@ -330,57 +309,168 @@ if (ConfigManager::Get().HasConfig("config_name"))
 			concepts flew over my head and I constantly misunderstood stuff, causing me to take a while to understand.
 		</p>
 
-		<h4>Asset Compiler</h4>
+		<h4 class="accordion">Asset Compiler</h4>
 
-		<p>
-			The first part was to have a way for us to load the resources that the artists have made. However, instead
-			of personally accounting and creating multiple format loaders for each file format (not to mention how
-			buggy it would be since others would know better than we do), we needed an easier, more reliable way to
-			process each asset type.
-		</p>
+		<div class="panel">
+			<p>
+				The first part was to have a way for us to load the resources that the artists have made. However, instead
+				of personally accounting and creating multiple format loaders for each file format (not to mention how
+				buggy it would be since others would know better than we do), we needed an easier, more reliable way to
+				process each asset type.
+			</p>
 
-		<p>
-			This is where the asset compiler came in. We made use of the library
-			<a href="https://github.com/assimp/assimp">Assimp</a> to do most of the heavy lifting. It was the hub for
-			the different asset types to be converted into a single assimp object which we can then use to convert into
-			our own singular file format.
-		</p>
+			<p>
+				This is where the asset compiler came in. We made use of the library
+				<a href="https://github.com/assimp/assimp">Assimp</a> to do most of the heavy lifting. It was the hub for
+				the different asset types to be converted into a single assimp object which we can then use to convert into
+				our own singular file format.
+			</p>
 
-		<p>
-			This was difficult as we needed to properly understand how the nodes in Assimp worked. At times it was
-			difficult as some of the terminology overlapped with some of the commonly used 3D modeling tools such
-			as Maya. There was also an added complexity to the graphs that Assimp would build as they do not just
-			handle models, but the whole scene as well. This meant that there were more information to sift through
-			than just a skinned mesh and its animation. It included lights, entity paths, etc. and we needed a way
-			to check if a node was truly a bone, or if it was even part of a relevant animation (multiple animations
-			could exist in one scene) which is near impossible from <i>just</i> the data that Assimp provides.
-		</p>
+			<p>
+				This was difficult as we needed to properly understand how the nodes in Assimp worked. At times it was
+				difficult as some of the terminology overlapped with some of the commonly used 3D modeling tools such
+				as Maya. There was also an added complexity to the graphs that Assimp would build as they do not just
+				handle models, but the whole scene as well. This meant that there were more information to sift through
+				than just a skinned mesh and its animation. It included lights, entity paths, etc. and we needed a way
+				to check if a node was truly a bone, or if it was even part of a relevant animation (multiple animations
+				could exist in one scene) which is near impossible from <i>just</i> the data that Assimp provides.
+			</p>
 
-		<p>
-			This forced us to impose rules on the artists when they made their models to ensure that the compiler would
-			be able to identify the relevant informations from the files and build the animations proper. However, once
-			that was done, it made things a lot easier for us to move forward with.
-		</p>
+			<p>
+				This forced us to impose rules on the artists when they made their models to ensure that the compiler would
+				be able to identify the relevant informations from the files and build the animations proper. However, once
+				that was done, it made things a lot easier for us to move forward with.
+			</p>
+		</div>
 
-		<h4>Bone Animation</h4>
+		<h4 class="accordion">Bone Animation</h4>
 
-		<p>
-			This was by far one of the most difficult part of the project that I had to deal with since it involved the
-			very thing I was bad at - math. It took me two weeks to implement the Bone Animations and Skinned Mesh
-			Renderer because of how long it took for me to understand the hierarchy of bones and nodes, the concept of
-			pre and post transformations.
-		</p>
+		<div class="panel">
+			<p>
+				This was by far one of the most difficult part of the project that I had to deal with since it involved the
+				very thing I was bad at - math. It took me two weeks to implement the Bone Animations and Skinned Mesh
+				Renderer because of how long it took for me to understand the hierarchy of bones and nodes, the concept of
+				pre and post transformations.
+			</p>
+		</div>
 
-		<h4>Skinned Mesh Renderer</h4>
+		<h4 class="accordion">Skinned Mesh Renderer</h4>
 
-		<p>
-		</p>
+		<div class="panel">
+			<p>
+			</p>
+		</div>
 
 		<h3 id="Prefab System">Prefab System</h3>
 
 		<p>
 			
 		</p>
+
+		<h3 id="MISC">Miscellaneous</h3>
+
+		<p>
+			This section is for other miscellaneous things that I had contributed to the team that is not exactly
+			deserving of a full chapter to itself, but are still things that I have either learnt from, or is a
+			little interesting (well, at least to me).
+		</p>
+
+		<h4 class="accordion">Singleton</h4>
+
+		<div class="panel">
+			<p>
+				While I understand that there are some debates on the use of singletons (lord knows how many
+				times I've had this conversation with my brother), I do believe that there is a time and a place
+				for them, and knowing when to use them comes with experience.
+			</p>
+
+			<p>
+				So here's a comparison on the implementation of the general Singleton class I had created from the
+				beginning compared to where I stand on it now.
+			</p>
+
+			<div class="row">
+
+				<div class="column" style="width: 50%">
+					<h5>BEFORE</h5>
+					<img src="assets/EOS/examples - singleton_old.PNG" alt="Singleton - Before">
+				</div>
+
+				<div class="column" style="width: 50%">
+					<h5>AFTER</h5>
+					<img src="assets/EOS/examples - singleton_new.PNG" alt="Singleton - After">
+				</div>
+			</div>
+
+			<p>
+				As you could probably tell, I fell for the mistake of having the object be a static variable. This
+				meant that we no longer had the control of when the object is instantiated or destroyed, causing
+				cases where an undefined behaviour could occur.
+			</p>
+
+			<p>
+				The second version gave the user the ability to not only control when the object is instantiated,
+				but the ability to check if an instance exists before using it. Meaning that there was more control
+				and less undefined behaviour.
+			</p>
+		</div>
+
+		<h4 class="accordion">Flags</code></h4>
+
+		<div class="panel">
+			<p>
+				Frankly speaking, I made this back in the <a href="project - dynamo.html">Dynamo project</a> but at
+				the time, nobody aside from me used it (;_;) and there were some things that I did not handle properly.
+				So, for this project, I ported it, fixed it up, and then a teammate realised its existance and so it started
+				getting used by people other than me (thanks Chris ;_;).</iframe>
+			</p>
+
+			<p>
+				So, what's this? Basically it's like <code>std::bitset</code> but for enums and enum classes.
+			</p>
+
+			<p>
+				Enums are useful for defining a group of flags that you might have for a specific use case so that
+				people know what flags are relavent to their variable. However, while enums afford you the convinience
+				of performing bitwise operations on the values without the hassle of casting to the underlying type or
+				defining the bitwise operators for every enum class you have, it loses the type safety that enum
+				classes provide (which is why enum classes are generally more preferred over enums). On the otherhand,
+				enum classes give you type safety in exchange for the inconvenience.
+			</p>
+
+			<p>
+				Also, in general, manually doing the bitwise operations to turn a flag on or off can also be an easy
+				way to introduce bugs into your program (it's easy for you or your friends to, in your sleep deprived
+				3AM state, do <code>flag_obj &= FLAG</code> in an attempt to turn your flag off instead of
+				<code>flag_obj &= ~FLAG</code> <s>*cough*Imightbespeakingfromexperience*cough*</s>).
+			</p>
+
+			<p>
+				What the <code>Flags</code> class does, is allow you to use enum classes for type safety but remove the
+				inconvenience by handling all the bitwise operator definitions, and provide a proper interface for the
+				user to turn their flags on or off, or check if their flags are on or off.
+			</p>
+
+			<p>
+				So instead of doing <code>flag_obj &= ~FLAG</code>, you have more readability with
+				<code>flag_obj.Off(FLAG)</code>.
+			</p>
+
+			<p>
+				Putting the implementation in the <code>Flags</code> class also allows us to ensure that the enum defines
+				an all-flags-on value. This helps facilitates us to check if all flags of a specific value is on or off
+				when dealing with multiple flag checks.
+			</p>
+
+			<p>
+				You can check out my improved implementation in my Chilldew project here:
+			</p>
+
+			<ul>
+				<li><a href="https://raw.githubusercontent.com/XxGTSCxX/Chilldew/master/Utility/source/Utility/cdu_flag.h"  >Header File</a></li>
+				<li><a href="https://raw.githubusercontent.com/XxGTSCxX/Chilldew/master/Utility/source/Utility/cdu_flag.inl">Inline File</a></li>
+			</ul>
+		</div>
 	</section>
 
 	<!------------------------------------------- Footer of page -------------------------------------------->
@@ -391,8 +481,12 @@ if (ConfigManager::Get().HasConfig("config_name"))
 
 	<script>
 		window.onload   = function() { LoadFormat("project", "eos") };
+		window.onload   = function() { ResizeIFrames()              };
 		window.onscroll = function() { StickyNavbarOnScroll()       };
+		window.onresize = function() { ResizeIFrames()              };
 		LoadFormat("project", "eos");
+		AccordionInit();
+		ResizeIFrames();
 	</script>
 
 </body>
