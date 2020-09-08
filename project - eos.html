@@ -68,17 +68,12 @@
 
 		<p>
 			We had a lot of issues as we were used to object-oriented programming and were trying to switch to
-			data-oriented programming. This led to a steep learning curve that a lot of misconceptions and 
+			data-oriented programming. Unfortunately, while the attempt was made, we were not successful at doing a full
+			switch. This incomplete implementation actually caused caused us even more issues as we ended up with an
+			engine that was trying to use conflicting ideologies.
 		</p>
 
 		<h3 id="Property Reflection">Property Reflection</h3>
-
-		<p>
-			Dealing with reflection helped me appreciate the benefits that data-oriented programming brings to the table.
-			Unfortunately, while an attempt to switch to a data-oriented method was made, we were not successful at doing
-			a full switch. That actually caused us even more issues as we ended up with an engine that was trying to use
-			conflicting ideologies.
-		</p>
 
 		<p>
 			For our property reflection, we utilised <a href="https://gitlab.com/LIONant/properties">LIONant's
@@ -122,26 +117,138 @@
 		</p>
 
 		<p>
-			Honestly, I don't think this was an issue that got resolved properly. While we had added the initialisation
-			phase to components so that the behaviour of variables that affected one another could be dealt with there, it
-			did not change the fact that reflect getters and setters could not use other variables or components to
+			Honestly, I don't think this was an issue that got resolved properly. While we had added an initialisation
+			phase to components so that the behaviour of the variables that affected one another could be dealt with there,
+			it did not change the fact that reflect getters and setters could not use other variables or components to
 			initialise itself. I was just lucky enough that nobody else had reflected getter and setter functions that used
 			variables outside of the variable it was initialising so it wasn't as problematic as it could have been.
 		</p>
 
-		<h4>Reflecting Handles</h4>
+		<h4 id="Reflecting Handles">Reflecting Handles</h4>
 
 		<p>
-			One of the struggles of converting from object oriented programming to move more towards data oriented (we failed
-			to achieve that with our engine but an attempt was made) was to understand when the type is needed. Or, more
-			precisely, when 
+			The purpose of handles are serialisable references to objects.
+			(<a href="http://gamesfromwithin.com/managing-data-relationships">here</a>'s an article discussing its use and why
+			we should use them). We use them to reference components, entities and resources. To serialise these objects without
+			causing circular dependencies, we created handle bases which we reflect and have the actual handles inherit from
+			them for the engine to know what types of object they reference to.
 		</p>
 
 		<p>
-			To reflect handles, which are templated types, type based, we needed a w
+			Here's a rough example of the interface and implementation (NOTE: It's not the exact implementation we went with):
+		</p>
+
+<pre><code>
+struct HandleBase
+{
+    constexpr HandleBase(UID const& uid = nulluid, Type::ID const& type_id = Type::INVALID_ID) noexcept
+    : m_id{ uid }, m_type{ type_id }
+    {}
+
+    /* m_type is only available via a getter to maintain type safety */
+    constexpr Type::ID GetType() const noexcept
+    {
+        return m_type;
+    }
+
+    UID m_id = nulluid;
+
+protected:
+
+    Type::ID m_type = Type::INVALID_ID;
+};
+</code></pre>
+
+<pre><code>
+template &lttypename object_t&gt
+struct Handle : public HandleBase
+{
+    constexpr Handle(UID const& uid = nulluid) noexcept
+    : HandleBase{ uid, Type::GetID&ltobject_t&gt() }
+    {}
+
+    object_t* operator->() const noexcept
+    {
+        return HandleManager::Get().GetObject&ltobject_t&gt(m_id);
+    }
+
+    object_t& operator*() const
+    {
+        return *operator->();
+    }
+
+    /* More stuff for safe casting and comparison operation (can be outside of class too) */
+};
+</code></pre>
+
+		<p>
+			<code>m_type</code> does not need to be serialised as the object itself would always know what is its own type.
+			It's there for the engine/editor to know what's the type of the
+			handle without using dynamic cast. How this is accomplished is via the <code>Type</code> class as they could do:
+		</p>
+
+<pre><code>
+if (handle_obj.m_type == Type::GetID&lttype_t&gt())
+{
+    Handle&lttype_t&gt casted_handle = static_cast&ltHandle&lttype_t&gt&gt(handle_obj);
+    /* Do your thing here */
+}
+</code></pre>
+
+		<p>
+			However, early on, I did not understand this, and we tried our best to brute force our way to reflect components and
+			entity handles. This caused us to be unable to reflect entities and components using the reflection engine as it
+			caused a circular dependency. Which in turn caused us to manually define how to reflect our scenes.
+		</p>
+
+		<p>
+			By the time I had realised the way handles should have been reflected, we were only able to salvage the resource
+			handles as things were too inter-mingled on the entity and component handle side. It would have taken me a while to
+			implement the refactor (with legacy loading support) and it was unfortunately time that I could not afford. Of
+			course, this causes a lot of problems down the road which I will discuss in my Prefabs and De/serialiser sections.
 		</p>
 
 		<h4>Reflecting Enums</h4>
+
+		<p>
+			The reflection of enums was something that I implemented much later down the road, but at this point, I had a better
+			understanding on how we should utilise base classes and how reflection should work so it was easier to implement. The
+			things that were implemented:
+		</p>
+
+		<ul>
+			<li><code>EnumBase                        </code></li>
+			<li><code>ReflectedEnumDetails&lttype_t&gt</code></li>
+			<li><code>EnumDetails                     </code></li>
+		</ul>
+
+		<p>
+			As mentioned in the <a href="#Reflecting Handles">Reflecting Handles</a> section, when attempting to reflect a
+			templated class, it is best to create a base class that the template inherits from and reflect the base class instead.
+			This base class is the <code>EnumBase</code>. However, as inheritance is not possible for enums, this enum base acts
+			like more of a proxy.
+		</p>
+
+		<p>
+			As the enum is also meant to be displayed and serialised as its string counter part, we also needed a means for the
+			users to convert back and forth between its name and its value. This is where the
+			<code>ReflectedEnumDetails&lttype_t&gt</code> comes in. It is used to store the map of enum names to their values.
+		</p>
+
+		<p>
+			However, <code>ReflectedEnumDetails&lttype_t&gt</code> is a templated class, and if the users already knew which enum
+			type they were dealing with, they would use the type directly. What we created the
+			<code>ReflectedEnumDetails&lttype_t&gt</code> for is to enable the <code>EnumBase</code>, who would not know the C++ type
+			of the enum to do a type cast (unless you manually handle each case to do a cast - but the whole point is to automate
+			this, am I right?), to be able to access their respective maps of values without doing an actual type cast.
+		</p>
+
+		<p>
+			This is where <code>EnumDetails</code> come in. This is the non-templated version of
+			<code>ReflectedEnumDetails&lttype_t&gt</code> that stores the function pointers to the functions used to convert the
+			strings to the values and vice versa. This object is created and stored into the Reflection system upon application
+			instantiation via our <code>DH_REFLECT_ENUM</code> macro which anyone can use to get their information from.
+		</p>
 
 		<h3 id="De/Serialiser">De/Serialiser</h3>
 
@@ -199,14 +306,14 @@
 		</p>
 
 <pre class="p"><code>
-    if (ConfigManager::Get().HasConfig("config_name"))
+if (ConfigManager::Get().HasConfig("config_name"))
+{
+    auto&& config = ConfigManager::Get().GetConfig("config_name");
+    if (config.HasField&lttype_t&gt("field_name"))
     {
-        auto&& config = ConfigManager::Get().GetConfig("config_name");
-        if (config.HasField&lttype_t&gt("field_name"))
-        {
-            auto&& config.GetField&lttype_t&gt("field_name");
-        }
+        auto&& config.GetField&lttype_t&gt("field_name");
     }
+}
 </code></pre>
 
 		<p>
