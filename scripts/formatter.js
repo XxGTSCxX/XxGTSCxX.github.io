@@ -4,8 +4,6 @@ function LoadFormat(active_tab, active_item)
     var footers = document.getElementsByTagName("footer");
     var nav     = document.getElementById      ("navbar");
 
-    console.log(headers.length + `,` + footers.length);
-
     for (var i = 0; i < headers.length; ++i)
     {
         headers[i].innerHTML =

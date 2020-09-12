@@ -40,25 +40,29 @@ function LoadBriefs()
 
         chilldew_briefs[i].innerHTML +=
             `
-            <div class="panel">
-                <div class="center-align">
-                    <img class="medium-width" src="assets/cards/chilldew-repocard.png" alt="Chilldew Project">
+            <div class="panel row">
+                <div class="column" style="width: 50%">
+                    <img src="assets/cards/chilldew-repocard.png" alt="Chilldew Project">
                 </div>
 
-                <p>
-                    The <a href="https://github.com/XxGTSCxX/Chilldew">Chilldew project</a> is a personal game engine and
-                    editor project that I'm currently working on. It is the cumulation of all the things I have learnt in my
-                    time at Digipen and the project I use to test any programming concepts that I am curious about, such as
-                    data oriented programming.
-                </p>
+                <div class="column" style="width: 50%">
+                    <tag class="programming">Engine Programmer</tag>
 
-                <p>
-                    I'm currently also looking into <a href="https://travis-ci.org/">Travis-CI</a> as a start to continuous
-                    integration and deployment. I'm hoping to implement that into my Chilldew project once I have a better
-                    understanding on how to set it up. I'm currently using a
-                    <a href="https://github.com/XxGTSCxX/travis-ci-cpp-example">forked project</a> to better understand the
-                    tool.
-                </p>
+                    <p>
+                        The <a href="https://github.com/XxGTSCxX/Chilldew">Chilldew project</a> is a personal game engine and
+                        editor project that I'm currently working on. It is the cumulation of all the things I have learnt in my
+                        time at Digipen and the project I use to test any programming concepts that I am curious about, such as
+                        data oriented programming.
+                    </p>
+
+                    <p>
+                        I'm currently also looking into <a href="https://travis-ci.org/">Travis-CI</a> as a start to continuous
+                        integration and deployment. I'm hoping to implement that into my Chilldew project once I have a better
+                        understanding on how to set it up. I'm currently using a
+                        <a href="https://github.com/XxGTSCxX/travis-ci-cpp-example">forked project</a> to better understand the
+                        tool.
+                    </p>
+                </div>
             </div>
             `;
     }
@@ -69,17 +73,33 @@ function LoadBriefs()
 
         eos_briefs[i].innerHTML +=
             `
-            <div class="panel">
-                <div class="center-align">
-                    <img class="medium-width" src="assets/cards/eos-card.png" alt="EOS by Bonsai Tavern">
+            <div class="panel row">
+                <div class="column" style="width: 50%">
+                    <img src="assets/cards/eos-card.png" alt="EOS by Bonsai Tavern">
                 </div>
 
-                <p>
-                    EOS is the game made by an 11 person team, Bonsai Tavern, for our 3rd year Digipen games project. I was
-                    the producer for the first semester before stepping down to fully focus on my technical responsibilities
-                    in the second semester. You can learn more about my contributions and what I've learnt from the project
-                    in my write-up <a href="project - eos.html">here</a>.
-                </p>
+                <div class="column" style="width: 50%">
+                    <tag class="leadership">Producer</tag> <tag class="programming">Back-end Programmer</tag>
+
+                    <p>
+                        EOS is a 3D puzzle game made by an 11 person team, Bonsai Tavern, for our 3rd year Digipen games project.
+                        I was the producer for the first semester before stepping down to fully focus on my technical
+                        responsibilities in the second semester. Some of the things I've implemented include:
+                    </p>
+
+                    <ul>
+                        <li>Property Reflection  </li>
+                        <li>De/Serialiser        </li>
+                        <li>Configuration Manager</li>
+                        <li>3D Animations        </li>
+                        <li>Prefab System        </li>
+                    </ul>
+
+                    <p>
+                        You can learn more about my contributions and what I've learnt from the project
+                        in my write-up <a href="project - eos.html">here</a>.
+                    </p>
+                </div>
             </div>
             `;
     }
@@ -90,18 +110,36 @@ function LoadBriefs()
 
         dynamo_briefs[i].innerHTML +=
             `
-            <div class="panel">
-                <div class="center-align">
-                    <img class="medium-width" src="assets/cards/dynamo-card.png" alt="Dynamo by Cognito">
+            <div class="panel row">
+                <div class="column" style="width: 50%">
+                    <img src="assets/cards/dynamo-card.png" alt="Dynamo by Cognito">
                 </div>
 
-                <p>
-                    <b><a href="https://games.digipen.edu/games/dynamo">Dynamo</a></b> is the game made by a 7 person team,
-                    Cognito (yes, I suggested that just so we could say we were <i>in</i>cognito), for our 2nd year Digipen
-                    games project. The project spanned two trimesters and I spent the first trimester as the Graphics
-                    Programmer before taking on the secondary role of a Technical UI Designer in the second trimester. You
-                    can learn more about my contributions in my write-up <a href="project - dynamo.html">here</a>.
-                </p>
+                <div class="column" style="width: 50%">
+                    <tag class="programming">Graphics Programmer</tag> <tag class="design">Technical UI Designer</tag>
+
+                    <p>
+                        <b><a href="https://games.digipen.edu/games/dynamo">Dynamo</a></b> is a 2D platformer game made by a 7
+                        person team, Cognito (yes, I suggested that just so we could say we were <i>in</i>cognito), for our 2nd
+                        year Digipen games project. The project spanned two trimesters and I spent the first trimester as the
+                        Graphics Programmer before taking on the secondary role of a Technical UI Designer in the second trimester.
+                        Some of the things I've implemented include:
+                    </p>
+
+                    <ul>
+                        <li>2D Graphics System (OpenGL API)          </li>
+                        <li>Texture Loader                           </li>
+                        <li>Font Loading & Atlas Generation          </li>
+                        <li>Colour Blending                          </li>
+                        <li>UI Tools (canvas, textbox, anchors, etc.)</li>
+                        <li>In-Game UI Design & Implementation       </li>
+                        <li>Some UI Art Assets                       </li>
+                    </ul>
+
+                    <p>
+                        You can learn more about my contributions in my write-up <a href="project - dynamo.html">here</a>.
+                    </p>
+                </div>
             </div>
             `;
     }
@@ -112,33 +150,69 @@ function LoadBriefs()
 
         des260_briefs[i].innerHTML +=
             `
-            <div class="panel">
-                <p class="center-align"><i>Write-up is still a work in progress.</i></p>
+            <div class="panel row">
+                <div class="column" style="width: 50%">
+                    <img src="assets/cards/des260-card.png" alt="Chain of Jewels">
+                </div>
 
-                <p>
-                    For one of my design electives, I took the User Experience module and from there learnt about the
-                    wireframes, the different levels of fidelity that they could have, mockups, and experienced what
-                    it's like to quickly iterate and prototypes for these layouts using Unity. You can learn and see
-                    my work in my write-up here.
-                </p>
+                <div class="column" style="width: 50%">
+                    <tag class="design">UI/UX Designer</tag>
+
+                    <p>
+                        For one of my design electives, I took the User Experience module and from there learnt the basics
+                        in UI/UX Design, including different fidelities of wireframes, basic colour theory, spacing and
+                        alignment, etc. And for our final project, we get to design and implement a prototype for a hypothetical
+                        game, Chain of Jewels. I had the opportunity to try my hand on implementing things like:
+                    </p>
+
+                    <ul>
+                        <li>Mid-Fidelity Wireframes       </li>
+                        <li>Photobashing Mockups          </li>
+                        <li>Prototyping Layouts with Unity</li>
+                    </ul>
+
+                    <p>
+                        <i>Write-up is still a work in progress. I will be sharing some examples of the things I've
+                        implemented in the write-up I make.</i>
+                    </p>
+                </div>
             </div>
             `;
     }
 
     for (var i = 0; i < gat316_briefs.length; ++i)
     {
-        LoadHeader(gat316_briefs[i], `GAT316: 3D Game Design II (2020)`);
+        LoadHeader(gat316_briefs[i], `The World of Secret Singapore (2020)`);
 
         gat316_briefs[i].innerHTML +=
             `
-            <div class="panel">
-                <p class="center-align"><i>Write-up is still a work in progress.</i></p>
+            <div class="panel row">
+                <div class="column" style="width: 50%">
+                    <img src="assets/cards/gat316-card.png" alt="The World of Secret Singapore">
+                </div>
 
-                <p>
-                    For this module, we formed 4 person teams and were tasked to design a 3D open world game. From this,
-                    I was exposed the some of the design considerations needed compared to linear games.
-                    <!--You can learn and see my work in my write-up here.-->
-                </p>
+                <div class="column" style="width: 50%">
+                    <tag class="programming">Systems Designer</tag> <tag class="design">Level Designer</tag> <tag class="design">Material Shader</tag>
+
+                    <p>
+                        For our GAT316 module, 3D Game Design II, we formed 4 person teams and were tasked to design a 3D
+                        open world game using Unreal Engine 4. From this, I was exposed the some of the design considerations
+                        needed compared to linear games and the importance of quality over quantity. Some of the things I
+                        implemented include:
+                    </p>
+
+                    <ul>
+                        <li>Metric Gym                      </li>
+                        <li>Material Shaders for UI Feedback</li>
+                        <li>Level Design                    </li>
+                        <li>Quest Design                    </li>
+                    </ul>
+
+                    <p>
+                        <i>Write-up is still a work in progress. I will be sharing some examples of the things I've
+                        implemented in the write-up I make.</i>
+                    </p>
+                </div>
             </div>
             `;
     }
@@ -149,54 +223,100 @@ function LoadBriefs()
 
         gat315_briefs[i].innerHTML +=
             `
-            <div class="panel">
-                <p class="center-align"><i>Write-up is still a work in progress.</i></p>
+            <div class="panel row">
+                <div class="column center-align" style="width: 50%">
+                    <img class="medium-width" src="assets/cards/gat315-card.jpg" alt="Unreal Tornement">
+                </div>
 
-                <p>
-                    For this module, we formed pair teams and were tasked to design a 3D multi-player game using Unreal
-                    Tornament. From this, I was exposed the some of the design considerations when it came to multiplayer
-                    games.
-                    <!--You can learn and see my work in my write-up here.-->
-                </p>
+                <div class="column" style="width: 50%">
+                    <tag class="design">Level Designer</tag>
+
+                    <p>
+                        For this module, we formed pair teams and were tasked to design a 3D multi-player game using Unreal
+                        Tornament. For this project, we could fully focus on the level design and maximising player engagement
+                        with pre-established mechanics. I was also exposed the some of the design considerations when it came
+                        to multiplayer games.
+                    </p>
+
+                    <p>
+                        <i>Write-up is still a work in progress. I will be sharing some examples of the things I've
+                        implemented in the write-up I make.</i>
+                    </p>
+                </div>
             </div>
             `;
     }
 
     for (var i = 0; i < gat251_briefs.length; ++i)
     {
-        LoadHeader(gat251_briefs[i], `GAT251: 2D Game Design II (2019)`);
+        LoadHeader(gat251_briefs[i], `Beyond (2019)`);
 
         gat251_briefs[i].innerHTML +=
             `
-            <div class="panel">
-                <p class="center-align"><i>Write-up is still a work in progress.</i></p>
+            <div class="panel row">
+                <div class="column" style="width: 50%">
+                    <img src="assets/cards/beyond-card.png" alt="Beyond">
+                </div>
 
-                <p>
-                    For this module, as misleading as the name is, we were tasked to design a 3D game of our own choosing.
-                    The module taught us how to create a fantasy for player immersion and how to utilise design techniques
-                    to capture and guide the player's attention as they progress in the game. It acted as my proper
-                    introduction into 3D game design.
-                    <!--You can learn and see my work in my write-up here.-->
-                </p>
+                <div class="column" style="width: 50%">
+                    <tag class="design">Game Designer</tag> <tag class="design">Level Designer</tag> <tag class="design">UI Designer</tag>
+
+                    <p>
+                        For my GAM251 module, 2D Game Design II, as misleading as the name is, we were tasked to design a 3D
+                        game of our own choosing. The module taught us how to create a fantasy for player immersion and how to
+                        utilise design techniques to capture and guide the player's attention as they progress in the game. It
+                        acted as my proper introduction into 3D game design. For this project, I used Unreal Engine to create
+                        my game, and I was able to dabble into:
+                    </p>
+
+                    <ul>
+                        <li>Game Design  </li>
+                        <li>Level Design </li>
+                        <li>System Design</li>
+                        <li>UI Design    </li>
+                    </ul>
+    
+                    <p>
+                        <i>Write-up is still a work in progress. I will be sharing some examples of the things I've
+                        implemented in the write-up I make.</i>
+                    </p>
+                </div>
             </div>
             `;
     }
 
     for (var i = 0; i < eng230_briefs.length; ++i)
     {
-        LoadHeader(eng230_briefs[i], `ENG230: Speculative Fiction (2020)`);
+        LoadHeader(eng230_briefs[i], `The Interview (2020)`);
 
         eng230_briefs[i].innerHTML +=
             `
-            <div class="panel">
-                <p class="center-align"><i>Write-up is still a work in progress.</i></p>
+            <div class="panel row">
+                <div class="column center-align" style="width: 50%">
+                    <img class="medium-width" src="assets/cards/eng230-card.png" alt="The Interview">
+                </div>
 
-                <p>
-                    For this elective, our final project was to produce a Horror short film in a 5 person team. For this
-                    project, I took on the role of a producer which allowed me to dabble into everything. I also worked
-                    on the sound design, mixing, and editing and so will be discussing more on that.
-                    <!--You can learn and see my work in my write-up here.-->
-                </p>
+                <div class="column" style="width: 50%">
+                    <tag class="leadership">Director</tag> <tag class="design">Screenplay Writer</tag> <tag class="design">Storyboarder</tag> <tag class="design">Sound Designer</tag> <tag class="design">Video Editor</tag>
+
+                    <p>
+                        For my English elective on Speculative Fiction, our final project was to produce a Horror short film in
+                        a 5 person team. For this project, I took on the role of the Director which allowed me to dabble into
+                        everything. For this film, I contributed via:
+                    </p>
+
+                    <ul>
+                        <li>Screenplay Writing</li>
+                        <li>Storyboarding     </li>
+                        <li>Sound Design      </li>
+                        <li>Video Editing     </li>
+                    </ul>
+
+                    <p>
+                        <i>Write-up is still a work in progress. I will be sharing some examples of the things I've
+                        implemented in the write-up I make.</i>
+                    </p>
+                </div>
             </div>
             `;
     }

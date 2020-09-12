@@ -130,6 +130,30 @@ img
     width: 100%;
 }
 
+tag
+{
+    padding      : 10px 16px;
+    border-radius: 5px 10px;
+}
+
+tag.leadership
+{
+    background-color: orange;
+    color           : #111;
+}
+
+tag.design
+{
+    background-color: lightskyblue;
+    color           : #111;
+}
+
+tag.programming
+{
+    background-color: green;
+    color           : #F3F3F3;
+}
+
 button
 {
     background-color: darkgrey;
