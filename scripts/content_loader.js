@@ -327,14 +327,30 @@ function LoadBriefs()
 
         mus115_briefs[i].innerHTML +=
             `
-            <div class="panel">
-                <p class="center-align"><i>Write-up is still a work in progress.</i></p>
+            <div class="panel row">
+                <div class="column center-align" style="width: 50%">
+                    <iframe width="70%" height="250px" src="assets/mus115/Mus115_g.tan_wk05_movie.mp4" alt="Take a Breather"></iframe>
+                </div>
 
-                <p>
-                    For this elective, I was taught the basics of sound design and music composition. I was also given
-                    the opportunity to try my hands on both through the various assignments and projects we had there.
-                    <!--You can learn and see my work in my write-up here.-->
-                </p>
+                <div class="column" style="width: 50%">
+                    <tag class="design">Sound Design</tag> <tag class="design">Music Composition</tag>
+
+                    <p>
+                        For this elective, I was taught the basics of sound design and music composition. I was also given
+                        the opportunity to try my hands on both through the various assignments and projects we had there.
+                    </p>
+
+                    <p>
+                        The example on the left is from an assignment where we compose a loopable BGM for an existing game.
+                        This meant that the music should not be tiresome to listen to for extended periods of time and should
+                        be fitting for the game.
+                    </p>
+
+                    <p>
+                        <i>Write-up is still a work in progress. I will be sharing some examples of the things I've
+                        implemented in the write-up I make.</i>
+                    </p>
+                </div>
             </div>
             `;
     }
