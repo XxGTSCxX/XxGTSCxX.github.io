@@ -256,7 +256,25 @@
 			One of the things that took me a really long time to understand was the "automation" of the serialiser and
 			deserialiser should have used. Originally, I was under the impression that the Serialiser and Deserialiser
 			should specify how each object should be de/serialised. This mistake however, led to a lot of circular
-			dependencies in
+			dependencies in the headers especially when templated types were concerned.
+		</p>
+
+		<p>
+			The reason the type needed to be known instead of keeping the reflection purely data based was because of how
+			the editor needed a way to know if the object or field in question was of a specific type in order to handle
+			its display differently. For example, component handles will grab its list of handles (to display its droplist)
+			from a different place as resource handles.
+		</p>
+
+		<p>
+			So, to fix the circular dependency issue, we ended up having rules where each uniquely serialisable object has
+			to define how they want to be serialised. From there, the de/serialiser simply ensured that the serialisation
+			format was consistent across all files.
+		</p>
+
+		<p>
+			However, upon reflection (haha, see what I did there?), I realised that what would have been ideal, was a way
+			for the type of the object to be identifiable and 
 		</p>
 
 		<h3 id="Configuration Manager">Configuration Manager</h3>
@@ -325,6 +343,27 @@
 			concepts flew over my head and I constantly misunderstood stuff, causing me to take a while to understand.
 		</p>
 
+		<p>
+			As I only had one week to implement these features, it was a rather stressful week and as I researched more
+			into the topic, I quickly realised the impracticality of implementing everything in a week. With the help of
+			a few friends, I quickly realised that it was faster to establish the pipeline first and only account for
+			the parts absolutely necessary for the engine to read and render the models.
+		</p>
+
+		<p>
+			So, firstly, I discussed with the artists to find out what software they use, and what files they can output.
+			Then, I find out what shaders and effects are supported by the engine. From there, I streamline the process
+			to transfer only the necessary information. If there are any parts of the process that is more trouble than
+			it is worth to handle (edge cases and the such) then I would create steps or workflow restrictions to help
+			the artists ensure they do not include more things than necessary in their files, or that they all follow
+			guidlines that makes my life easier.
+		</p>
+
+		<p>
+			While I ultimately took 2 weeks to complete the task, it was still more feasible then the time it would have
+			taken to ensure that I handle all of the cases properly.
+		</p>
+
 		<h4 class="accordion">Asset Compiler</h4>
 
 		<div class="panel">
@@ -374,6 +413,7 @@
 
 		<div class="panel">
 			<p>
+
 			</p>
 		</div>
 
@@ -390,6 +430,32 @@
 			deserving of a full chapter to itself, but are still things that I have either learnt from, or is a
 			little interesting (well, at least to me).
 		</p>
+
+		<h4 class="accordion">Type</h4>
+
+		<div class="panel">
+			<p>
+				The <code>Type</code> class is used to mimic the <code>std::is_base_of</code> and <code>dynamic_cast</code>
+				functionality without the need to use the actual C++ type. If an object tracks it's own registered object ID,
+				they can see if the object is a child of a specific type so long as the hierarchy is registered appropriately.
+				same functionality as <code>typeid(type_t).hashcode()</code> and <code>typeid(type_t).name()</code>. Ideally,
+				it was meant to guarentee consistency across builds unlike typeid which did not have such assurance, and it
+				was also meant to be constexpr to reduce the memory and loading costs, but at the time of developing DarkHorse,
+				I was unable to figure out how to do so.
+			</p>
+
+			<p>
+				I eventually figured it out for my personal project and so you can refer to my new 
+				<a href="https://github.com/XxGTSCxX/Chilldew/blob/master/Utility/source/Utility/cdu_type.h">implementation</a>
+				in my <a href="https://github.com/XxGTSCxX/Chilldew">Chilldew project</a>.
+			</p>
+
+			<p>
+				In the new implementation, I was able to figure out how to make the functions constexpr and have more guarenteed
+				consistency in the generation of the type identifier so that it is the same across builds and runs to help
+				facilitate the de/serialisation and reflection system.
+			</p>
+		</div>
 
 		<h4 class="accordion">Singleton</h4>
 

@@ -26,6 +26,11 @@
     text-align: right;
 }
 
+.half-width
+{
+    width: 50%;
+}
+
 img.icon.inline
 {
     width : auto;
