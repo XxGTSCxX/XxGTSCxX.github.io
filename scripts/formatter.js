@@ -1,8 +1,9 @@
 function LoadFormat(active_tab, active_item)
 {
-    var headers = document.getElementsByTagName("header");
-    var footers = document.getElementsByTagName("footer");
-    var nav     = document.getElementById      ("navbar");
+    var headers = document.getElementsByTagName  ("header");
+    var footers = document.getElementsByTagName  ("footer");
+    var nav     = document.getElementById        ("navbar");
+    var videos  = document.getElementsByClassName("video" );
 
     for (var i = 0; i < headers.length; ++i)
     {
@@ -18,6 +19,16 @@ function LoadFormat(active_tab, active_item)
                 <p class="column" style="text-align: left;   width: 48%; margin-top: 0">TOOLS PROGRAMMER     </p>
             </div>
             `;
+    }
+
+    for (var i = 0; i < videos.length; ++i)
+    {
+        console.log("Before: ", videos[i], videos[i].offsetWidth);
+
+        var height = videos[i].offsetWidth * (9.0 / 16.0);
+        videos[i].style.height = height + "px";
+
+        console.log("After:", videos[i]);
     }
 
     if (nav)

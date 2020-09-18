@@ -20,8 +20,9 @@
 	<!-- Required by Formatter End -------------------------------------------------------------------------->
 
 	<link rel="stylesheet" type="text/css" href="styles/accordion.css">
-	<script src="scripts/accordion.js"></script>
-	<script src="scripts/iframe.js"   ></script>
+	<script src="scripts/accordion.js"      ></script>
+	<script src="scripts/iframe.js"         ></script>
+	<script src="scripts/video_formatter.js"></script>
 </head>
 
 <!-- Things are only displayed from here on out -->
@@ -40,12 +41,23 @@
 
 		<hr>
 
-		<div style="text-align: center;">
-			<iframe width="100%" height="607.5" src="https://www.youtube.com/embed/wH1Y8KvImdE" frameborder="0"
-				allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-				allowfullscreen></iframe>
-			<subtitle style="font-size: 110%"><br>The game is still pending review and so its link will be updated
-				accordingly once it's available.</subtitle>
+		<div class="video" style="text-align: center;">
+			<iframe
+				width       = "100%"
+				height      = "100%"
+				src         = "https://www.youtube.com/embed/wH1Y8KvImdE"
+				frameborder = "0"
+				allow       = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+				allowfullscreen
+			>
+			</iframe>
+		</div>
+
+		<div class="center-align">
+			<subtitle style="font-size: 110%">
+				<br>
+				The game is still pending review and so its link will be updated accordingly once it's available.
+			</subtitle>
 		</div>
 
 		<h2>About the Game</h2>
@@ -272,11 +284,6 @@
 			format was consistent across all files.
 		</p>
 
-		<p>
-			However, upon reflection (haha, see what I did there?), I realised that what would have been ideal, was a way
-			for the type of the object to be identifiable and 
-		</p>
-
 		<h3 id="Configuration Manager">Configuration Manager</h3>
 
 		<p>
@@ -407,20 +414,59 @@
 				Renderer because of how long it took for me to understand the hierarchy of bones and nodes, the concept of
 				pre and post transformations.
 			</p>
+
+			<p>
+				It required a lot of research and studying of the available
+				<a href="http://ogldev.org/www/tutorial38/tutorial38.html">tutorials</a> and documentations not only online,
+				but offline with the help of my peers and lectures who were more knowledgable on the topic.
+			</p>
 		</div>
 
 		<h4 class="accordion">Skinned Mesh Renderer</h4>
 
 		<div class="panel">
 			<p>
-
+				For the Skinned Mesh Renderer, I implemented the vertex shader and liased with the team's graphics programmer
+				to incorperate the renderer to the graphics system as they were using differred shading, a new technique that
+				I was not familiar with. I also referenced Unity for how they handle their skinned mesh renderers to know
+				better what kind of features would be expected from it.
 			</p>
 		</div>
 
 		<h3 id="Prefab System">Prefab System</h3>
 
 		<p>
-			
+			One method of implementing the prefab system is to create entities within the scene that act as the prefab entity
+			and simply have the other entities reference the prefab ID to know which prefabs they belong to. That way, when
+			the prefab entity is modified, they can find all entities in the scene to update them (only if the modified
+			field was not overriden).
+		</p>
+
+		<p>
+			However, this implementation of the prefab system was more difficult due to the poor design choices that we made
+			prior with regards to how the components and entities are implemented. Since it was not fully powered by the
+			reflection system (at the time, the reflection system was not fully developed) and not purely data driven, we
+			could not just use the entity and component classes to create prefabs.
+		</p>
+
+		<p>
+			For context, our entity classes had a reference to the scene it belongs to so as to grab other relevant data from
+			said scene, and our components hold a reference to its owning entity. This meant that for a component to exist,
+			it needed an entity, and for an entity to exist, it needed a scene. Coupled with the fact that we did not have the
+			ability to reference objects in other scenes since the handles were only unique within the scene, it meant that we
+			were unable to create and edit entities and just treat a scene as a prefab scene to edit from.
+		</p>
+
+		<p>
+			To solve this, we ended up creating proxies to act as the go between so that the prefabs are treated as resources
+			instead. The prefabs have events for each component and fields so that when they are modified, they can invoke all
+			the registered listeners to tell them to update their fields accordingly. The entities then register themselves to
+			the respective prefab resources at the their creation.
+		</p>
+
+		<p>
+			The entities also have their own list of overriden fields so when a field is modified, it is marked as overriden
+			so when the prefabs are modified, the fields that have been registered as overriden will ignore the update event.
 		</p>
 
 		<h3 id="MISC">Miscellaneous</h3>
