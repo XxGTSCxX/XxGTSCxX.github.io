@@ -329,7 +329,9 @@ function LoadBriefs()
             `
             <div class="panel row">
                 <div class="column center-align" style="width: 50%">
-                    <iframe width="70%" height="250px" src="assets/mus115/Mus115_g.tan_wk05_movie.mp4" alt="Take a Breather"></iframe>
+                    <video width="90%" controls>
+                        <source src="assets/mus115/Mus115_g.tan_wk05_movie.mp4" type="video/mp4">
+                    </video>
                 </div>
 
                 <div class="column" style="width: 50%">
@@ -342,7 +344,7 @@ function LoadBriefs()
 
                     <p>
                         The example on the left is from an assignment where we compose a loopable BGM for an existing game.
-                        This meant that the music should not be tiresome to listen to for extended periods of time and should
+                        This meant that the music should not be tiresome to listen for extended periods of time and should
                         be fitting for the game.
                     </p>
 
