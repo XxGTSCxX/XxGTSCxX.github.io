@@ -13,11 +13,9 @@ function LoadFormat(active_tab, active_item)
 
             <h1 style="margin-bottom: 0; margin-top: 0">GABRIELLE TAN SUAN CHOO</h1>
 
-            <div class="row" style="margin-top: 0; min-width: 400px; overflow: hidden">
-                <p class="column" style="text-align: right;  width: 48%; margin-top: 0">TECHNICAL UI DESIGNER</p>
-                <p class="column" style="text-align: center; width: 4% ; margin-top: 0">❖                   </p>
-                <p class="column" style="text-align: left;   width: 48%; margin-top: 0">TOOLS PROGRAMMER     </p>
-            </div>
+            <p class="center-align" style="margin-top: 0;">
+                TECHNICAL DESIGNER
+            </p>
             `;
     }
 
