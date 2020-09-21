@@ -1,9 +1,10 @@
 function ResizeIFrames()
 {
-    // var iframes = document.querySelectorAll("iframe");
+    var videos = document.getElementsByClassName("video" );
 
-    // for (var i = 0; i < iframes.length; ++i)
-    // {
-    //     iframes[i].height = iframes[i].contentWindow.document.body.scrollHeight + "px";
-    // }
+    for (var i = 0; i < videos.length; ++i)
+    {
+        var height = videos[i].offsetWidth * (9.0 / 16.0);
+        videos[i].style.height = height + "px";
+    }
 }

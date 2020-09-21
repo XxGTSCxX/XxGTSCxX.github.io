@@ -41,16 +41,18 @@
 
 		<hr>
 
-		<div class="video" style="text-align: center;">
-			<iframe
-				width       = "100%"
-				height      = "100%"
-				src         = "https://www.youtube.com/embed/wH1Y8KvImdE"
-				frameborder = "0"
-				allow       = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-				allowfullscreen
-			>
-			</iframe>
+		<div class="center-align">
+			<div class="video" style="margin: 0 auto; width: 70%;">
+				<iframe
+					width       = "100%"
+					height      = "100%"
+					src         = "https://www.youtube.com/embed/wH1Y8KvImdE"
+					frameborder = "0"
+					allow       = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen
+				>
+				</iframe>
+			</div>
 		</div>
 
 		<div class="center-align">
@@ -611,10 +613,10 @@
 		window.onload   = function() { LoadFormat("project", "eos") };
 		window.onload   = function() { ResizeIFrames()              };
 		window.onscroll = function() { StickyNavbarOnScroll()       };
-		window.onresize = function() { ResizeIFrames()              };
+		window.onresize = function() { OnVideoResize()              };
 		LoadFormat("project", "eos");
 		AccordionInit();
-		ResizeIFrames();
+		OnVideoResize();
 	</script>
 
 </body>
