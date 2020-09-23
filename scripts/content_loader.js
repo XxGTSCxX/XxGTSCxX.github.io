@@ -82,9 +82,10 @@ function LoadBriefs()
                     <tag class="leadership">Producer</tag> <tag class="programming">Back-end Programmer</tag>
 
                     <p>
-                        EOS is a 3D puzzle game made by an 11 person team, Bonsai Tavern, for our 3rd year Digipen games project.
-                        I was the producer for the first semester before stepping down to fully focus on my technical
-                        responsibilities in the second semester. Some of the things I've implemented include:
+                        <a href="https://games.digipen.edu/games/eos"><b>EOS</b></a> is a 3D puzzle game made by an
+                        11 person team, Bonsai Tavern, for our 3rd year Digipen games project. I was the producer
+                        for the first semester before stepping down to fully focus on my technical responsibilities
+                        in the second semester. Some of the things I've implemented include:
                     </p>
 
                     <ul>
