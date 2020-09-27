@@ -152,8 +152,10 @@ function LoadBriefs()
         des260_briefs[i].innerHTML +=
             `
             <div class="panel row">
-                <div class="column" style="width: 50%">
-                    <img src="assets/cards/des260-card.png" alt="Chain of Jewels">
+                <div class="column center-align" style="width: 50%">
+                    <video width="90%" controls>
+                        <source src="assets/DES260/DES260 - Showcase.mp4" type="video/mp4">
+                    </video>
                 </div>
 
                 <div class="column" style="width: 50%">
