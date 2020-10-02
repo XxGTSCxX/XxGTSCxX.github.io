@@ -104,13 +104,14 @@
 	<!----------------------------------------- Footer of page End ------------------------------------------>
 
 	<script>
-		window.onload   = function() { LoadFormat("project", "") };
-		window.onload   = function() { TabsOnResize()            };
-		window.onscroll = function() { StickyNavbarOnScroll()    };
-		window.onresize = function() { TabsOnResize()            };
+		window.onload   = function() { LoadFormat("project", "");       };
+		window.onload   = function() { TabsOnResize();                  };
+		window.onscroll = function() { StickyNavbarOnScroll();          };
+		window.onresize = function() { TabsOnResize(); OnVideoResize(); };
 		LoadFormat("project", "");
 		LoadBriefs();
 		TabsOnResize();
+		OnVideoResize();
 		AccordionInit();
 		document.getElementById("default-tab").click(); // Get the element with id="default-tab" and click on it
 	</script>

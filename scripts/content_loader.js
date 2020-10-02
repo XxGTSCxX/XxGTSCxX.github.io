@@ -75,7 +75,17 @@ function LoadBriefs()
             `
             <div class="panel row">
                 <div class="column" style="width: 50%">
-                    <img src="assets/cards/eos-card.png" alt="EOS by Bonsai Tavern">
+                    <div class="video" style="margin: 0 auto; width: 90%;">
+                        <iframe
+                            width       = "100%"
+                            height      = "100%"
+                            src         = "https://www.youtube.com/embed/wH1Y8KvImdE"
+                            frameborder = "0"
+                            allow       = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                        >
+                        </iframe>
+                    </div>
                 </div>
 
                 <div class="column" style="width: 50%">
@@ -113,7 +123,17 @@ function LoadBriefs()
             `
             <div class="panel row">
                 <div class="column" style="width: 50%">
-                    <img src="assets/cards/dynamo-card.png" alt="Dynamo by Cognito">
+                    <div class="video" style="margin: 0 auto; width: 90%;">
+                        <iframe
+                            width       = "100%"
+                            height      = "100%"
+                            src         = "https://www.youtube.com/embed/ISIfHRSWuRQ"
+                            frameborder = "0"
+                            allow       = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;"
+                            allowfullscreen
+                        >
+                        </iframe>
+                    </div>
                 </div>
 
                 <div class="column" style="width: 50%">
