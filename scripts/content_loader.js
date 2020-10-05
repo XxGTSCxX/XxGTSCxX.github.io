@@ -352,9 +352,11 @@ function LoadBriefs()
             `
             <div class="panel row">
                 <div class="column center-align" style="width: 50%">
-                    <video width="90%" controls>
-                        <source src="assets/mus115/Mus115_g.tan_wk05_movie.mp4" type="video/mp4">
-                    </video>
+                    <div class="video" style="margin: 0 auto; width: 90%;">
+                        <video width="100%" height="100%" controls>
+                            <source src="assets/mus115/Mus115_g.tan_wk05_movie.mp4" type="video/mp4">
+                        </video>
+                    </div>
                 </div>
 
                 <div class="column" style="width: 50%">
