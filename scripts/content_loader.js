@@ -285,11 +285,11 @@ function LoadBriefs()
                     <tag class="design">Game Designer</tag> <tag class="design">Level Designer</tag> <tag class="design">UI Designer</tag>
 
                     <p>
-                        For my GAM251 module, 2D Game Design II, as misleading as the name is, we were tasked to design a 3D
-                        game of our own choosing. The module taught us how to create a fantasy for player immersion and how to
-                        utilise design techniques to capture and guide the player's attention as they progress in the game. It
-                        acted as my proper introduction into 3D game design. For this project, I used Unreal Engine to create
-                        my game, and I was able to dabble into:
+                        For my 2D Game Design II module, as misleading as the name is, we were tasked to design a 3D game of
+                        our own choosing. The module taught us how to create a fantasy for player immersion and how to utilise
+                        design techniques to capture and guide the player's attention as they progress in the game. It acted as
+                        my proper introduction into 3D game design. For this project, I used Unreal Engine to create my game,
+                        and I was able to dabble into:
                     </p>
 
                     <ul>
