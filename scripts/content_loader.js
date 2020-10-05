@@ -358,7 +358,7 @@ function LoadBriefs()
                 <div class="column center-align" style="width: 50%">
                     <div class="video" style="margin: 0 auto; width: 90%;">
                         <video width="100%" height="100%" controls>
-                            <source src="assets/mus115/Mus115_g.tan_wk05_movie.mp4" type="video/mp4">
+                            <source src="assets/mus115/MUS115_CompositionCollection.mp4" type="video/mp4">
                         </video>
                     </div>
                 </div>
@@ -369,12 +369,7 @@ function LoadBriefs()
                     <p>
                         For this elective, I was taught the basics of sound design and music composition. I was also given
                         the opportunity to try my hands on both through the various assignments and projects we had there.
-                    </p>
-
-                    <p>
-                        The example on the left is from an assignment where we compose a loopable BGM for an existing game.
-                        This meant that the music should not be tiresome to listen for extended periods of time and should
-                        be fitting for the game.
+                        The preview shows a collection of decent compositions I have made for this module.
                     </p>
 
                     <p>
