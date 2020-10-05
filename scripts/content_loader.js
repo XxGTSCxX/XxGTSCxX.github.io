@@ -316,7 +316,11 @@ function LoadBriefs()
             `
             <div class="panel row">
                 <div class="column center-align" style="width: 50%">
-                    <img class="medium-width" src="assets/cards/eng230-card.png" alt="The Interview">
+                    <div class="video" style="margin: 0 auto; width: 90%;">
+                        <video width="100%" height="100%" controls>
+                            <source src="assets/eng230/Not an Acronym The Interview E230 SHORT FINAL - smaller.mp4" type="video/mp4">
+                        </video>
+                    </div>
                 </div>
 
                 <div class="column" style="width: 50%">

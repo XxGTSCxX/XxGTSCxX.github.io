@@ -104,11 +104,12 @@
 	<!----------------------------------------- Footer of page End ------------------------------------------>
 
 	<script>
-		window.onload   = function() { LoadFormat("project", "");       };
-		window.onload   = function() { TabsOnResize();                  };
-		window.onscroll = function() { StickyNavbarOnScroll();          };
-		window.onresize = function() { TabsOnResize(); OnVideoResize(); };
-		LoadFormat("project", "");
+		var active_item = "highlight";
+
+		window.onload   = function() { LoadFormat("project", ""); TabsOnResize(); };
+		window.onscroll = function() { StickyNavbarOnScroll();                    };
+		window.onresize = function() { TabsOnResize(); OnVideoResize();           };
+		LoadFormat("project", active_item);
 		LoadBriefs();
 		TabsOnResize();
 		OnVideoResize();
