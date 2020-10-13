@@ -8,15 +8,15 @@
 
 	<link rel="icon" href="assets/logo.png">
 
-	<!-- Required by Formatter ------------------------------------------------------------------------------>
+	<!-- Required for Layout ------------------------------------------------------------------------------>
 	<link rel="stylesheet" type="text/css" href="styles/defaults.css">
 	<link rel="stylesheet" type="text/css" href="styles/header.css"  >
 	<link rel="stylesheet" type="text/css" href="styles/formats.css" >
 	<link rel="stylesheet" type="text/css" href="styles/navbar.css"  >
 
-	<script src="scripts/navbar.js"   ></script>
-	<script src="scripts/formatter.js"></script>
-	<!-- Required by Formatter End -------------------------------------------------------------------------->
+	<script src="scripts/navbar.js"        ></script>
+	<script src="scripts/content_loader.js"></script>
+	<!-- Required for Layout End -------------------------------------------------------------------------->
 
 	<link rel="stylesheet" type="text/css" href="styles/fixedview.css">
 
@@ -45,12 +45,16 @@
 	<!----------------------------------------- Footer of page End ------------------------------------------>
 
 	<script>
-		window.onload   = function() { LoadFormat("resume", "") };
-		window.onload   = function() { ViewOnResize()           };
-		window.onscroll = function() { StickyNavbarOnScroll()   };
-		window.onresize = function() { ViewOnResize()           };
-		LoadFormat("resume", "");
-		ViewOnResize();
+		function OnLoadComplete()
+		{
+			NavbarInit("resume", "");
+			ViewOnResize();
+		};
+
+		window.addEventListener("postload", OnLoadComplete);
+		window.onload   = function() { SetupLayout();          };
+		window.onscroll = function() { StickyNavbarOnScroll(); };
+		window.onresize = function() { ViewOnResize();         };
 	</script>
 
 </body>

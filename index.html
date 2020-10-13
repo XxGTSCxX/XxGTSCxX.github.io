@@ -8,16 +8,15 @@
 
 	<link rel="icon" href="assets/logo.png">
 
-	<!-- Required by Formatter ------------------------------------------------------------------------------>
+	<!-- Required for Layout ------------------------------------------------------------------------------>
 	<link rel="stylesheet" type="text/css" href="styles/defaults.css">
 	<link rel="stylesheet" type="text/css" href="styles/header.css"  >
 	<link rel="stylesheet" type="text/css" href="styles/formats.css" >
 	<link rel="stylesheet" type="text/css" href="styles/navbar.css"  >
 
-	<script src="scripts/navbar.js"   ></script>
-	<script src="scripts/formatter.js"></script>
-	<!-- Required by Formatter End -------------------------------------------------------------------------->
-
+	<script src="scripts/navbar.js"        ></script>
+	<script src="scripts/content_loader.js"></script>
+	<!-- Required for Layout End -------------------------------------------------------------------------->
 
 	<link rel="stylesheet" type="text/css" href="styles/tabview.css">
 
@@ -135,18 +134,22 @@
 
 	<!-- Footer of page ------------------------------------------------------------------------------------->
 
-	<footer></footer>
+	<footer class="footer"></footer>
 
 	<!-- Footer of page End --------------------------------------------------------------------------------->
 
 	<script>
-		window.onload   = function() { LoadFormat("home", "") };
-		window.onload   = function() { TabsOnResize()         };
-		window.onscroll = function() { StickyNavbarOnScroll() };
-		window.onresize = function() { TabsOnResize()         };
-		LoadFormat("home", "");
-		TabsOnResize();
-		document.getElementById("default-tab").click(); // Get the element with id="default-tab" and click on it
+		function OnLoadComplete()
+		{
+			NavbarInit("home", "");
+			TabsOnResize();
+			document.getElementById("default-tab").click();
+		};
+
+		window.addEventListener("postload", OnLoadComplete);
+		window.onload   = function() { SetupLayout();          };
+		window.onscroll = function() { StickyNavbarOnScroll(); };
+		window.onresize = function() { TabsOnResize();         };
 	</script>
 
 </body>

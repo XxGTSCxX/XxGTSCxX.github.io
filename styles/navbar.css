@@ -104,6 +104,11 @@ nav.bar .droplist .tab.active:hover, .droplist:hover
     transition      : 0.3s;
 }
 
+.droplist-content .item.active
+{
+    font-weight: bold;
+}
+
 .droplist:hover .droplist-content
 {
     display: block;

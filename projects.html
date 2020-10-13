@@ -8,22 +8,21 @@
 
 	<link rel="icon" href="assets/logo.png">
 
-	<!-- Required by Formatter ------------------------------------------------------------------------------>
+	<!-- Required for Layout ------------------------------------------------------------------------------>
 	<link rel="stylesheet" type="text/css" href="styles/defaults.css">
 	<link rel="stylesheet" type="text/css" href="styles/header.css"  >
 	<link rel="stylesheet" type="text/css" href="styles/formats.css" >
 	<link rel="stylesheet" type="text/css" href="styles/navbar.css"  >
 
-	<script src="scripts/navbar.js"   ></script>
-	<script src="scripts/formatter.js"></script>
-	<!-- Required by Formatter End -------------------------------------------------------------------------->
+	<script src="scripts/navbar.js"        ></script>
+	<script src="scripts/content_loader.js"></script>
+	<!-- Required for Layout End -------------------------------------------------------------------------->
 
 	<link rel="stylesheet" type="text/css" href="styles/tabview.css"  >
 	<link rel="stylesheet" type="text/css" href="styles/accordion.css">
 
 	<script src="scripts/tabview.js"        ></script>
 	<script src="scripts/accordion.js"      ></script>
-	<script src="scripts/content_loader.js" ></script>
 	<script src="scripts/video_formatter.js"></script>
 </head>
 
@@ -54,8 +53,13 @@
 					for each of them that you can check out under the drop list or as listed in the description.
 				</p>
 
-				<div class="eos-brief    h3"></div>
-				<div class="dynamo-brief h3"></div>
+				<div class="eos-brief">
+					<h3 class="accordion">EOS (2020)</h3>
+				</div>
+
+				<div class="dynamo-brief h3">
+					<h3 class="accordion">Dynamo (2019)</h3>
+				</div>
 			</div>
 		</div>
 
@@ -67,9 +71,17 @@
 
 				<h3>Game Engines</h3>
 
-				<div class="chilldew-brief h4"></div>
-				<div class="eos-brief      h4"></div>
-				<div class="dynamo-brief   h4"></div>
+				<div class="chilldew-brief">
+					<h4 class="accordion">Chilldew (2020)</h4>
+				</div>
+
+				<div class="eos-brief">
+					<h4 class="accordion">EOS (2020)</h4>
+				</div>
+
+				<div class="dynamo-brief">
+					<h4 class="accordion">Dynamo (2019)</h4>
+				</div>
 			</div>
 		</div>
 
@@ -78,19 +90,37 @@
 
 				<h3>UI/UX Design</h3>
 
-				<div class="des260-brief h4"></div>
-				<div class="dynamo-brief h4"></div>
+				<div class="des260-brief">
+					<h4 class="accordion">DES260: User Experience Design (2019)</h4>
+				</div>
+
+				<div class="dynamo-brief">
+					<h4 class="accordion">Dynamo (2019)</h4>
+				</div>
 
 				<h3>Game Design</h3>
 
-				<div class="gat316-brief h4"></div>
-				<div class="gat315-brief h4"></div>
-				<div class="gat251-brief h4"></div>
+				<div class="gat316-brief">
+					<h4 class="accordion">The World of Secret Singapore (2020)</h4>
+				</div>
+
+				<div class="gat315-brief">
+					<h4 class="accordion">GAT315: 3D Game Design I (2019)</h4>
+				</div>
+
+				<div class="gat251-brief">
+					<h4 class="accordion">Beyond (2019)</h4>
+				</div>
 
 				<h3>Sound Design</h3>
 
-				<div class="eng230-brief h4"></div>
-				<div class="mus115-brief h4"></div>
+				<div class="eng230-brief">
+					<h4 class="accordion">The Interview (2020)</h4>
+				</div>
+
+				<div class="mus115-brief">
+					<h4 class="accordion">MUS115: Fundamentals of Music and Sound Design (2019)</h4>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -104,17 +134,33 @@
 	<!----------------------------------------- Footer of page End ------------------------------------------>
 
 	<script>
-		var active_item = "highlight";
+		function OnLoadComplete()
+		{
+			NavbarInit("projects", "");
+			AccordionInit();
+			TabsOnResize();
+			OnVideoResize();
+			document.getElementById("default-tab").click();
+		}
 
-		window.onload   = function() { LoadFormat("project", ""); TabsOnResize(); };
-		window.onscroll = function() { StickyNavbarOnScroll();                    };
-		window.onresize = function() { TabsOnResize(); OnVideoResize();           };
-		LoadFormat("project", active_item);
-		LoadBriefs();
-		TabsOnResize();
-		OnVideoResize();
-		AccordionInit();
-		document.getElementById("default-tab").click(); // Get the element with id="default-tab" and click on it
+		function OnLoad()
+		{
+			LoadContentInto("contents/briefs/chilldew.html", document.getElementsByClassName("chilldew-brief"), true);
+			LoadContentInto("contents/briefs/eos.html"     , document.getElementsByClassName("eos-brief"     ), true);
+			LoadContentInto("contents/briefs/dynamo.html"  , document.getElementsByClassName("dynamo-brief"  ), true);
+			LoadContentInto("contents/briefs/des260.html"  , document.getElementsByClassName("des260-brief"  ), true);
+			LoadContentInto("contents/briefs/gat316.html"  , document.getElementsByClassName("gat316-brief"  ), true);
+			LoadContentInto("contents/briefs/gat315.html"  , document.getElementsByClassName("gat315-brief"  ), true);
+			LoadContentInto("contents/briefs/gat251.html"  , document.getElementsByClassName("gat251-brief"  ), true);
+			LoadContentInto("contents/briefs/eng230.html"  , document.getElementsByClassName("eng230-brief"  ), true);
+			LoadContentInto("contents/briefs/mus115.html"  , document.getElementsByClassName("mus115-brief"  ), true);
+			SetupLayout();
+		};
+
+		window.addEventListener("postload", OnLoadComplete);
+		window.onload   = OnLoad;
+		window.onscroll = function() { StickyNavbarOnScroll();          };
+		window.onresize = function() { TabsOnResize(); OnVideoResize(); };
 	</script>
 
 </body>
