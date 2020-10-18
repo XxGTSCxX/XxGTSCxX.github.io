@@ -2,19 +2,21 @@ var resources = new Array();
 
 function CompletionCheck(resource)
 {
-    var resource_index = resources.indexOf(resource);
+    // for (var i = 0; i < resources.length; ++i)
+    // {
+        // if (resource && resource.src == resources[i].src)
+        // {
+            // resources.splice(i, 1);
+            // --i;
+        // }
+    // }
 
-    if (resource_index > -1 && resource_index < resources.length)
-    {
-        resources.splice(resource_index, 1);
-    }
-
-    if (!resources.length)
-    {
+    // if (!resources.length)
+    // {
         const postload = new Event("postload");
         window.dispatchEvent(postload);
-        console.log("load complete");
-    }
+        // console.log("load complete");
+    // }
 }
 
 function AssignContent(node, content, append)
@@ -40,6 +42,12 @@ function AssignContent(node, content, append)
     {
         resources.push(resource);
         resource.onloadeddata = function() { CompletionCheck(resource); };
+    });
+
+    node.querySelectorAll("iframe").forEach(resource =>
+    {
+        resources.push(resource);
+        resource.onload = function() { CompletionCheck(resource); };
     });
 
     CompletionCheck(null);

@@ -54,7 +54,7 @@
 				</p>
 
 				<div class="eos-brief">
-					<h3 class="accordion">EOS (2020)</h3>
+					<h3 class="accordion" onclick="window.onresize();">EOS (2020)</h3>
 				</div>
 
 				<div class="dynamo-brief h3">
@@ -76,7 +76,7 @@
 				</div>
 
 				<div class="eos-brief">
-					<h4 class="accordion">EOS (2020)</h4>
+					<h4 class="accordion" onclick="window.onresize();">EOS (2020)</h4>
 				</div>
 
 				<div class="dynamo-brief">
@@ -143,7 +143,7 @@
 			document.getElementById("default-tab").click();
 		}
 
-		function OnLoad()
+		function OnLoaded()
 		{
 			LoadContentInto("contents/briefs/chilldew.html", document.getElementsByClassName("chilldew-brief"), true);
 			LoadContentInto("contents/briefs/eos.html"     , document.getElementsByClassName("eos-brief"     ), true);
@@ -158,7 +158,7 @@
 		};
 
 		window.addEventListener("postload", OnLoadComplete);
-		window.onload   = OnLoad;
+		window.onload   = OnLoaded;
 		window.onscroll = function() { StickyNavbarOnScroll();          };
 		window.onresize = function() { TabsOnResize(); OnVideoResize(); };
 	</script>

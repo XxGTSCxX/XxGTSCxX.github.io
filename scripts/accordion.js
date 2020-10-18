@@ -23,6 +23,7 @@ function OnAccordionClick()
         {
             panel.style.maxHeight = panel.scrollHeight + "px";
         }
+        window.onresize();
     }
 }
 
