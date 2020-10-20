@@ -2,6 +2,8 @@ function OnAccordionClick()
 {
     this.classList.toggle("active");
 
+    window.onresize();
+
     var panel = this.nextElementSibling;
 
     if (panel)

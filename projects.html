@@ -20,9 +20,14 @@
 
 	<link rel="stylesheet" type="text/css" href="styles/tabview.css"  >
 	<link rel="stylesheet" type="text/css" href="styles/accordion.css">
+	<link rel="stylesheet" type="text/css" href="styles/slideshow.css">
 
+	<script src="scripts/utility.js"        ></script>
 	<script src="scripts/tabview.js"        ></script>
 	<script src="scripts/accordion.js"      ></script>
+	<script src="scripts/slideshow.js"      ></script>
+	<script src="scripts/resizer.js"        ></script>
+	<script src="scripts/positioner.js"     ></script>
 	<script src="scripts/video_formatter.js"></script>
 </head>
 
@@ -138,9 +143,8 @@
 		{
 			NavbarInit("projects", "");
 			AccordionInit();
-			TabsOnResize();
-			OnVideoResize();
-			document.getElementById("default-tab").click();
+			ShowSlide(0);
+			window.onresize();
 		}
 
 		function OnLoaded()
@@ -155,12 +159,13 @@
 			LoadContentInto("contents/briefs/eng230.html"  , document.getElementsByClassName("eng230-brief"  ), true);
 			LoadContentInto("contents/briefs/mus115.html"  , document.getElementsByClassName("mus115-brief"  ), true);
 			SetupLayout();
+			document.getElementById("default-tab").click();
 		};
 
 		window.addEventListener("postload", OnLoadComplete);
 		window.onload   = OnLoaded;
-		window.onscroll = function() { StickyNavbarOnScroll();          };
-		window.onresize = function() { TabsOnResize(); OnVideoResize(); };
+		window.onscroll = function() { StickyNavbarOnScroll();                                      };
+		window.onresize = function() { ResizeAll(); TabsOnResize(); OnVideoResize(); };
 	</script>
 
 </body>
