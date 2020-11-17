@@ -151,7 +151,7 @@
 		{
 			NavbarInit("projects", "");
 			AccordionInit();
-			ShowSlide(0);
+			SlidesInit();
 			window.onresize();
 		}
 
@@ -173,7 +173,7 @@
 
 		window.addEventListener("postload", OnLoadComplete);
 		window.onload   = OnLoaded;
-		window.onscroll = function() { StickyNavbarOnScroll();                                      };
+		window.onscroll = function() { StickyNavbarOnScroll();                       };
 		window.onresize = function() { ResizeAll(); TabsOnResize(); OnVideoResize(); };
 	</script>
 
