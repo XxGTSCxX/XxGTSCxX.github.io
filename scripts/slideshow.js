@@ -35,12 +35,12 @@ function ShowSlide(slide_set_id, slide_index)
 
     if (slides.length && slides.length == dots.length)
     {
-      while (slide_index < 0)
+      slide_index %= slides.length;
+
+      if (slide_index < 0)
       {
         slide_index += slides.length;
       }
-
-      slide_index %= slides.length;
 
       slides.forEach(slide =>
       {
