@@ -1,6 +1,54 @@
 <div class="panel row">
   <div class="column" style="width: 50%">
-    <img src="assets/cards/beyond-card.png" alt="Beyond">
+    <div id="gat251-slides" class="slideshow-container" style="width: 90%;">
+      <div class="slide fade" style="width: 100%;">
+        <div class="widescreen" style="width: 100%;">
+          <div class="numbertext">1 / 3</div>
+          <img
+            class = "fit centre use_natural"
+            src   = "assets/gat251/main_menu.gif"
+            alt   = "Menu Screen"
+          >
+        </div>
+        <div class="text">Menu Screen</div>
+      </div>
+
+      <div class="slide fade" style="width: 100%;">
+        <div class="widescreen" style="width: 100%;">
+          <div class="numbertext">2 / 3</div>
+          <img
+            class = "fit centre use_natural"
+            src   = "assets/gat251/ui_resonate.gif"
+            alt   = "UI - Resonate Effect"
+          >
+        </div>
+        <div class="text">UI - Resonate Effect</div>
+      </div>
+
+      <div class="slide fade" style="width: 100%;">
+        <div class="widescreen" style="width: 100%;">
+          <div class="numbertext">3 / 3</div>
+          <img
+            class = "fit centre use_natural"
+            src   = "assets/gat251/ui_glow.gif"
+            alt   = "UI - Glow Effect"
+          >
+        </div>
+        <div class="text">UI - Glow Effect</div>
+      </div>
+
+      <a class="next" onclick="NavigateSlides(`gat251-slides`,  1); ResizeAll(); PositionAll();">&#10095;</a>
+      <a class="prev" onclick="NavigateSlides(`gat251-slides`, -1); ResizeAll(); PositionAll();">&#10094;</a>
+
+      <br>
+      <br>
+
+      <div class="center-align">
+        <span class="dot" onclick="CurrentSlide(`gat251-slides`, 0); ResizeAll(); PositionAll();"></span>
+        <span class="dot" onclick="CurrentSlide(`gat251-slides`, 1); ResizeAll(); PositionAll();"></span>
+        <span class="dot" onclick="CurrentSlide(`gat251-slides`, 2); ResizeAll(); PositionAll();"></span>
+      </div>
+    </div>
   </div>
 
   <div class="column" style="width: 50%">
