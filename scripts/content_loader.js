@@ -72,7 +72,7 @@ function LoadContentInto(filename, nodes, append = false)
 
 function SetupLayout()
 {
-  LoadContentInto("contents/header.html", document.getElementsByTagName("header"));
-  LoadContentInto("contents/navbar.html", document.getElementById      ("navbar"));
-  LoadContentInto("contents/footer.html", document.getElementsByTagName("footer"));
+  LoadContentInto("/contents/header.html", document.getElementsByTagName("header"));
+  LoadContentInto("/contents/navbar.html", document.getElementById      ("navbar"));
+  LoadContentInto("/contents/footer.html", document.getElementsByTagName("footer"));
 }
