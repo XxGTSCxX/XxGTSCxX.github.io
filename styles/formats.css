@@ -1,86 +1,86 @@
 .column /* Create three equal columns that floats next to each other */
 {
-    float: left;
-    width: 33.33%;
+  float: left;
+  width: 33.33%;
 }
 
 .row:after /* Clear floats after the columns */
 {
-    content: "";
-    display: table;
-    clear  : both;
+  content: "";
+  display: table;
+  clear  : both;
 }
 
 .center-align
 {
-    text-align: center;
+  text-align: center;
 }
 
 .left-align
 {
-    text-align: left;
+  text-align: left;
 }
 
 .right-align
 {
-    text-align: right;
+  text-align: right;
 }
 
 .half-width
 {
-    width: 50%;
+  width: 50%;
 }
 
 img.icon.inline
 {
-    width : auto;
-    height: 50px;
+  width : auto;
+  height: 50px;
 }
 
 img.medium-width
 {
-    width: 69.5%;
+  width: 69.5%;
 }
 
 img.small-width
 {
-    width: 29.5%;
+  width: 29.5%;
 }
 
 img.half-width
 {
-    width: 49.5%;
+  width: 49.5%;
 }
 
 img.auto-width
 {
-    width: auto;
+  width: auto;
 }
 
 img.medium-height
 {
-    height: 69.5%;
+  height: 69.5%;
 }
 
 img.small-height
 {
-    height: 29.5%;
+  height: 29.5%;
 }
 
 img.half-height
 {
-    height: 49.5%;
+  height: 49.5%;
 }
 
 img.auto-height
 {
-    height: auto;
+  height: auto;
 }
 
 @media screen and (max-width: 600px)
 {
-    .column
-    {
-        width: 100%;
-    }
+  .column
+  {
+    width: 100%;
+  }
 }
