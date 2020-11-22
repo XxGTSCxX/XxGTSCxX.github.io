@@ -1,22 +1,7 @@
-var resources = new Array();
-
-function CompletionCheck(resource)
+function OnResourceLoaded()
 {
-  for (var i = 0; i < resources.length; ++i)
-  {
-    if (resource && resource.src == resources[i].src)
-    {
-      resources.splice(i, 1);
-      --i;
-    }
-  }
-
-  if (!resources.length)
-  {
-    const postload = new Event("postload");
-    window.dispatchEvent(postload);
-    console.log("load complete");
-  }
+  const postload = new Event("postload");
+  window.dispatchEvent(postload);
 }
 
 function AssignContent(node, content, append)
@@ -28,29 +13,25 @@ function AssignContent(node, content, append)
 
   node.querySelectorAll("img").forEach(resource =>
   {
-    resources.push(resource);
-    resource.onload = function() { CompletionCheck(resource); };
+    resource.onload = OnResourceLoaded;
   });
 
   node.querySelectorAll("audio").forEach(resource =>
   {
-    resources.push(resource);
-    resource.onload = function() { CompletionCheck(resource); };
+    resource.onload = OnResourceLoaded;
   });
 
   node.querySelectorAll("video").forEach(resource =>
   {
-    resources.push(resource);
-    resource.onloadeddata = function() { CompletionCheck(resource); };
+    resource.onloadeddata = OnResourceLoaded;
   });
 
   node.querySelectorAll("iframe").forEach(resource =>
   {
-    resources.push(resource);
-    resource.onload = function() { CompletionCheck(resource); };
+    resource.onload = OnResourceLoaded;
   });
 
-  CompletionCheck(null);
+  OnResourceLoaded();
 }
 
 function LoadContentInto(filename, nodes, append = false)
