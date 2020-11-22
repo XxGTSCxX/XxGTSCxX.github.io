@@ -37,3 +37,20 @@ function SetNodeHeight(node, height)
 
   node.style.height = height + "px";
 }
+
+function PauseAllVideosInElement(elem)
+{
+  var videos  = elem.querySelectorAll("video" );
+  var iframes = elem.querySelectorAll("iframe");
+
+  videos.forEach(video =>
+  {
+    video.pause();
+  });
+
+  iframes.forEach(iframe =>
+  {
+    var iframe_source = iframe.src;
+    iframe.src = iframe_source;
+  });
+}

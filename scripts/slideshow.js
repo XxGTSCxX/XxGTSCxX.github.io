@@ -52,6 +52,11 @@ function ShowSlide(slide_set_id, slide_index)
         dot.className = dot.className.replace(" active", "");
       });
 
+      if (slide_positions.has(slide_set_id))
+      {
+        PauseAllVideosInElement(slides[slide_positions.get(slide_set_id)]);
+      }
+
       slides[slide_index].style.display  = "block";
       dots  [slide_index].className     += " active";
       slide_positions.set(slide_set_id, slide_index);

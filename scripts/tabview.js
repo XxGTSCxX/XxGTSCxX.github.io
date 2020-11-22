@@ -26,6 +26,16 @@ function OpenTab(event, tab_id)
   {
     tab_contents[i].style.display = "none";
     tab_contents[i].className     = tab_contents[i].className.replace(" active", "");
+
+    var accordions = tab_contents[i].querySelectorAll(".accordion");
+
+    accordions.forEach(accordion =>
+    {
+      if (CloseAccordion)
+      {
+        CloseAccordion(accordion);
+      }
+    });
   }
 
   for (var i = 0; i < tabs.length; i++)
