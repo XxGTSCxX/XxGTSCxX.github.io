@@ -26,7 +26,11 @@ function OpenTab(event, tab_id)
   {
     tab_contents[i].style.display = "none";
     tab_contents[i].className     = tab_contents[i].className.replace(" active", "");
-    PauseAllVideosInElement(tab_contents[i]);
+
+    tab_contents[i].querySelectorAll(".accordion").forEach(accordion =>
+    {
+      CloseAccordion(accordion);
+    });
   }
 
   for (var i = 0; i < tabs.length; i++)
