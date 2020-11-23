@@ -52,36 +52,6 @@ function OnAccordionClick()
   {
     OpenAccordion(this);
   }
-
-  // this.classList.toggle("active");
-
-  // window.onresize();
-
-  // var panel = this.nextElementSibling;
-
-  // if (panel)
-  // {
-    // if (this.classList.contains("active"))
-    // {
-      // panel.style.marginBottom = "32px";
-    // }
-    // else
-    // {
-      // panel.style.marginBottom = "0";
-    // }
-
-    // if (panel.style.maxHeight)
-    // {
-      // panel.style.maxHeight = null;
-    // }
-    // else
-    // {
-      // panel.style.maxHeight = panel.scrollHeight + "px";
-    // }
-
-    // PauseAllVideosInElement(panel);
-    // window.onresize();
-  // }
 }
 
 function AccordionInit()
