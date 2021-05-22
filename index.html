@@ -1,157 +1,43 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
 
-<head>
-  <meta charset="utf-8">
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
 
-  <title>GTSC - Home</title>
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
 
-  <link rel="icon" href="/assets/logo.png">
-
-  <!-- Required for Layout ------------------------------------------------------------------------------>
-  <link rel="stylesheet" type="text/css" href="/styles/defaults.css">
-  <link rel="stylesheet" type="text/css" href="/styles/header.css"  >
-  <link rel="stylesheet" type="text/css" href="/styles/formats.css" >
-  <link rel="stylesheet" type="text/css" href="/styles/navbar.css"  >
-
-  <script src="/scripts/navbar.js"        ></script>
-  <script src="/scripts/content_loader.js"></script>
-  <!-- Required for Layout End -------------------------------------------------------------------------->
-
-  <link rel="stylesheet" type="text/css" href="/styles/tabview.css">
-
-  <script src="/scripts/utility.js"></script>
-  <script src="/scripts/tabview.js"></script>
-</head>
-
-<!-- Things are only displayed from here on out -->
-<body>
-
-  <!-- Head of page --------------------------------------------------------------------------------------->
-
-  <header></header>
-
-  <nav id="navbar" class="bar"></nav>
-
-  <!-- Head of page End ----------------------------------------------------------------------------------->
-
-  <!-- Content Section ------------------------------------------------------------------------------------>
-
-  <div class="tab-view row">
-    <div class="sidebar main">
-      <p class="tab" onclick="OpenTab(event, 'Overview')" id="default-tab">OVERVIEW</p>
-      <p class="tab" onclick="OpenTab(event, 'About Me')"                 >ABOUT ME</p>
-    </div>
-
-    <div id="Overview" class="tab-content">
-      <div class="content-cell">
-        <div class="content-block">
-          <p id="debugger"></p>
-          <div class="row">
-            <div class="column" style="width: 50%; min-width: 300px;">
-              <h3>Programming Experience</h3>
-
-              <img class="icon inline" src="/assets/icons/visual_studio_2019-icon.png" alt="Visual Studio 2019" style="height: 50px;">
-              <img class="icon inline" src="/assets/icons/github-icon.png"             alt="Github"             style="height: 50px;">
-              <img class="icon inline" src="/assets/icons/opengl-icon.png"             alt="OpenGL"             style="height: 50px;">
-
-              <ul>
-                <li>Proficient in C++ (mostly 17).                                               </li>
-                <li>Decent in C and C#.                                                          </li>
-                <li>Experienced in coding in the Visual Studio environment.                      </li>
-                <li>Experienced in using GitHub for team integration.                            </li>
-                <li>Experienced in coding game engines.                                          </li>
-                <li>Familiar with 2D Graphics using OpenGL API.                                  </li>
-                <li>Novice in HTML, CSS, and Javascripting (Picked it up just for this website!).</li>
-              </ul>
-
-              <p>
-                You can check out my repositories at my <a href="https://github.com/XxGTSCxX">GitHub</a> profile.
-              </p>
-            </div>
-
-            <div class="column" style="width: 50%; min-width: 300px;">
-              <h3>Design Experience</h3>
-
-              <img class="icon inline" src="/assets/icons/unreal_engine-icon.png" alt="Unreal Engine 4"   style="height: 50px;">
-              <img class="icon inline" src="/assets/icons/unity-icon.png"         alt="Unity"             style="height: 50px;">
-              <img class="icon inline" src="/assets/icons/photoshop-icon.png"     alt="Adobe Photoshop"   style="height: 50px;">
-              <img class="icon inline" src="/assets/icons/premier_pro-icon.png"   alt="Adobe Premier Pro" style="height: 50px;">
-              <img class="icon inline" src="/assets/icons/mixcraft_8-icon.png"    alt="Mixcraft 8"        style="height: 50px;">
-      
-              <ul>
-                <li>2D game design and gamplay scripting using Unity.                            </li>
-                <li>Created functional UI prototypes using Unity.                                </li>
-                <li>3D game design and gameplay scripting using Unreal Engine.                   </li>
-                <li>Created UI assets and done photobashing for UI mockups using Adobe Photoshop.</li>
-                <li>Used Adobe Premier Pro for video editing and sound mixing.                   </li>
-                <li>Familiar with Musescore and Mixcraft for music composition.                  </li>
-                <li>Sound Design for Short Films.                                                </li>
-              </ul>
-            </div>
-          </div>
-
-          <p>
-            As an undergraduate studying in Digipen's Computer Science and Game Design course (as of 2020),
-            a lot of projects are from my classes and the game projects I took. I have write-ups to discuss
-            the things I have done for each project as best I can since I might not be able to share all of
-            my work in full due to some restrictions. You can find them under the <b>PROJECTS</b> tab.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div id="About Me" class="tab-content">
-      <div class="content-block">
-        <p>
-          A hat lover (seriously, it's my most distinctive feature, check my icon!).
-        </p>
-
-        <p>
-          An avid gamer who still believes that games are an exellent medium for people to experience emotions and
-          things that they might not normally have the opportunity to experience. Also a code junky! I love seeing
-          the little characters I type on screen do something, and even better, when they become something useful
-          for others to use. Nothing gives me greater joy than when someone tells me that something I made helped
-          them out.
-        </p>
-
-        <p>
-          With that in mind, imagine my joy when I realised that Digipen had a course about Computer Science and
-          Game Design? Needless to say, I ended up enrolling and it had since given me the opportunity to work on
-          custom game engines as well as participate in the design process of game development from its conception
-          to fruition (with the side helping possible depression but I'm working on it).
-        </p>
-
-        <p>
-          Through my study, I realised that I'm quick at understanding logic, patterns, and structures. This has
-          helped me a lot when it comes to meta-programming, system architectures, and organisation. However, I
-          have also learnt that my achilles heels is that I'm slow to understand math and physics concepts.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Content Section End -------------------------------------------------------------------------------->
-
-  <!-- Footer of page ------------------------------------------------------------------------------------->
-
-  <footer class="lock"></footer>
-
-  <!-- Footer of page End --------------------------------------------------------------------------------->
-
-  <script>
-    function OnLoadComplete()
-    {
-      NavbarInit("home", "");
-      TabsOnResize();
-      document.getElementById("default-tab").click();
-    };
-
-    window.addEventListener("postload", OnLoadComplete);
-    window.onload   = SetupLayout;
-    window.onscroll = StickyNavbarOnScroll;
-    window.onresize = TabsOnResize;
-  </script>
-
-</body>
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
 </html>
