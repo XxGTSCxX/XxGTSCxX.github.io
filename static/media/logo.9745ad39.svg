@@ -4,8 +4,8 @@
 	 viewBox="0 0 128 128" style="enable-background:new 0 0 128 128;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:none;}
-	.st1{fill:#C0C0C0;}
-	.st2{fill:#B59959;}
+	.st1{fill:#8195A6;}	<!-- Icon -->
+	.st2{fill:#556573;}	<!-- Rim  -->
 </style>
 <circle class="st0" cx="64" cy="64" r="60.6"/>
 <path class="st1" d="M22.2,49.9c0.4-0.2,3.5-1,8-2c1,0,1.6,0,1.6,0s-0.3,0.7-1.7,1.6c-1.2,0.5-6.8,1.7-7.6,1.4
